@@ -1,0 +1,37 @@
+.Container {
+  max-width: 960px;
+  margin: 0px auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.SubHeader {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.two-column-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.one-column {
+  width: 45%;
+}
+
+.social-button {
+  max-width: 3rem;
+  float: right;
+  padding: 10px;
+}
+
+@media (max-width: 640px) {
+  .two-column-section {
+    display: block;
+  }
+
+  .one-column {
+    width: 100%;
+  }
+}

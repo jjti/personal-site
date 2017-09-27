@@ -1,1 +1,1 @@
-# personal-site
+Bootstrapped w/ react-create-app
