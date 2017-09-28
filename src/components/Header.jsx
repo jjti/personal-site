@@ -17,7 +17,6 @@ export default class Header extends Component {
 
 	handleScroll = event => {
 		const scrollTop = event.srcElement.body.scrollTop;
-		console.log(scrollTop);
 		if (scrollTop === 0 && this.scrolled) {
 			this.header.style.borderBottomColor = null;
 			this.header.style.height = "150px";
