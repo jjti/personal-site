@@ -10,12 +10,8 @@
 	font-size: 18px;
 }
 
-.about {
-	width: 75%;
-}
-
-.social-button {
-	width: 20%;
+.app-button {
+	width: 25%;
 	text-align: center;
 	padding: 10px;
 	background-color: #fff;
@@ -27,27 +23,31 @@
 	text-decoration: none;
 	-webkit-transition: background-color 0.1s, color 0.1s;
 	transition: background-color 0.1s, color 0.1s;
-	margin: 10px 0;
+	margin: 10px 10px 10px 0;
 	display: inline-block;
 	outline: none;
 }
 
-#linkedin:hover {
-	background-color: #0077b5;
+.app-button:hover {
+	background-color: #202020;
 	color: white;
 	cursor: pointer;
-	border-color: #0077b5;
+	border-color: #202020;
 }
 
-#researchgate {
-	margin-left: 10px;
+#linkedin:hover {
+	background-color: #0077b5;
+	border-color: #0077b5;
 }
 
 #researchgate:hover {
 	background-color: #0cb;
-	color: white;
-	cursor: pointer;
 	border-color: #0cb;
+}
+
+#github:hover {
+	background-color: #7bc96f;
+	border-color: #7bc96f;
 }
 
 @media (max-width: 640px) {
@@ -55,12 +55,8 @@
 		width: 100%;
 	}
 
-	.social-button {
+	.app-button {
 		width: 80%;
 		display: block;
-	}
-
-	#researchgate {
-		margin-left: 0;
 	}
 }
