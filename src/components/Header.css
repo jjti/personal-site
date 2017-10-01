@@ -4,7 +4,8 @@
 }
 
 .Header {
-	width: 960px;
+	width: calc(100% - 80px);
+	max-width: 960px;
 	position: fixed;
 	background-color: hsla(0, 0%, 100%, 0.97);
 	border-bottom: 1px solid hsla(0, 0%, 87%, 0);
@@ -34,4 +35,23 @@
 
 ul li a {
 	color: #467bcc;
+}
+
+@media (max-width: 640px) {
+	.Header {
+		width: calc(100% - 40px);
+	}
+
+	.Header p {
+		margin: auto 0;
+	}
+
+	.Header p a {
+		font-size: 18px !important;
+	}
+
+	.Header nav a {
+		font-size: 15px;
+		padding-left: 35px;
+	}
 }

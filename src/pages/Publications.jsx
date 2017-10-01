@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Header, Footer } from "./components";
-import "./App.css";
+import { Header, Footer } from "../components";
+import "../App.css";
 
 import Cabo2017 from "./papers/2017_cabo.pdf";
 import mTMZ2016 from "./papers/2016_mTMZ.pdf";

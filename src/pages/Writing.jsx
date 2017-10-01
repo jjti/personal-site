@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Header, Footer } from "./components";
+import { Header, Footer } from "../components";
 
 const Article = ({ title, date, blurb, href }) => (
 	<div className="writing-article">

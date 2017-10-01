@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Footer } from "./components";
 import "./App.css";
 
-import Resume from "./Resume.pdf";
+import Resume from "./pages/Resume.pdf";
 
 class App extends Component {
   render() {
@@ -15,21 +15,23 @@ class App extends Component {
         </section>
         <section>
           <h2>Interests</h2>
-          <p>
-            I enjoy working on projects that merge programming with biology. I
-            spent several years in wetlabs, with bacteria, algae, and yeast, on
-            a range of projects that spanned trying to improve the energy
-            density of microbial fuel cells to testing neurokinases for
-            immunogenic response.
-          </p>
-          <p>
-            Since learning to program, I've focused on projects where I can use
-            both, including the design of an image processing workflow to study
-            Tumor Treating Fields and the automation of the plasmid assembly
-            protocols (restriction digest and MoClo Assembly). Over the past
-            year I've also spent a significant amount of time learning and
-            running moleculary dynamics simulations.
-          </p>
+          <div className="about-columns">
+            <p>
+              I enjoy working on projects that merge programming with biology. I
+              spent several years in wetlabs, with bacteria, algae, and yeast,
+              on projects that spanned trying to improve the energy density of
+              microbial fuel cells to testing neurokinases for immunogenic
+              response.
+            </p>
+            <p>
+              Since learning to program, I've focused on projects where I can
+              use both, including the design of an image processing workflow to
+              study Tumor Treating Fields and the automation of the plasmid
+              assembly protocols (restriction digest and MoClo Assembly). Over
+              the past year I've also spent a significant amount of time
+              learning and running moleculary dynamics simulations.
+            </p>
+          </div>
         </section>
         <hr />
         <section className="full">
@@ -42,6 +44,9 @@ class App extends Component {
           </a>
           <a href="/writing" className="app-button">
             WRITING
+          </a>
+          <a href="/blog" className="app-button">
+            BLOG
           </a>
         </section>
         <Footer />

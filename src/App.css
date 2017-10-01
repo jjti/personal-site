@@ -35,6 +35,19 @@
 	border-color: #202020;
 }
 
+.about-columns {
+	display: flex;
+}
+
+.about-columns p {
+	width: 50%;
+	padding-right: 20px;
+}
+
+section ul li {
+	font-weight: 400;
+}
+
 #linkedin:hover {
 	background-color: #0077b5;
 	border-color: #0077b5;
@@ -58,5 +71,17 @@
 	.app-button {
 		width: 80%;
 		display: block;
+	}
+
+	.about-columns {
+		display: block;
+	}
+
+	.about-columns p {
+		width: 100%;
+	}
+
+	.writing-article {
+		border-top: 1px solid gray;
 	}
 }
