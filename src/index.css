@@ -31,6 +31,9 @@ footer {
 hr {
 	border-top: 3px solid rgb(32, 32, 32);
 	margin-bottom: 3px;
+	width: 66%;
+    margin-right: auto;
+    display: inline-block;
 }
 
 ul {
@@ -68,7 +71,7 @@ h6 {
 
 p,
 button {
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 300;
 	line-height: 1.4;
 	margin-bottom: 30px;

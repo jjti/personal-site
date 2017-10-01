@@ -1,17 +1,6 @@
 import React from "react";
 
-import { Header, Footer } from "../components";
-
-const Article = ({ title, date, blurb, href }) => (
-	<div className="writing-article">
-		<br />
-		<a href={href} target="_blank">
-			<h3>{title}</h3>
-			<p className="date">{date}</p>
-			<p>{blurb}</p>
-		</a>
-	</div>
-);
+import { Header, Footer, SingleEntry as Article } from "../components";
 
 const Writing = () => (
 	<div className="Container">

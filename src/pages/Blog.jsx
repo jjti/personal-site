@@ -1,25 +1,54 @@
 import React, { Component } from "react";
-import { Header, Footer } from "../components";
-import { Switch, Route, Redirect } from "react-router-dom";
-import marked from "marked";
+import { Header, Footer, SingleEntry as BlogPost } from "../components";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
-const IHCQuant = require.context('!markdown-with-front-matter!./blog', false, /.md$/);
+const posts = require.context(
+	"!markdown-with-front-matter-loader!./blog",
+	false,
+	/.md$/
+);
 
-console.log(IHCQuant)
+const BlogHome = ({ history }) => (
+	<div className="Blog-container">
+		<h2>Blog</h2>
+		{posts.keys().map(k => (
+			<BlogPost
+				key={k}
+				{...posts(k)}
+				href={`/blog/${posts(k).href}`}
+				newTab={false}
+			/>
+		))}
+	</div>
+);
 
 export default class Blog extends Component {
 	render() {
 		return (
 			<div className="Container">
 				<Header />
-				<h2>Blog</h2>
-				{IHCQuant.__content}
 				<Switch>
+					{posts.keys().map(k => (
+						<Route
+							key={`${k}_route`}
+							path={`/blog/${posts(k).href}`}
+							render={() => (
+								<div
+									className="markdown-body"
+									dangerouslySetInnerHTML={{
+										__html: posts(k).__content
+									}}
+								/>
+							)}
+						/>
+					))}
 					<Route
-						path="/blog/*"
-						component={() => <Redirect path="/blog" />}
+						exact
+						path="/blog"
+						component={withRouter(BlogHome)}
 					/>
+					<Route path="*" component={() => <Redirect to="/blog" />} />
 				</Switch>
 				<Footer />
 			</div>
