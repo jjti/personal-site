@@ -1,26 +1,23 @@
 import React, { Component } from "react";
 import { Header, Footer, SingleEntry as BlogPost } from "../components";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import marked from "marked";
 
-// eslint-disable-next-line import/no-webpack-loader-syntax
-const posts = require.context(
-	"!markdown-with-front-matter-loader!./blog",
-	false,
-	/.md$/
-);
+const posts = require.context("./blog", false, /.jsx$/);
+const blogs = posts.keys().map(k => posts(k).default);
 
 const BlogHome = ({ history }) => (
-	<div className="Blog-container">
+	<section>
 		<h2>Blog</h2>
-		{posts.keys().map(k => (
+		{blogs.map(b => (
 			<BlogPost
-				key={k}
-				{...posts(k)}
-				href={`/blog/${posts(k).href}`}
+				key={b.title}
+				{...b}
+				href={`/blog/${b.href}`}
 				newTab={false}
 			/>
 		))}
-	</div>
+	</section>
 );
 
 export default class Blog extends Component {
@@ -29,17 +26,19 @@ export default class Blog extends Component {
 			<div className="Container">
 				<Header />
 				<Switch>
-					{posts.keys().map(k => (
+					{blogs.map(b => (
 						<Route
-							key={`${k}_route`}
-							path={`/blog/${posts(k).href}`}
+							key={b.href}
+							path={`/blog/${b.href}`}
 							render={() => (
-								<div
-									className="markdown-body"
-									dangerouslySetInnerHTML={{
-										__html: posts(k).__content
-									}}
-								/>
+								<section>
+									<div
+										className="blog-body"
+										dangerouslySetInnerHTML={{
+											__html: marked(b.__content)
+										}}
+									/>
+								</section>
 							)}
 						/>
 					))}

@@ -77,6 +77,11 @@ button {
 	margin-bottom: 30px;
 }
 
+img {
+	display: inline-block;
+    max-width: 50%;
+}
+
 a.button {
 	-webkit-appearance: button;
 	-moz-appearance: button;
@@ -97,6 +102,10 @@ a.button {
 
 	section {
 		padding-bottom: 20px;
+	}
+
+	img {
+		max-width: 100%;;
 	}
 
 	.Container {

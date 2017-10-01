@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Footer } from "./components";
 import "./App.css";
 
-import Resume from "./pages/Resume.pdf";
+import Resume from "./pages/files/Resume.pdf";
 
 class App extends Component {
   render() {
