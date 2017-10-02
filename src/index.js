@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { Blog, Publications, Writing } from "./pages";
-
-import registerServiceWorker from "./registerServiceWorker";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
+import { Blog, Publications, Writing } from "./pages";
+import App from "./App";
+import registerServiceWorker from "./registerServiceWorker";
+
+import "./zenburn.css";
+import "./index.css";
 
 class TrackPageView extends React.Component {
 	componentWillMount() {
