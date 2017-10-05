@@ -12,10 +12,29 @@ export default class Publications extends Component {
 		return (
 			<div className="Container">
 				<Header />
-				<section className="full">
+				<section style={{ paddingBottom: "0" }}>
 					<h2>Publications</h2>
 					<h4>2017</h4>
 					<ul>
+						<li>
+							<strong>Timmons, J.J.</strong>, Lok, E., San, P.,
+							Bui, K., & Wong, E.T. (2017).{" "}
+							<strong>
+								End-to-End Workflow for Finite Element Analysis
+								of Tumor Treating Fields in Glioblastomas.
+							</strong>{" "}
+							Accepted to <i>Physics in Medicine & Biology</i>
+						</li>
+						<li>
+							Ortiz, J., Carr, S.B., Pavan, M., McCarthy, L.,
+							<strong>Timmons, J.J.</strong>, & Densmore, D.M.
+							(2017).{" "}
+							<strong>
+								Automated Robotic Liquid Handling Assembly of
+								Modular DNA Devices.
+							</strong>{" "}
+							Accepted to <i>JoVE</i>
+						</li>
 						<li>
 							Patnaik, A., Swanson, K.D., Csizmadia, E., Solanki,
 							A., Landon-Brace, N., Gehring, M.P., Helenius, K.,
@@ -79,6 +98,51 @@ export default class Publications extends Component {
 							<a target="_blank" href={B162016}>
 								[pdf]
 							</a>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Posters</h2>
+					<ul>
+						<li>
+							Timmons, J.J., Pyay, S., Bui, K., Lok, E., & Wong,
+							E.T. (2017).{" "}
+							<strong>
+								Semi-automated MRI Segmentation Workflow for
+								Glioblastoma Treated by Tumor Treating Fields.
+							</strong>{" "}
+							American Neurological Association.
+						</li>
+						<li>
+							San, P.P., Timmons, J.J., Lok, E., Swanson, K.D., &
+							Wong, E.T. (2016).{" "}
+							<strong>
+								Analysis of Glioblastoma Physical
+								Characteristics in Patients Benefiting from
+								Tumor Treating Electric Fields Therapy.
+							</strong>{" "}
+							Society for Neuro-Oncology.
+						</li>
+						<li>
+							Doerfert, S., Berdy, B., Wunschel, E., Sizova, M.,
+							Timmons, J.J., Jung, D., Kruppa, G., & Epstein, S.
+							(2014).{" "}
+							<strong>
+								MALDI-TOF applications for dereplication and
+								identification of environmental microorganisms
+								isolated from Thule, Greenland.
+							</strong>{" "}
+							International Society for Microbial Ecology.
+						</li>
+						<li>
+							Berdy, B., Sizova, M., Kaluziak, S., Doerfert, S.,
+							Wunschel, E., Timmons, J.J., Jung, D., Torralba, M.,
+							Haft, D., Nelson, K., & Epstein, S. (2014).{" "}
+							<strong>
+								Towards predictable manipulation of microbial
+								communities.
+							</strong>{" "}
+							International Society for Microbial Ecology.
 						</li>
 					</ul>
 				</section>

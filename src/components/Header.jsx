@@ -15,13 +15,16 @@ export default class Header extends Component {
 		window.removeEventListener("scroll", this.handleScroll);
 	};
 
-	handleScroll = event => {
-		const scrollTop = event.srcElement.body.scrollTop;
-		if (scrollTop === 0 && this.scrolled) {
+	handleScroll = () => {
+		if (window.scrollY === 0 && this.scrolled && window.innerWidth > 640) {
 			this.header.style.borderBottomColor = null;
 			this.header.style.height = "150px";
 			this.scrolled = false;
-		} else if (scrollTop !== 0 && !this.scrolled) {
+		} else if (
+			window.scrollY !== 0 &&
+			!this.scrolled &&
+			window.innerWidth > 640
+		) {
 			this.header.style.borderBottomColor = "#dedede";
 			this.header.style.height = "70px";
 			this.scrolled = true;

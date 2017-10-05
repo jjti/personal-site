@@ -21,7 +21,7 @@ header {
 }
 
 section {
-	padding-bottom: 90px;
+	padding-bottom: 70px;
 }
 
 footer {
@@ -100,8 +100,20 @@ a.button {
 		margin-bottom: 30px;
 	}
 
+	h3 {
+		font-size: 18px;
+	}
+
+	li {
+		font-size: 14px;
+	}
+
 	section {
 		padding-bottom: 20px;
+	}
+
+	p {
+		font-size: 14px;
 	}
 
 	img {
