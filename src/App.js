@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 
 import { Footer } from "./components";
+import Resume from "./pages/files/Resume.pdf";
+import Blogs from "./pages/blog/index.js";
+
 import "./index.css";
 import "./App.css";
-
-import Resume from "./pages/files/Resume.pdf";
 
 class App extends Component {
   render() {
@@ -25,18 +26,18 @@ class App extends Component {
               response.
             </p>
             <p>
-              Since learning to program, I have designed an image processing
+              Since learning to program, I have created an image processing
               workflow to study Tumor Treating Fields and designed tools to
               automate plasmid assembly protocols (restriction digest and MoClo
-              Assembly). Over the past year I have also spent a time learning
-              and running moleculary dynamics simulations.
+              Assembly). I have also used molecular dynamics to answer questions
+              about how medical devices affect patient outcomes.
             </p>
           </div>
         </section>
         <hr />
         <section>
           <h2 style={{ marginBottom: "45px" }}>Contents</h2>
-          <div className="contents" style={{ float: "left" }}>
+          <div className="contents" style={{ float: "left", width: "33%" }}>
             <h6>FILES</h6>
             <ul>
               <li>
@@ -49,14 +50,16 @@ class App extends Component {
               </li>
             </ul>
           </div>
-          <div className="contents" style={{ float: "right" }}>
+          <div className="contents" style={{ float: "right", width: "67%" }}>
             <a href="/blog">
               <h6>BLOG</h6>
             </a>
             <ul>
-              <li>
-                <a href="/blog">Blog</a>
-              </li>
+              {Blogs.map(b => (
+                <li key={b.href}>
+                  <a href={b.href}>{b.title}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </section>

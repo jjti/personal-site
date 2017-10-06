@@ -4,7 +4,7 @@
 }
 
 .Header {
-	width: calc(100% - 80px);
+	width: 100%;
 	max-width: 960px;
 	position: fixed;
 	background-color: hsla(0, 0%, 100%, 0.97);
@@ -46,7 +46,7 @@ ul li a {
 	color: #467bcc;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 850px) {
 	.Header {
 		height: 80px;
 		width: 100% !important;
@@ -65,7 +65,7 @@ ul li a {
 
 	.Header nav a {
 		font-size: 15px;
-		padding-left: 15px;
+		padding: 15px;
 	}
 
 	.Header-wrapper {

@@ -1,8 +1,22 @@
+.blog-header {
+	display: flex;
+	align-items: baseline;
+	margin-top: 20px;
+}
+
+.blog-header h2 {
+	margin-bottom: 0;
+}
+
 .blog-body h3 {
 	border-top: 2px solid rgb(32, 32, 32);
 	max-width: 750px;
 	padding-top: 10px;
 	margin-top: 75px;
+}
+
+.blog-body h5 img {
+	display: block;
 }
 
 .blog-body p {

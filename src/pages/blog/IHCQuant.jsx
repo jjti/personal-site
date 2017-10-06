@@ -3,13 +3,11 @@ import stainedAll from "./images/stained-all.png";
 import stainedImmuno from "./images/stained-immuno.png";
 
 const title = "IHC Stain Quantification";
+const blurb =
+	"A short script for (naively) using brightness thresholding to find the stained surface area ratio of an immunohistochemistry slide";
 const date = "9/30/2017";
-const blurb = "A short script for (naively) using brightness thresholding to find the stained surface area ratio of an immunohistochemistry slide";
 
 const post = `
-## ${title}
-${date}
-### Motivation
 My lab was doing an analysis of breast cancer patients looking for correlations between
 cytotoxic T cells and overall survival. Part of this invoved investigation of IHC tumor punches.
 Their panel of antigens included ARG1, CD3, etc.
@@ -33,15 +31,13 @@ To find the brightness cutoff to use for a "stained" region, I uploaded a few sa
 tools [[4](https://www.unige.ch/medecine/bioimaging/files/1914/1208/6000/Quantification.pdf)]. HSV format was particularly suited for this type
 of thresholding since [saturation is built into the image format.](https://en.wikipedia.org/wiki/HSL_and_HSV#Saturation)
 
-![Stained immune cells IHC Slide](${stainedImmuno} "Stained cytotoxic cells") 
-##### With a saturation cut-off of 147
+##### ![Stained immune cells IHC Slide](${stainedImmuno} "Stained cytotoxic cells") With a saturation cut-off of 147
 
 This was a good start, but the other factor to take into account was that not 100% of the slides were covered by tissue. Fortunately, since even
 the thin layers along the edges are slightly darker than the areas without any tissue in the slides, I was also able to threshold on
 tissue as well.
 
-![Stained tissue](${stainedAll} "Stained tissue -- total area")
-##### Saturation cut-off of 209 (including darker pixels to get total area of tissue)
+##### ![Stained tissue](${stainedAll} "Stained tissue -- total area") Saturation cut-off of 209 (including darker pixels to get total area of tissue)
 
 With these two counts in hand (the number of pixels that are "stained" versus the number that fall under the class of "tissue"), it was possible
 to create a ratio for each slide.
@@ -150,7 +146,6 @@ APA
 
 const IHCQuant = {
 	title: title,
-	href: "IHCQuant",
 	date: date,
 	blurb: blurb,
 	__content: post

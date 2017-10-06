@@ -3,21 +3,20 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import marked from "marked";
 
 import OutsideArticles from "./blog/outside/OutsideArticles.jsx";
-import { Header, Footer, SingleEntry as BlogPost } from "../components";
+import { Header, Footer, SingleEntry as BlogPreview } from "../components";
+import Blogs from "./blog/index.js";
 
 import "./Blog.css";
 
-const posts = require.context("./blog", false, /.jsx$/);
-const blogs = posts.keys().map(k => posts(k).default);
-
+// no article has been selected, render the preview list in /blog
 const BlogHome = ({ history }) => (
 	<section>
 		<h2>Blog</h2>
-		{blogs.map(b => (
-			<BlogPost
+		{Blogs.map(b => (
+			<BlogPreview
 				key={b.title}
 				{...b}
-				href={`/blog/${b.href}`}
+				href={b.href}
 				newTab={false}
 			/>
 		))}
@@ -25,18 +24,23 @@ const BlogHome = ({ history }) => (
 	</section>
 );
 
+// render header, footer, and routes to the posts
 export default class Blog extends Component {
 	render() {
 		return (
 			<div className="Container">
 				<Header />
 				<Switch>
-					{blogs.map(b => (
+					{Blogs.map(b => (
 						<Route
-							path={`/blog/${b.href}`}
+							path={b.href}
+							exact
 							key={b.href}
 							render={() => (
 								<section>
+									<div className="blog-header">
+										<h2>{b.title}</h2>
+									</div>
 									<div
 										className="blog-body"
 										dangerouslySetInnerHTML={{
