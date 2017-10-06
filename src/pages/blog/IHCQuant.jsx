@@ -9,7 +9,6 @@ const blurb = "A short script for (naively) using brightness thresholding to fin
 const post = `
 ## ${title}
 ${date}
-
 ### Motivation
 My lab was doing an analysis of breast cancer patients looking for correlations between
 cytotoxic T cells and overall survival. Part of this invoved investigation of IHC tumor punches.
@@ -24,7 +23,7 @@ methodology [[1](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2559.2006.025
 I found some existing programmatic solutions to the problem [[2](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0096801)-
 [3](https://www.nature.com/articles/srep32127)] but they were either not high-throughput, proprietary, or plugins
 for ImageJ (heavy). Given that I wanted to find "how-stained" each IHC slide was for >300 images, nothing looked cheap and
-available.
+high-throughput.
 
 
 ### Solution
@@ -37,8 +36,8 @@ of thresholding since [saturation is built into the image format.](https://en.wi
 ![Stained immune cells IHC Slide](${stainedImmuno} "Stained cytotoxic cells") 
 ##### With a saturation cut-off of 147
 
-This was a good start, but the other factor to take into account was that not 100% of the slides were covered by tissue. But, since even
-the thin layers along the edges are slightly darker than the areas without any tissue in the slides, so I was also able to threshold on that
+This was a good start, but the other factor to take into account was that not 100% of the slides were covered by tissue. Fortunately, since even
+the thin layers along the edges are slightly darker than the areas without any tissue in the slides, I was also able to threshold on
 tissue as well.
 
 ![Stained tissue](${stainedAll} "Stained tissue -- total area")
@@ -49,6 +48,7 @@ to create a ratio for each slide.
 
 
 ### Code
+First, I need to quantify the number of stained pixels in the saturation matrix of the HSV image.
 \`\`\`python
 import numpy as np
 
@@ -61,10 +61,8 @@ def count(img, cutoff):
 	return sumd
 \`\`\`
 
-First I need to quantify the number of stained pixels in the saturation matrix of the HSV image.
-[Array indexing with numpy](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html) is a relatively fast approach.
-
-
+[Array indexing with numpy](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html)
+is a relatively fast approach. I then need to find the number of pixels above the two thresholds (one for tissue and one for stain).
 \`\`\`python
 import cv2
 
@@ -127,7 +125,7 @@ fd.write(results)
 fd.close()
 \`\`\`
 
-The full script will (as configured above) walk through a directory of patient records, quantify the IHC stain % of each image, and
+The full script (as configured above) will walk through a directory of patient records, quantify the IHC stain % of each image, and
 save it in a dat file (though lots of this is specific to the directory format being sent, for example: each patient directory
 is something like "Patient 1", so I split+sort on folder name).
 

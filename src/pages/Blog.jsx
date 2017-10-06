@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { Header, Footer, SingleEntry as BlogPost } from "../components";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import marked from "marked";
+
+import OutsideArticles from "./blog/outside/OutsideArticles.jsx";
+import { Header, Footer, SingleEntry as BlogPost } from "../components";
+
+import "./Blog.css";
 
 const posts = require.context("./blog", false, /.jsx$/);
 const blogs = posts.keys().map(k => posts(k).default);
@@ -17,6 +21,7 @@ const BlogHome = ({ history }) => (
 				newTab={false}
 			/>
 		))}
+		{OutsideArticles()}
 	</section>
 );
 
@@ -28,8 +33,8 @@ export default class Blog extends Component {
 				<Switch>
 					{blogs.map(b => (
 						<Route
-							key={b.href}
 							path={`/blog/${b.href}`}
+							key={b.href}
 							render={() => (
 								<section>
 									<div
@@ -45,9 +50,14 @@ export default class Blog extends Component {
 					<Route
 						exact
 						path="/blog"
+						key="/blog"
 						component={withRouter(BlogHome)}
 					/>
-					<Route path="*" component={() => <Redirect to="/blog" />} />
+					<Route
+						path="*"
+						key="/*"
+						component={() => <Redirect to="/blog" />}
+					/>
 				</Switch>
 				<Footer />
 			</div>

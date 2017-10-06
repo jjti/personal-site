@@ -5,6 +5,10 @@
 	padding-right: 40px;
 }
 
+.Container section ul li {
+	font-weight: 400;
+}
+
 .SubHeader {
 	font-weight: 300;
 	font-size: 18px;
@@ -33,38 +37,51 @@
 	color: white;
 	cursor: pointer;
 	border-color: #202020;
+	text-decoration: none;
 }
 
 .about-columns {
 	display: flex;
+	-webkit-margin-before: 1em;
 }
 
 .about-columns p {
 	width: 50%;
 	padding-right: 20px;
+	-webkit-margin-before: 0;
 }
 
-section ul li {
-	font-weight: 400;
+.contents {
+	display: inline-block;
+	width: 50%;
 }
 
-#linkedin:hover {
-	background-color: #0077b5;
-	border-color: #0077b5;
+.contents a:hover {
+	text-decoration: underline;
 }
 
-#researchgate:hover {
-	background-color: #0cb;
-	border-color: #0cb;
+.contents ul {
+	padding-left: 0;
 }
 
-#github:hover {
-	background-color: #7bc96f;
-	border-color: #7bc96f;
+.contents ul li {
+	list-style-type: none;
+}
+
+.contents ul li a {
+	color: #202020;
 }
 
 @media (max-width: 640px) {
 	.about {
+		width: 100%;
+	}
+
+	.about-columns {
+		display: block;
+	}
+
+	.about-columns p {
 		width: 100%;
 	}
 
@@ -73,11 +90,8 @@ section ul li {
 		display: block;
 	}
 
-	.about-columns {
+	.contents {
 		display: block;
-	}
-
-	.about-columns p {
 		width: 100%;
 	}
 }

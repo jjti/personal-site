@@ -45,7 +45,7 @@ export default class Header extends Component {
 					</p>
 					<nav className="publications">
 						<Link to="/publications">Publications</Link>
-						<Link to="/writing">Writing</Link>
+						<Link to="/blog">Blog</Link>
 					</nav>
 				</div>
 			</div>

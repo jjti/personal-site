@@ -1,0 +1,17 @@
+#linkedin:hover {
+	background-color: #0077b5;
+	border-color: #0077b5;
+}
+
+#researchgate:hover {
+	background-color: #0cb;
+	border-color: #0cb;
+}
+
+#github:hover {
+	background-color: #7bc96f;
+	border-color: #7bc96f;
+}
+
+@media (max-width: 640px) {
+}

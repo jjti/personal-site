@@ -1,0 +1,27 @@
+.date {
+	margin: 0;
+}
+
+div.single-entry h3:hover {
+	text-decoration: underline;
+}
+
+.single-entry {
+	max-width: 850px;
+}
+
+.single-entry-header {
+	display: flex;
+	align-items: baseline;
+	margin-bottom: 10px;
+}
+
+.single-entry-header h3 {
+	margin-bottom: 0;
+}
+
+.single-entry-header p {
+	padding-left: 20px;
+	color: #467bcc;
+	margin-bottom: 0;
+}

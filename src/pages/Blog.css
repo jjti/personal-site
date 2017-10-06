@@ -1,0 +1,22 @@
+.blog-body h3 {
+	border-top: 2px solid rgb(32, 32, 32);
+	max-width: 750px;
+	padding-top: 10px;
+	margin-top: 75px;
+}
+
+.blog-body p {
+	max-width: 750px;
+}
+
+.blog-body a:hover {
+	text-decoration: underline;
+}
+
+.blog-body pre code {
+	max-width: 850px;
+}
+
+.blog-body ul li {
+	max-width: calc(850px - 5%);
+}
