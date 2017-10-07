@@ -29,8 +29,19 @@
 
 .blog-body pre code {
 	max-width: 850px;
+	border-radius: 2px;
+	font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+	font-weight: 400;
+	font-size: 16px;
+	margin: 40px 0;
+	overflow: auto;
+	padding: 20px;
 }
 
 .blog-body ul li {
 	max-width: calc(850px - 5%);
+}
+
+.hljs {
+	background: #f5f2f0 !important;
 }

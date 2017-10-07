@@ -8,9 +8,6 @@ const blogs = posts
 		const href = `/blog/${d.getFullYear()}/${d.getMonth() +
 			1}/${d.getDate()}/${b.title.split(" ").join("-")}`;
 		const date = d.getTime();
-
-		console.log(href);
-
 		return { ...b, href, date };
 	}); // hyphenate title to url w/ date, convert time to sortable int
 blogs.sort((a, b) => a.date - b.date);

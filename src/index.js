@@ -4,9 +4,8 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { Blog, Publications } from "./pages";
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
 
-import "./zenburn.css";
+import "./qtcreator_light.css";
 import "./index.css";
 
 class TrackPageView extends React.Component {
@@ -34,4 +33,3 @@ ReactDOM.render(
 	</BrowserRouter>,
 	document.getElementById("root")
 );
-registerServiceWorker();

@@ -51,25 +51,28 @@
 	-webkit-margin-before: 0;
 }
 
-.contents {
-	display: inline-block;
-	width: 50%;
+#contents {
+	display: flex;
 }
 
-.contents a:hover {
-	text-decoration: underline;
+.contents-col {
+	width: 33%;
 }
 
-.contents ul {
+.contents-col ul {
 	padding-left: 0;
 }
 
-.contents ul li {
+.contents-col ul li {
 	list-style-type: none;
 }
 
-.contents ul li a {
+.contents-col ul li a {
 	color: #202020;
+}
+
+.contents-col a:hover {
+	text-decoration: underline;
 }
 
 @media (max-width: 640px) {
@@ -90,8 +93,11 @@
 		display: block;
 	}
 
-	.contents {
-		display: block;
+	#contents {
+		flex-direction: column;
+	}
+
+	.contents-col {
 		width: 100%;
 	}
 }

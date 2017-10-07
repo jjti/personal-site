@@ -35,9 +35,9 @@ class App extends Component {
           </div>
         </section>
         <hr />
-        <section>
-          <h2 style={{ marginBottom: "45px" }}>Contents</h2>
-          <div className="contents" style={{ float: "left", width: "33%" }}>
+        <h2 style={{ marginBottom: "45px" }}>Contents</h2>
+        <section id="contents">
+          <div className="contents-col">
             <h6>FILES</h6>
             <ul>
               <li>
@@ -50,12 +50,22 @@ class App extends Component {
               </li>
             </ul>
           </div>
-          <div className="contents" style={{ float: "right", width: "67%" }}>
+          <div className="contents-col">
             <a href="/blog">
               <h6>BLOG</h6>
             </a>
             <ul>
-              {Blogs.map(b => (
+              {Blogs.slice(0, 3).map(b => (
+                <li key={b.href}>
+                  <a href={b.href}>{b.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="contents-col">
+            <br />
+            <ul>
+              {Blogs.slice(3, 6).map(b => (
                 <li key={b.href}>
                   <a href={b.href}>{b.title}</a>
                 </li>
