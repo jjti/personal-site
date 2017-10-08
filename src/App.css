@@ -75,6 +75,14 @@
 	text-decoration: underline;
 }
 
+.mobile-content-show {
+	display: none;
+}
+
+.mobile-content-hide {
+	display: block;
+}
+
 @media (max-width: 640px) {
 	.about {
 		width: 100%;
@@ -99,5 +107,13 @@
 
 	.contents-col {
 		width: 100%;
+	}
+
+	.mobile-content-show {
+		display: block;
+	}
+
+	.mobile-content-hide {
+		display: none;
 	}
 }

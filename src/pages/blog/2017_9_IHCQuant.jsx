@@ -1,10 +1,12 @@
-import unstained from "./images/unstained.png";
-import stainedAll from "./images/stained-all.png";
-import stainedImmuno from "./images/stained-immuno.png";
+import unstained from "./images/2017-9-1.png";
+import stainedAll from "./images/2017-9-2.png";
+import stainedImmuno from "./images/2017-9-3.png";
 
 const title = "IHC Stain Quantification";
 const blurb =
-	"A short script for (naively) using brightness thresholding to find the stained surface area ratio of an immunohistochemistry slide";
+	`A short script for (naively) using brightness thresholding to find the stained surface area
+	ratio of an immunohistochemistry slide. Used as a cheap and high-throughput solution to an investigation
+	of breast cancer survival correlated against immune-cell markers.`;
 const date = "9/30/2017";
 
 const post = `

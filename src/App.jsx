@@ -55,14 +55,17 @@ class App extends Component {
               <h6>BLOG</h6>
             </a>
             <ul>
-              {Blogs.slice(0, 3).map(b => (
-                <li key={b.href}>
+              {Blogs.slice(0, 6).map((b, i) => (
+                <li
+                  key={b.href}
+                  className={`${i > 2 ? "mobile-content-show" : null}`}
+                >
                   <a href={b.href}>{b.title}</a>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="contents-col">
+          <div className="contents-col mobile-content-hide">
             <br />
             <ul>
               {Blogs.slice(3, 6).map(b => (

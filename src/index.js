@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { Blog, Publications } from "./pages";
-import App from "./App";
+import App from "./App.jsx";
 
 import "./qtcreator_light.css";
 import "./index.css";

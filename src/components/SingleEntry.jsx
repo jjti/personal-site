@@ -8,7 +8,7 @@ const SingleEntry = ({ title, date, blurb, href, newTab = true }) => (
 		<a href={href} target={newTab ? "_blank" : null}>
 			<div className="single-entry-header">
 				<h3>{title}</h3>
-				{newTab && <p>Link</p>}
+				{newTab && <p>Outside Link</p>}
 			</div>
 			<p className="date">{new Date(date).toLocaleDateString()}</p>
 			<p className="blurb">{blurb}</p>
