@@ -29,9 +29,9 @@ class App extends Component {
               Since learning to program, I have created an image processing
               workflow to study Tumor Treating Fields and designed tools to
               automate plasmid assembly protocols (restriction digest and MoClo
-              Assembly). I also have an interst in using molecular dynamics to
-              gain mechanistic insight into tumor treating fields and
-              nano-second pulsed electric fields.
+              Assembly). I am also intersted in using molecular dynamics for
+              mechanistic insight into tumor treating fields and nano-second
+              pulsed electric fields.
             </p>
           </div>
         </section>

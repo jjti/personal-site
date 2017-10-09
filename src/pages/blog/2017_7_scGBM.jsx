@@ -66,7 +66,7 @@ improvment in understanding for this disease so long as the minimum information 
 
 One solution would be to require, on submission of a case report to a medical journal, a checklist of information. The checklist
 would include detailed information, such as time between diagnosis and each treatment administed, so time-dependent CPH models could be generated.
-It's suprising this is not already a standard requirement but, even in the case reports post-2015, there was consistently inadequate information.
+It's suprising this is not already a standard requirement, but, even in the case reports post-2015, there was consistently inadequate information.
 Second, a centralized database could be put in place. This seems less likely for probably valid concerns about of patient privacy.
 `;
 
