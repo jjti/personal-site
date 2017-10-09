@@ -1,17 +1,42 @@
-#linkedin:hover {
-	background-color: #0077b5;
-	border-color: #0077b5;
+.footer-row {
+	display: flex;
+	justify-content: space-between;
 }
 
-#researchgate:hover {
-	background-color: #0cb;
-	border-color: #0cb;
+#footer-left {
+	width: 75%;
 }
 
-#github:hover {
-	background-color: #7bc96f;
-	border-color: #7bc96f;
+.social {
+	margin: 15px 0;
+}
+
+#footer-right {
+	width: 25%;
+}
+
+#footer-face {
+	max-width: 85%;
+	float: right;
+	margin-top: 1em;
 }
 
 @media (max-width: 640px) {
+	.footer-row {
+		display: block;
+	}
+
+	#footer-left {
+		width: 100%;
+	}
+
+	#footer-right {
+		width: 100%;
+	}
+
+	#footer-face {
+		float: left;
+		max-width: 60%;
+		padding-bottom: 20px;
+	}
 }

@@ -71,6 +71,18 @@ img {
     max-width: 500px;
 }
 
+ul {
+	margin-bottom: 20px;
+}
+
+ul li a {
+	color: #467bcc;
+}
+
+ul li a:hover {
+	text-decoration: underline;
+}
+
 a.button {
 	-webkit-appearance: button;
 	-moz-appearance: button;
