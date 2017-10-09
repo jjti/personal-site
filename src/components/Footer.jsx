@@ -34,8 +34,9 @@ const Footer = () => (
               <li>
                 {"LinkedIn: "}
                 <a
-                  href="www.linkedin.com/in/JJTimmons"
+                  href="https://www.linkedin.com/in/JJTimmons"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   linkedin.com/in/JJTimmons
                 </a>
@@ -45,13 +46,18 @@ const Footer = () => (
                 <a
                   href="https://www.researchgate.net/profile/Joshua_Timmons"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   researchgate.net/profile/Joshua_Timmons
                 </a>
               </li>
               <li>
                 {"GitHub: "}
-                <a href="https://github.com/JJTimmons" target="_blank">
+                <a
+                  href="https://github.com/JJTimmons"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   github.com/JJTimmons
                 </a>
               </li>
@@ -59,7 +65,7 @@ const Footer = () => (
           </div>
         </div>
         <div id="footer-right">
-          <img src={face} id="footer-face" />
+          <img src={face} id="footer-face" alt="face" />
         </div>
       </div>
     </footer>
