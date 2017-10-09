@@ -21,7 +21,7 @@ const Footer = () => (
             site is 50% a repository and 50% an excuse to claim the domain.
           </p>
           <div>
-            <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <ul id="footer-social-list">
               <li>
                 {"Email: "}
                 <a
