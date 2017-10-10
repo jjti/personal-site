@@ -11,17 +11,18 @@ const Footer = () => (
       <h2>About</h2>
       <div className="footer-row">
         <div id="footer-left">
-          <p>
-            Hello! My name's Josh. I'm a software engineer at
-            <a href="http://latticeautomation.com/">
-              {" "}
-              Lattice Automation Inc.{" "}
-            </a>
-            and a research assistant at BIDMC and Harvard Medical School. This
-            site is 50% a repository and 50% an excuse to claim the domain.
-          </p>
           <div>
             <ul id="footer-social-list">
+              <li>
+                Hello! My name's Josh. I'm a software engineer at
+                <a href="http://latticeautomation.com/">
+                  {" "}
+                  Lattice Automation Inc.{" "}
+                </a>
+                and a research assistant at BIDMC and Harvard Medical School.
+                This site is 50% a repository and 50% an excuse to claim the
+                domain.
+              </li>
               <li>
                 {"Email: "}
                 <a

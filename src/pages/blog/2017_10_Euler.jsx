@@ -5,9 +5,7 @@ const date = "10/7/2017";
 const post = `
 Project Euler is a website where users solve problems
 that require some programming. For me, it's been something to
-do on flights.
-
-It's also a great reminder that no matter how hard I work on a problem, and no
+do on flights and a reminder that no matter how hard I work on a problem, and no
 matter how many LOC, there's always somebody out there that can write a pythonic,
 one-liner equivelant.
 
