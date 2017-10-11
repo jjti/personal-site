@@ -7,6 +7,7 @@ import { Header, SingleEntry as BlogPreview } from "../components";
 import Blogs from "./blog/index.js";
 
 import "./Blog.css";
+import "../qtcreator_light.css";
 
 // no article has been selected, render the preview list in /blog
 const BlogHome = ({ history }) => (

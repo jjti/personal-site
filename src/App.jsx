@@ -4,7 +4,6 @@ import { Footer } from "./components";
 import Resume from "./pages/files/Resume.pdf";
 import Blogs from "./pages/blog/index.js";
 
-import "./index.css";
 import "./App.css";
 
 class App extends Component {
@@ -42,7 +41,7 @@ class App extends Component {
             <h6>FILES</h6>
             <ul>
               <li>
-                <a target="_blank" href={Resume}>
+                <a target="noopener" href={Resume}>
                   Resume
                 </a>
               </li>

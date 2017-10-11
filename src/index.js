@@ -5,8 +5,19 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Blog, Publications } from "./pages";
 import App from "./App.jsx";
 
-import "./qtcreator_light.css";
+import registerServiceWorker from "./registerServiceWorker";
+
 import "./index.css";
+
+const WebFont = require("webfontloader");
+
+let config: WebFont.Config = {
+	google: {
+		families: ["Open Sans:400,600,600bold,700"]
+	}
+};
+
+WebFont.load(config);
 
 class TrackPageView extends React.Component {
 	componentWillMount() {
@@ -33,3 +44,4 @@ ReactDOM.render(
 	</BrowserRouter>,
 	document.getElementById("root")
 );
+registerServiceWorker();

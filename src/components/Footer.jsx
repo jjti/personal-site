@@ -1,7 +1,7 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
 
 import face from "./files/IMG_3363_2.png";
-
 import "./Footer.css";
 
 const Footer = () => (
@@ -66,7 +66,9 @@ const Footer = () => (
           </div>
         </div>
         <div id="footer-right">
-          <img src={face} id="footer-face" alt="face" />
+          <LazyLoad height={200} offset={50} once>
+            <img src={face} id="footer-face" alt="face" />
+          </LazyLoad>
         </div>
       </div>
     </footer>
