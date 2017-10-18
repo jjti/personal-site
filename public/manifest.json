@@ -1,15 +1,1 @@
-{
-  "short_name": "Timmons",
-  "name": "Joshua Timmons Personal Site",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "192x192",
-      "type": "image/ico"
-    }
-  ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
+{"name":"Joshua Timmons Personal Site","short_name":"Timmons Site","start_url":"/","background_color":"#ffffff","theme_color":"#ffffff","display":"minimal-ui","icons":[{"src":"/static/favicon.icon","sizes":"150x150","type":"image/ico"}]}

@@ -1,0 +1,112 @@
+.blog-header {
+	display: flex;
+	align-items: baseline;
+	margin-top: 20px;
+	margin-bottom: -5px;
+}
+
+.blog-header h2 {
+	margin-bottom: 0;
+}
+
+.blog-body h3 {
+	border-top: 2px solid rgb(32, 32, 32);
+	max-width: 750px;
+	padding-top: 10px;
+	margin-top: 75px;
+}
+
+.blog-body h5 img {
+	display: block;
+}
+
+.blog-body p {
+	max-width: 750px;
+}
+
+.blog-body a:hover {
+	text-decoration: underline;
+}
+
+.blog-body ul li {
+	max-width: calc(850px - 5%);
+}
+
+.blog-footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.next-post {
+	width: 45%;
+}
+
+.next-post a h3:hover {
+	text-decoration: underline;
+}
+
+.last-post {
+	width: 45%;
+}
+
+.last-post a h3:hover {
+	text-decoration: underline;
+}
+
+.gatsby-resp-image-wrapper {
+	margin-left: 0 !important;
+}
+
+.gatsby-highlight {
+	overflow-x: auto;
+}
+
+.all-button {
+	display: block !important;
+	width: 25%;
+	text-align: center;
+	padding: 10px;
+	background-color: #fff;
+	border: 2px solid #202020;
+	color: #202020;
+	font-weight: 600;
+	line-height: 1;
+	padding: 14px 30px;
+	text-decoration: none;
+	-webkit-transition: background-color 0.1s, color 0.1s;
+	transition: background-color 0.1s, color 0.1s;
+	margin: 10px 10px 10px 0;
+	display: inline-block;
+	outline: none;
+}
+
+.all-button:hover {
+	background-color: #202020;
+	color: white;
+	cursor: pointer;
+	border-color: #202020;
+	text-decoration: none;
+}
+
+@media (max-width: 640px) {
+	.blog-footer {
+		flex-wrap: wrap;
+	}
+
+	.next-post {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.last-post {
+		width: 100%;
+	}
+
+	.all-button {
+		width: 40%;
+	}
+
+	li {
+		font-size: 14px !important;
+	}
+}

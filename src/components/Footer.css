@@ -4,7 +4,6 @@
 }
 
 #footer-social-list li {
-	font-weight: 400;
 	font-size: 17px;
 	margin: 8px 0;
 }
@@ -31,13 +30,21 @@
 	width: 25%;
 }
 
-#footer-face {
+.footer-face {
 	max-width: 85%;
 	float: right;
 	margin-top: 1em;
 }
 
 @media (max-width: 640px) {
+	#footer-social-list li {
+		font-size: 13px;
+	}
+
+	#footer-social-list li a {
+		font-size: 14px;
+	}
+
 	.footer-row {
 		display: block;
 	}
@@ -50,7 +57,7 @@
 		width: 100%;
 	}
 
-	#footer-face {
+	.footer-face {
 		float: left;
 		max-width: 60%;
 		padding-bottom: 20px;
