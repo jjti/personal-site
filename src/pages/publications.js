@@ -168,7 +168,7 @@ export const query = graphql`
 		file(relativePath: { eq: "components/face.png" }) {
 			childImageSharp {
 				resolutions(height: 205, width: 205) {
-					...GatsbyImageSharpResolutions
+					...GatsbyImageSharpResolutions_noBase64
 				}
 			}
 		}

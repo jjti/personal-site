@@ -2,7 +2,7 @@
 title: This Website
 date: 10/18/2017
 ---
-I decided to make this site when after starting grad applications. All of them
+I decided to make this site after starting grad applications. All of them
 had some field saying something like "Link to personal website (optional)."
 I did not make this just because of those input fields, but it was the impetus.
 Other reasons for making it are that 1) joshuatimmons.com wasn't taken and 2)
@@ -66,9 +66,9 @@ I was getting ~40 on the Chrome Lighthouse Performance audit and initial page lo
 around 5 seconds on what I thought was a pretty light page. 
 
 These findings led to my second mistake making this website: Googling "react router static website markdown."
-In otherwords, all the things I wanted. The third result was for a static website generator called [Gatsby](https://www.gatsbyjs.org/),
-and it read like a wish-list. Markdown transformers were simply plugins and images would be optimized
-during the build. Every route is build into a static html page and all the Webpack optimizations
+One of the links was for a static website generator called [Gatsby](https://www.gatsbyjs.org/),
+and it read like a wish-list. Markdown transformers were simply plugins, and images would be optimized
+during the build. Every route is built into a static html page, and all the Webpack optimizations
 are handled by the library developers. The library's original author called it, in some talk, a "meta-compiler,"
 which is exactly what I was looking for. I knew I wanted it to be fast but didn't want to spend
 days searching for the "best" Webpack configuration (or, rather, I wanted to keep myself from doing that).
@@ -91,7 +91,7 @@ My guess is 2 more.
 ### Updates
 Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync.
 In otherwords, the ability to immediately update the site when I push changes.
-The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant
+The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant,
 but I did not want to pay $99 for some Windows software. An open issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920). I now invalidate the index file after a sync:
 
 ```javascript
