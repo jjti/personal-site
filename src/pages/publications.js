@@ -153,8 +153,24 @@ export default class Publications extends Component {
 						</li>
 					</ul>
 				</section>
-				<Footer />
+				<Footer
+					resolutions={
+						this.props.data.file.childImageSharp.resolutions
+					}
+				/>
 			</div>
 		);
 	}
 }
+
+export const query = graphql`
+	query FooterImage {
+		file(relativePath: { eq: "components/face.png" }) {
+			childImageSharp {
+				resolutions(height: 205, width: 205) {
+					...GatsbyImageSharpResolutions
+				}
+			}
+		}
+	}
+`;

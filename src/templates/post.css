@@ -59,7 +59,6 @@
 
 .gatsby-highlight {
 	overflow-x: auto;
-	font-size: 11px;
 }
 
 .all-button {
@@ -109,5 +108,9 @@
 
 	li {
 		font-size: 14px !important;
+	}
+
+	.gatsby-highlight {
+		font-size: 11px;
 	}
 }

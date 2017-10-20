@@ -29,7 +29,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
 
 exports.createPages = async ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
-  const postTemplate = path.resolve("./src/layouts/post.js");
+  const postTemplate = path.resolve("./src/templates/post.js");
 
   // Using async await. Query will likely be very similar to your pageQuery in index.js
   const result = await graphql(`
@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
   });
 };
 
-exports.onPostBuild = (pages) => {
+exports.onPostBuild = pages => {
   const publicPath = path.join(__dirname, "public");
   const gzippable = glob.sync(`${publicPath}/**/?(*.html|*.js|*.css)`);
   gzippable.forEach(file => {

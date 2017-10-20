@@ -46,6 +46,13 @@ module.exports = {
 			}
 		},
 		{
+			resolve: "gatsby-source-filesystem",
+			options: {
+				name: "src", // Name this source
+				path: path.resolve("./src") // Tell it where to find the files
+			}
+		},
+		{
 			resolve: "gatsby-transformer-remark",
 			options: {
 				plugins: [

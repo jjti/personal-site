@@ -37,7 +37,11 @@ export default class BlogIndex extends React.Component {
 					/>
 				))}
 				<div style={{ height: "80px" }} />
-				<Footer />
+				<Footer
+					resolutions={
+						this.props.data.file.childImageSharp.resolutions
+					}
+				/>
 			</div>
 		);
 	}
@@ -55,6 +59,13 @@ export const pageQuery = graphql`
 					excerpt(pruneLength: 250)
 					url
 					html
+				}
+			}
+		}
+		file(relativePath: { eq: "components/face.png" }) {
+			childImageSharp {
+				resolutions(height: 205, width: 205) {
+					...GatsbyImageSharpResolutions
 				}
 			}
 		}

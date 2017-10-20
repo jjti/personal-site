@@ -19,7 +19,7 @@ The equilibrated molecule was first added to a much larger solvation box, 125x12
 and the tails were pulled outwards using SMD between the CA of the last residue on each
 tail and two water molecules outwards from the dimer. Each water molecule was chosen
 for its positioning outwards from the center of dimer.
-##### ![Tubulin molecule at start](1.png "Starting position") The starting position of the simulation after the tails had been extended. Red arrow is dipole vector
+##### ![Tubulin molecule at start](./1.png "Starting position") The starting position of the simulation after the tails had been extended. Red arrow is dipole vector
 
 
 The EEF was applied upon the direction of the dimers dipole at the start of the 

@@ -1,11 +1,10 @@
 import React from "react";
-//import Img from "gatsby-image";
+import Img from "gatsby-image";
 
-import face from "./face.png";
+// import face from "./face.png";
 import "./Footer.css";
 
-export default (props) => {
-  console.log(props);
+export default props => {
   return (
     <div>
       <hr />
@@ -68,26 +67,10 @@ export default (props) => {
             </div>
           </div>
           <div id="footer-right">
-            <img className="footer-face" src={face} />
+            <Img resolutions={props.resolutions} />
           </div>
         </div>
       </footer>
     </div>
   );
 };
-
-// export const query = graphql`
-//   query GatsbyImageSampleQuery {
-//     file(relativePath: { eq: "./face.png" }) {
-//       childImageSharp {
-//         resolutions(width: 240, height: 240) {
-//           base64
-//           width
-//           height
-//           src
-//           srcSet
-//         }
-//       }
-//     }
-//   }
-// `;

@@ -91,29 +91,28 @@ My guess is 2 more.
 ### Updates
 Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync.
 In otherwords, the ability to immediately update the site when I push changes.
-The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equiv., S3Express, but I did not want to pay $99 for some Windows software. An open issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920).
-I now parse the output of aws-cli sync and invalidate every path using the following script that checks the output from the sync:
+The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant
+but I did not want to pay $99 for some Windows software. An open issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920). I now invalidate the index file after a sync:
 
 ```javascript
-if (stdout) {
-	const regex = /s3.*---(.*)/;
-	let paths = "";
-	stdout.split("\n").forEach(l => {
-		const match = regex.exec(l);
-		if (match && match[1]) {
-			paths += ` /${match[1]}`;
+child_process.exec(
+	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete`,
+	(error, stdout, stderr) => {
+		if (error) {
+			console.error(`exec error: ${error}`);
+			return;
+		} else if (stdout) {
+			child_process.exec(
+				`aws cloudfront create-invalidation --distribution-id XXXXXXXXXXXXX --paths /index.html`,
+				(errorcf, stdoutcf, stderrcf) => {
+					console.log(`error-cf: ${error}`);
+					console.log(`stdout-cf: ${stdoutcf}`);
+					console.log(`stderr-cf: ${stderrcf}`);
+				}
+			);
+		} else {
+			console.log(`stderr: ${stderr}`);
 		}
-	});
-
-	if (paths) {
-		child_process.exec(
-			`aws cloudfront create-invalidation --distribution-id XXXXXXXXXXXXX --paths${paths}`,
-			(errorcf, stdoutcf, stderrcf) => {
-				console.log(`error-cf: ${error}`);
-				console.log(`stdout-cf: ${stdoutcf}`);
-				console.log(`stderr-cf: ${stderrcf}`);
-			}
-		);
 	}
-}
+);
 ```

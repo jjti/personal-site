@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
+import Img from "gatsby-image";
 
 import Resume from "../files/Resume.pdf";
 import Footer from "../components/Footer.jsx";
@@ -91,7 +92,11 @@ export default class IndexPage extends React.Component {
 						</ul>
 					</div>
 				</section>
-				<Footer />
+				<Footer
+					resolutions={
+						this.props.data.file.childImageSharp.resolutions
+					}
+				/>
 			</div>
 		);
 	};
@@ -107,6 +112,13 @@ export const pageQuery = graphql`
 						date
 					}
 					url
+				}
+			}
+		}
+		file(relativePath: { eq: "components/face.png" }) {
+			childImageSharp {
+				resolutions(height: 205, width: 205) {
+					...GatsbyImageSharpResolutions
 				}
 			}
 		}
