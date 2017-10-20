@@ -35,7 +35,7 @@ that exports the meta as fields on the object. The index.js would then load each
 and sort on the date field. This worked, I made the first round of the site, and posted it to an
 S3 bucket.
 
-To me, the only interesting this about the S3 pipeline was using AWS-cli for syncing.
+To me, the only interesting this about the S3 pipeline was using aws-cli for syncing.
 My sync file is, in its entirety, the following:
 ```javascript
 "use strict";
@@ -87,3 +87,33 @@ images and better overall performance results from "server-rendered" pages. I'm 
 Google audit. My last steps will be to gzip everything (or get CloudFront to do it) and fix the S3 object
 cache headers. Finally, given the 20+ hours I spent working on the site, we'll see how many posts I actually create.
 My guess is 2 more.
+
+### Updates
+Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync.
+In otherwords, the ability to immediately update the site when I push changes.
+The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equiv., S3Express, but I did not want to pay $99 for some Windows software. An open issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920).
+I now parse the output of aws-cli sync and invalidate every path using the following script that checks the output from the sync:
+
+```javascript
+if (stdout) {
+	const regex = /s3.*---(.*)/;
+	let paths = "";
+	stdout.split("\n").forEach(l => {
+		const match = regex.exec(l);
+		if (match && match[1]) {
+			paths += ` /${match[1]}`;
+		}
+	});
+
+	if (paths) {
+		child_process.exec(
+			`aws cloudfront create-invalidation --distribution-id XXXXXXXXXXXXX --paths${paths}`,
+			(errorcf, stdoutcf, stderrcf) => {
+				console.log(`error-cf: ${error}`);
+				console.log(`stdout-cf: ${stdoutcf}`);
+				console.log(`stderr-cf: ${stderrcf}`);
+			}
+		);
+	}
+}
+```

@@ -27,7 +27,7 @@ export default class Publications extends Component {
 								End-to-End Workflow for Finite Element Analysis
 								of Tumor Treating Fields in Glioblastomas.
 							</strong>{" "}
-							Accepted to <i>Physics in Medicine & Biology.</i>{" "}
+							<i>Physics in Medicine & Biology.</i>{" "}
 							<a target="_blank" rel="noopener" href={PBM2017}>
 								[pdf]
 							</a>
@@ -51,12 +51,12 @@ export default class Publications extends Component {
 							Wang, Y., Levantini, E., Clohessy, J.G., Kelly, K.,
 							Pandolfi, P.P., Rosenblatt, J.M., Avigan, D.E., Ye,
 							H., Karp, J.M., Signoretti, S., Balk, S.P. &
-							Cantley, L.C.{" "}
+							Cantley, L.C. (2017).{" "}
 							<strong>
 								Cabozantinib eradicates advanced murine prostate
 								cancer by activating anti-tumor innate immunity.
 							</strong>{" "}
-							(2017). <i>Cancer Discovery.</i>{" "}
+							<i>Cancer Discovery.</i>{" "}
 							<a target="_blank" rel="noopener" href={Cabo2017}>
 								[pdf]
 							</a>
