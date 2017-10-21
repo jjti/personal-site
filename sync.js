@@ -7,7 +7,7 @@ const buildDir = path.resolve("./public");
 console.log(buildDir);
 
 child_process.exec(
-	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete`,
+	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete --cache-control max-age=604800`,
 	(error, stdout, stderr) => {
 		if (error) {
 			console.error(`exec error: ${error}`);
