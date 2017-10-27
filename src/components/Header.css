@@ -68,4 +68,8 @@
 	.Header-wrapper {
 		padding-bottom: 20px;
 	}
+
+	#back-button {
+		padding-left: 15px;
+	}
 }

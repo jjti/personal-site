@@ -106,11 +106,7 @@
 		width: 40%;
 	}
 
-	li {
-		font-size: 14px !important;
-	}
-
-	.gatsby-highlight {
-		font-size: 11px;
+	.gatsby-highlight pre code {
+		font-size: 13px !important;
 	}
 }
