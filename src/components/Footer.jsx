@@ -13,21 +13,20 @@ export default props => {
 				<div className="footer-row">
 					<div id="footer-left">
 						<div>
+							<p>
+								Hello! My name's Josh. I'm a software engineer
+								at{" "}
+								<a href="http://latticeautomation.com/">
+									Lattice Automation Inc.
+								</a>{" "}
+								and a research assistant at BIDMC and Harvard
+								Medical School. This site is 50% a repository
+								and 50% an excuse to claim the domain.
+							</p>
 							<ul
 								id="footer-social-list"
 								style={{ marginLeft: 0 }}
 							>
-								<li>
-									Hello! My name's Josh. I'm a software
-									engineer at{" "}
-									<a href="http://latticeautomation.com/">
-										Lattice Automation Inc.
-									</a>{" "}
-									and a research assistant at BIDMC and
-									Harvard Medical School. This site is 50% a
-									repository and 50% an excuse to claim the
-									domain.
-								</li>
 								<li>
 									{"Email: "}
 									<a

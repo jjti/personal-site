@@ -16,7 +16,7 @@ export default class BlogPost extends React.Component {
         <Header key="header" />,
         <div className="Post" key="post">
           <div className="blog-header">
-            <h2>{post.frontmatter.title}</h2>
+            <h1>{post.frontmatter.title}</h1>
           </div>
           <div
             dangerouslySetInnerHTML={{ __html: post.html }}
