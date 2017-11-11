@@ -70,8 +70,9 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
       context: {
         // Context will be passed in to the page query as graphql vars
         url: node.url,
-        prev: index === 0 ? false : edges[index - 1].node,
-        next: index === edges.length - 1 ? false : edges[index + 1].node
+        prev:
+          index === 0 ? edges[edges.length - 1].node : edges[index - 1].node,
+        next: index === edges.length - 1 ? edges[0].node : edges[index + 1].node
       }
     });
   });

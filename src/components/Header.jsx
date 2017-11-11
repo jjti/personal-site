@@ -18,7 +18,7 @@ export default class Header extends Component {
 	handleScroll = () => {
 		if (window.scrollY === 0 && this.scrolled && window.innerWidth > 640) {
 			this.header.style.borderBottomColor = null;
-			this.header.style.height = "150px";
+			this.header.style.height = "100px";
 			this.scrolled = false;
 		} else if (
 			window.scrollY !== 0 &&
