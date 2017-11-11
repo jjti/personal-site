@@ -27,6 +27,9 @@
 	font-size: 18px;
 	font-weight: 300;
 	padding-left: 45px;
+	border-bottom: none !important;
+	background: none !important;
+	box-shadow: none !important;
 }
 
 .Header nav a:hover {
@@ -41,6 +44,9 @@
 	font-size: 24px;
 	font-weight: 300;
 	letter-spacing: 1px;
+	border-bottom: none !important;
+	background: none !important;
+	box-shadow: none !important;
 }
 
 @media (max-width: 850px) {

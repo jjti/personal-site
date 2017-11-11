@@ -10,10 +10,9 @@
 }
 
 .blog-body h3 {
-	border-top: 2px solid rgb(32, 32, 32);
 	max-width: 750px;
 	padding-top: 10px;
-	margin-top: 75px;
+	margin-top: 35px;
 }
 
 .blog-body h5 img {
@@ -22,10 +21,6 @@
 
 .blog-body p {
 	max-width: 750px;
-}
-
-.blog-body a:hover {
-	text-decoration: underline;
 }
 
 .blog-body ul li {
@@ -78,6 +73,7 @@
 	margin: 10px 10px 10px 0;
 	display: inline-block;
 	outline: none;
+	box-shadow: none !important;
 }
 
 .all-button:hover {

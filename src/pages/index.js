@@ -21,7 +21,6 @@ export default class IndexPage extends React.Component {
 			<div className="Container">
 				<section>
 					<header>joshua timmons</header>
-					<p className="SubHeader">a personal site</p>
 				</section>
 				<section>
 					<h2>Interests</h2>
@@ -67,15 +66,16 @@ export default class IndexPage extends React.Component {
 						</Link>
 						<ul style={{ marginLeft: 0 }}>
 							{edges.map(({ node }, i) => (
-								<Link to={node.url} key={node.url}>
-									<li
-										className={`${i > 2
-											? "mobile-content-show"
-											: null}`}
-									>
+								<li
+									className={`${i > 2
+										? "mobile-content-show"
+										: null}`}
+									key={node.url}
+								>
+									<Link to={node.url}>
 										{node.frontmatter.title}
-									</li>
-								</Link>
+									</Link>
+								</li>
 							))}
 						</ul>
 
@@ -85,9 +85,12 @@ export default class IndexPage extends React.Component {
 						<br />
 						<ul>
 							{edges.slice(3, 6).map(({ node }) => (
-								<Link to={node.url} key={`${node.url}_2`}>
-									<li>{node.frontmatter.title}</li>
-								</Link>
+								<li key={`${node.url}_2`}>
+									{" "}
+									<Link to={node.url}>
+										{node.frontmatter.title}{" "}
+									</Link>
+								</li>
 							))}
 						</ul>
 					</div>

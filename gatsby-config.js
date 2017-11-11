@@ -7,6 +7,7 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-react-helmet`,
 		`gatsby-transformer-sharp`,
+		`gatsby-plugin-catch-links`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -27,6 +28,12 @@ module.exports = {
 						type: `image/ico`
 					}
 				]
+			}
+		},
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [`gatsby-remark-autolink-headers`]
 			}
 		},
 		{
