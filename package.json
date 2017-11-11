@@ -1,5 +1,5 @@
 {
-  "name": "joshua",
+  "name": "jjtimmonssite",
   "version": "1.0.0",
   "author": "Joshua Timmons <joshua.timmons1@gmail.com>",
   "dependencies": {
@@ -24,19 +24,21 @@
     "image-size": "latest",
     "pngquant": "latest"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format":
+      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync": "node sync.js"
   },
   "devDependencies": {
-    "prettier": "^1.6.1"
+    "babel-eslint": "^8.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^1.6.1",
+    "prettier-eslint": "^8.2.1"
   }
 }
