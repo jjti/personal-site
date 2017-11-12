@@ -25,13 +25,15 @@ To find the brightness cutoff to use for a "stained" region, I uploaded a few sa
 tools [[4](https://www.unige.ch/medecine/bioimaging/files/1914/1208/6000/Quantification.pdf)]. HSV format was particularly suited for this type
 of thresholding since [saturation is built into the image format.](https://en.wikipedia.org/wiki/HSL_and_HSV#Saturation)
 
-#### ![Stained immune cells IHC Slide](2.png "Stained cytotoxic cells") With a saturation cut-off of 147
+![Stained immune cells IHC Slide](2.png "Stained cytotoxic cells")
+*With a saturation cut-off of 147*
 
 This was a good start, but the other factor to take into account was that not 100% of the slides were covered by tissue. Fortunately, since even
 the thin layers along the edges are slightly darker than the areas without any tissue in the slides, I was also able to threshold on
 tissue as well.
 
-#### ![Stained tissue](3.png "Stained tissue -- total area") Saturation cut-off of 209 (including darker pixels to get total area of tissue)
+![Stained tissue](3.png "Stained tissue -- total area")
+*Saturation cut-off of 209 (including lighter pixels to get total area of tissue)*
 
 With these two counts in hand (the number of pixels that are "stained" versus the number that fall under the class of "tissue"), it was possible
 to create a ratio for each slide.
@@ -52,8 +54,8 @@ def count(img, cutoff):
 	return sumd
 ```
 
-[Array indexing with numpy](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html)
-is a relatively fast approach. I then need to find the number of pixels above the two thresholds (one for tissue and one for stain).
+[Logical array indexing with numpy](https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.indexing.html)
+is a significantly fastest approach that looping through all the pixels. I then need to find the number of pixels above the two thresholds (one for tissue and one for stain).
 
 ```python
 import cv2

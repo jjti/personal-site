@@ -23,7 +23,8 @@ Additional records were found through two sources: PubMed and Google Scholar. Fi
 included some combination of "spinal" and "glioma" or "gliosarcoma" or "glioblastoma" in the title. More records were often found
 through the citations of records found through search engine derived records, and these were added (method called "hand-searching").
 
-#### ![Prisma diagram](1.png "prisma diagram") A prisma diagram for the source of the imported records
+![Prisma diagram](1.png "prisma diagram")
+*A prisma diagram for the source of the imported records*
 
 ### Challenges
 
@@ -48,11 +49,13 @@ subtotal vs total resection, since both are, likely, administed at the same time
 
 No treatment type (with group) correlated with significant differences in overall survival.
 
-#### ![Treatment vs outcome](2.png "Treatment vs outcome") Treatment type/degree versus outcome
+![Treatment vs outcome](2.png "Treatment vs outcome")
+*Treatment type/degree versus outcome*
 
 The female sex was very negatively correlated with overall survival, but nothing else of reached significance (log-rank p-value on the Kaplan-Myers).
 
-#### ![characteristics vs outcome](3.png "Characteristics vs outcome") Patient characteristics versus outcome
+![characteristics vs outcome](3.png "Characteristics vs outcome")
+*Patient characteristics versus outcome*
 
 ### Conclusions
 

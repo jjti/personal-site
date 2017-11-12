@@ -59,6 +59,7 @@
 .next-post a h3 {
   width: fit-content;
   margin-bottom: 0;
+  text-align: right;
 }
 
 .last-post {
@@ -84,6 +85,13 @@
   padding: 0 15px;
   background: #272822;
   border-radius: 5px;
+}
+
+.blog-body p em {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: calc(14px + 0.2vw);
 }
 
 @media (max-width: 640px) {
