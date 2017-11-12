@@ -2,7 +2,7 @@
 title: This Website
 date: 10/18/2017
 ---
-I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website (optional)." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it are that 1) joshuatimmons.com wasn't taken and 2) I like the idea of having a repository for stuff that I work on.
+I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website (optional)." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it were that 1) joshuatimmons.com was available and 2) I like the idea of having a repository for stuff that I work on.
 
 Right now, despite it having a "Blog" section, I'm planning to just use it to post results from my projects. Like a portfolio website for an arts major.
 Inotherwords,  I don't plan to rant about Trump in my free time.

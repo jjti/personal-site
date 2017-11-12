@@ -14,7 +14,7 @@ export default class BlogPost extends React.Component {
     return (
       <div>
         <Header key="header" />,
-        <div className="Post" key="post">
+        <div className="Post">
           <div className="blog-header">
             <h1>{post.frontmatter.title}</h1>
           </div>
@@ -22,37 +22,30 @@ export default class BlogPost extends React.Component {
             dangerouslySetInnerHTML={{ __html: post.html }}
             className="blog-body"
           />
-        </div>
-        <hr key="blog-footer-hr" style={{ margin: "70px 0 10px 0" }} />,
-        <footer
-          className="blog-footer"
-          key="blog-footer-body"
-          style={{ paddingBottom: "0" }}
-        >
-          <div className="next-post">
+          <div style={{ height: "80px" }} />
+          <footer
+            className="blog-footer"
+            key="blog-footer-body"
+            style={{ paddingBottom: "0" }}
+          >
+            {prev && (
+              <div className="last-post">
+                <h6 style={{ marginLeft: "auto" }}>Last</h6>
+                <Link to={prev.url}>
+                  <h3>{prev.frontmatter.title}</h3>
+                </Link>
+              </div>
+            )}
             {next && (
-              <div>
-                <h6>Next Article</h6>
+              <div className="next-post">
+                <h6>Next</h6>
                 <Link to={next.url}>
                   <h3>{next.frontmatter.title}</h3>
                 </Link>
-                <p>{next.excerpt}</p>
               </div>
             )}
-          </div>
-          {prev && (
-            <div className="last-post">
-              <h6>Last Article</h6>
-              <Link to={prev.url}>
-                <h3>{prev.frontmatter.title}</h3>
-              </Link>
-              <p>{prev.excerpt}</p>
-            </div>
-          )}
-        </footer>
-        <Link to="/blog" className="all-button">
-          All Posts
-        </Link>
+          </footer>
+        </div>
       </div>
     );
   }

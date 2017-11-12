@@ -1,3 +1,8 @@
+.Post {
+  max-width: 740px;
+  margin: auto;
+}
+
 .blog-header {
   display: flex;
   align-items: baseline;
@@ -19,10 +24,6 @@
   display: block;
 }
 
-.blog-body p {
-  max-width: 750px;
-}
-
 .blog-body ul li {
   font-size: calc(16px + 0.2vw);
   line-height: 1.7;
@@ -36,22 +37,46 @@
 
 .next-post {
   width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+}
+
+.next-post h6 {
+  margin-left: auto !important;
+}
+
+.next-post a {
+  margin-left: auto;
+  box-shadow: none;
+  border-bottom: none;
 }
 
 .next-post a h3:hover {
-  text-decoration: underline;
+  background: rgba(187, 239, 253, 0.5);
+}
+
+.next-post a h3 {
+  width: fit-content;
+  margin-bottom: 0;
 }
 
 .last-post {
   width: 45%;
 }
 
-.last-post a h3:hover {
-  text-decoration: underline;
+.last-post a {
+  box-shadow: none;
+  border-bottom: none;
 }
 
-.gatsby-resp-image-wrapper {
-  margin-left: 0 !important;
+.last-post a h3 {
+  width: fit-content;
+  margin-bottom: 0;
+}
+
+.last-post a h3:hover {
+  background: rgba(187, 239, 253, 0.5);
 }
 
 .gatsby-highlight {
@@ -59,34 +84,6 @@
   padding: 0 15px;
   background: #272822;
   border-radius: 5px;
-}
-
-.all-button {
-  display: block !important;
-  width: 25%;
-  text-align: center;
-  padding: 10px;
-  background-color: #fff;
-  border: 2px solid #202020;
-  color: #202020;
-  font-weight: 600;
-  line-height: 1;
-  padding: 14px 30px;
-  text-decoration: none;
-  -webkit-transition: background-color 0.1s, color 0.1s;
-  transition: background-color 0.1s, color 0.1s;
-  margin: 10px 10px 10px 0;
-  display: inline-block;
-  outline: none;
-  box-shadow: none !important;
-}
-
-.all-button:hover {
-  background-color: #202020;
-  color: white;
-  cursor: pointer;
-  border-color: #202020;
-  text-decoration: none;
 }
 
 @media (max-width: 640px) {
