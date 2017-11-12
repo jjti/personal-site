@@ -14,7 +14,7 @@ export default props => {
 					<div id="footer-left">
 						<div>
 							<p>
-								Hello! My name's Josh. I'm a software engineer
+								Hello! My name's Joshua. I'm a software engineer
 								at{" "}
 								<a href="http://latticeautomation.com/">
 									Lattice Automation Inc.

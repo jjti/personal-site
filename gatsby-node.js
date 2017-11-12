@@ -11,7 +11,7 @@ const getURL = node => {
     .split(" ")
     .join("-");
 
-  return `blog/${node.frontmatter.date}/${slug}`;
+  return `blog/${slug}`; // add date if names start to conflict
 };
 
 exports.setFieldsOnGraphQLNodeType = ({ type }) => {

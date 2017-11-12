@@ -111,6 +111,13 @@ ul {
   margin-bottom: 20px;
 }
 
+::selection {
+  background: rgb(97, 218, 251); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgb(97, 218, 251); /* Gecko Browsers */
+}
+
 a.button {
   -webkit-appearance: button;
   -moz-appearance: button;
