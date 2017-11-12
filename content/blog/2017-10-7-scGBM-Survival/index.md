@@ -18,13 +18,15 @@ treatment information to an anonymized database so it can be screened. The SEERs
 as will be discussed, lots of useful information is excluded.
 
 ### Methods
+
 Additional records were found through two sources: PubMed and Google Scholar. First, titles were screened for those that
 included some combination of "spinal" and "glioma" or "gliosarcoma" or "glioblastoma" in the title. More records were often found
 through the citations of records found through search engine derived records, and these were added (method called "hand-searching").
 
-##### ![Prisma diagram](1.png "prisma diagram") A prisma diagram for the source of the imported records
+#### ![Prisma diagram](1.png "prisma diagram") A prisma diagram for the source of the imported records
 
 ### Challenges
+
 The primary challenge in this analysis is that the most interesting results would be which treatments correlate with
 improved patient outcome. Ideally, this could be done in a Cox proportional hazards model where treatments are treated as
 covariates.
@@ -43,16 +45,17 @@ We also compared survivals within treatment groups when only the degree or type 
 subtotal vs total resection, since both are, likely, administed at the same time in a patient's treatment timeline.
 
 ### Results
+
 No treatment type (with group) correlated with significant differences in overall survival.
 
-##### ![Treatment vs outcome](2.png "Treatment vs outcome") Treatment type/degree versus outcome
+#### ![Treatment vs outcome](2.png "Treatment vs outcome") Treatment type/degree versus outcome
 
 The female sex was very negatively correlated with overall survival, but nothing else of reached significance (log-rank p-value on the Kaplan-Myers).
 
-##### ![characteristics vs outcome](3.png "Characteristics vs outcome") Patient characteristics versus outcome
-
+#### ![characteristics vs outcome](3.png "Characteristics vs outcome") Patient characteristics versus outcome
 
 ### Conclusions
+
 While the reivew was interesting, and learning about the cox proportional hazards model and survival analysis was enjoyable, the dataset was
 unfortunately lacking. It's suprising that more information isn't reguarly collected, and it's hard to image a significant
 improvment in understanding for this disease so long as the minimum information is reported in case reports.

@@ -6,7 +6,7 @@ Project Euler is a website where users solve problems
 that require some programming. For me, it's been something to
 do on flights and a reminder that no matter how hard I work on a problem, and no
 matter how many LOC, there's always somebody out there that can write a pythonic,
-one-liner equivelant.
+one-line equivalent.
 
 ![Euler badge](https://projecteuler.net/profile/jtrickster333.png)
 
@@ -61,7 +61,7 @@ for num in oddComposites:
 ### Problem 50
 
 Another prime generator is used to first create the primes. Then a recursive
-sumSeq function is used where successive prime next to eachother in the numberline.
+sumSeq function is used where successive prime next to each other in the number line.
 So a sequence of primes requires adding each to one another, until a composite number is
 found. The summed prime number and its constituents are returned.
 TODO: learn python's reduce function to avoid writing stuff like sumArr.

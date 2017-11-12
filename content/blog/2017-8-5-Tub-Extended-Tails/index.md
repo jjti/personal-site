@@ -38,22 +38,22 @@ effect during an MD run is not ([English, 2015](https://www.ncbi.nlm.nih.gov/pub
 In an attempt to quantify the degree of "extension" by the tubulin C-termini, I
 took the dot product of the normalized EEF vector and the vector formed between
 the first and last CA of the C-termini. The results of this heuristic are below.
-Again, nothing seems noticably different until the field exceeds 20kV/cm, afterwhich
-there is a noticable increase in the degree of extension in the direction of the field.
+Again, nothing seems noticeably different until the field exceeds 20kV/cm, after which
+there is a noticeable increase in the degree of extension in the direction of the field.
 
 ##### ![Tail extension compared](3.png "Tail extension dot-product") Tail extension dot product
 
 Finally, one observation that has informed a future simulation, is the change in bend angle
 of the free-floating dimer. While most the runs saw the tubulin floating around 6 degrees,
 in keeping with the results observed by a PMF experiment by [Peng, 2014](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003464),
-the dimer exposed to 200kV/cm was noticably more linear, with a bend angle less than 4 degrees. When I have time
+the dimer exposed to 200kV/cm was more linear, with a bend angle less than 4 degrees. When I have time
 I'll follow up on this.
 
 ##### ![Intra-dimer bend angle](4.png "Tubulin bend angle") The bend angle, measured between centers of H7 alpha helicies as described in [Peng, 2014](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003464)
 
 
 ### Conclusion
-It is not suprising that EEFs can keep the tails extended since they are very
+It is not surprising that EEFs can keep the tails extended since they are very
 negatively charged (each with, at most, -9 unit charges). Their ultimate
 charge is determined by post-translational modifications, like [polyglutamylation and polyglycylation](http://www.sciencedirect.com/science/article/pii/S0960982214003248).
 An extension of this simulation, pun intended, would be to increase the padding and salinity

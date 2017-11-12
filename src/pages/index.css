@@ -151,6 +151,12 @@ a.button {
   }
 }
 
+.anchor {
+  margin-top: 4px;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
 .Container section ul li {
   font-weight: 600;
 }
