@@ -19,10 +19,6 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            // Everything in /static will be copied to an equivalent
-            // directory in /public during development and build, so
-            // assuming your favicons are in /static/favicons,
-            // you can reference them here
             src: `/static/favicon.icon`,
             sizes: `150x150`,
             type: `image/ico`

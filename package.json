@@ -13,6 +13,7 @@
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-sharp": "latest",
     "gatsby-remark-autolink-headers": "^1.4.8",
+    "gatsby-remark-copy-images": "^0.2.0",
     "gatsby-remark-copy-linked-files": "^1.5.8",
     "gatsby-remark-images": "latest",
     "gatsby-remark-prismjs": "^1.2.8",
@@ -24,14 +25,15 @@
     "image-size": "latest",
     "pngquant": "latest"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format":
-      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync": "node sync.js"
   },

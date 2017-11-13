@@ -26,7 +26,6 @@ export default class BlogPost extends React.Component {
           <footer
             className="blog-footer"
             key="blog-footer-body"
-            style={{ paddingBottom: "0" }}
           >
             {prev && (
               <div className="last-post">

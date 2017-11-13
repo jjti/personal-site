@@ -33,6 +33,7 @@
 .blog-footer {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 70px;
 }
 
 .next-post {

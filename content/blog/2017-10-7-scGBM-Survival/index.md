@@ -19,9 +19,7 @@ as will be discussed, lots of useful information is excluded.
 
 ### Methods
 
-Additional records were found through two sources: PubMed and Google Scholar. First, titles were screened for those that
-included some combination of "spinal" and "glioma" or "gliosarcoma" or "glioblastoma" in the title. More records were often found
-through the citations of records found through search engine derived records, and these were added (method called "hand-searching").
+Additional records were found through two sources: PubMed and Google Scholar. First, titles were screened for those that included some combination of "spinal" and "glioma" or "gliosarcoma" or "glioblastoma" in the title. Additional records were identified through the citations, and these were added as well (in a method called "hand-searching").
 
 ![Prisma diagram](1.png "prisma diagram")
 *A prisma diagram for the source of the imported records*
