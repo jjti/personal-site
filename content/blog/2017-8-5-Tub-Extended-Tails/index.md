@@ -37,4 +37,4 @@ Finally, one observation that has informed a future simulation, is the change in
 
 ### Conclusion
 
-It is not surprising that EEFs can keep the tails extended since they are very negatively charged (each with, at most, -9 unit charges). Their ultimate charge is determined by post-translational modifications, like [polyglutamylation and polyglycylation]http://www.sciencedirect.com/science/article/pii/S0960982214003248). An extension of this simulation, pun intended, would be to increase the padding and salinity to see whether the results are robust, even in the presence of strong dipole screening.
+It is not surprising that EEFs can keep the tails extended since they are very negatively charged (each with, at most, -9 unit charges). Their ultimate charge is determined by post-translational modifications, like [polyglutamylation and polyglycylation](http://www.sciencedirect.com/science/article/pii/S0960982214003248). An extension of this simulation, pun intended, would be to increase the padding and salinity to see whether the results are robust, even in the presence of strong dipole screening.

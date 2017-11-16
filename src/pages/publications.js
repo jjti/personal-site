@@ -148,7 +148,7 @@ export default class Publications extends Component {
 					<ul>
 						<li>
 							<p>
-								Timmons, J.J., Pyay, S., Bui, K., Lok, E., &
+								Timmons, J.J., San, P., Bui, K., Lok, E., &
 								Wong, E.T. (2017).{" "}
 								<strong>
 									Semi-automated MRI Segmentation Workflow for
@@ -160,7 +160,7 @@ export default class Publications extends Component {
 						</li>
 						<li>
 							<p>
-								San, P.P., Timmons, J.J., Lok, E., Swanson,
+								San, P., Timmons, J.J., Lok, E., Swanson,
 								K.D., & Wong, E.T. (2016).{" "}
 								<strong>
 									Analysis of Glioblastoma Physical

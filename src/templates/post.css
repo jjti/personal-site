@@ -1,3 +1,11 @@
+pre {
+  width: 100% !important;
+}
+
+blockquote {
+  font-style: italic;
+}
+
 .Post {
   max-width: 740px;
   margin: auto;
