@@ -54,7 +54,9 @@ export default class IndexPage extends React.Component {
                 </a>
               </li>
               <li>
-                <Link to="/publications" className="onHoverUnderline">Publications</Link>
+                <Link to="/publications" className="onHoverUnderline">
+                  Publications
+                </Link>
               </li>
             </ul>
           </div>
@@ -68,7 +70,9 @@ export default class IndexPage extends React.Component {
                   className={`${i > 2 ? "mobile-content-show" : null}`}
                   key={node.url}
                 >
-                  <Link to={node.url} className="onHoverUnderline">{node.frontmatter.title}</Link>
+                  <Link to={node.url} className="onHoverUnderline">
+                    {node.frontmatter.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -81,7 +85,9 @@ export default class IndexPage extends React.Component {
               {edges.slice(3, 6).map(({ node }) => (
                 <li key={`${node.url}_2`}>
                   {" "}
-                  <Link to={node.url} className="onHoverUnderline">{node.frontmatter.title} </Link>
+                  <Link to={node.url} className="onHoverUnderline">
+                    {node.frontmatter.title}{" "}
+                  </Link>
                 </li>
               ))}
             </ul>

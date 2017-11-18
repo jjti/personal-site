@@ -8,70 +8,68 @@ import SingleEntry from "../components/SingleEntry.jsx";
 import "./blog.css";
 
 export default class BlogIndex extends React.Component {
-	render() {
-		// Handle graphql errors
-		if (this.props.errors && this.props.errors.length) {
-			this.props.errors.forEach(({ message }) => {
-				console.error(`BlogIndex render errr: ${message}`);
-			});
-			return <h1>Errors found: Check the console for details</h1>;
-		}
+  render() {
+    // Handle graphql errors
+    if (this.props.errors && this.props.errors.length) {
+      this.props.errors.forEach(({ message }) => {
+        console.error(`BlogIndex render errr: ${message}`);
+      });
+      return <h1>Errors found: Check the console for details</h1>;
+    }
 
-		const edges = this.props.data.allMarkdownRemark.edges;
-		edges.sort((a, b) => {
-			const d1 = new Date(a.node.frontmatter.date).getTime();
-			const d2 = new Date(b.node.frontmatter.date).getTime();
-			return d2 - d1;
-		});
+    const edges = this.props.data.allMarkdownRemark.edges;
+    edges.sort((a, b) => {
+      const d1 = new Date(a.node.frontmatter.date).getTime();
+      const d2 = new Date(b.node.frontmatter.date).getTime();
+      return d2 - d1;
+    });
 
-		return (
-			<div>
-				<Header />
-				<div id="blog-container">
-					<h2>Blog</h2>
-					{edges.map(({ node }, i) => (
-						<SingleEntry
-							key={node.frontmatter.title}
-							title={node.frontmatter.title}
-							date={node.frontmatter.date}
-							snippet={node.excerpt}
-							href={node.url}
-							newTab={false}
-						/>
-					))}
-					<div style={{ height: "80px" }} />
-				</div>
-				<Footer
-					resolutions={
-						this.props.data.file.childImageSharp.resolutions
-					}
-				/>
-			</div>
-		);
-	}
+    return (
+      <div>
+        <Header />
+        <div id="blog-container">
+          <h2>Blog</h2>
+          {edges.map(({ node }, i) => (
+            <SingleEntry
+              key={node.frontmatter.title}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              snippet={node.excerpt}
+              href={node.url}
+              newTab={false}
+            />
+          ))}
+          <div style={{ height: "80px" }} />
+        </div>
+        <Footer
+          resolutions={this.props.data.file.childImageSharp.resolutions}
+        />
+      </div>
+    );
+  }
 }
 
 export const pageQuery = graphql`
-	query BlogIndexQuery {
-		allMarkdownRemark {
-			edges {
-				node {
-					frontmatter {
-						title
-						date
-					}
-					excerpt(pruneLength: 250)
-					url
-					html
-				}
-			}
-		}
-		file(relativePath: { eq: "components/face.png" }) {
-			childImageSharp {
-				resolutions(height: 205, width: 205) {
-					...GatsbyImageSharpResolutions_noBase64
-				}
-			}
-		}
-	}
+  query BlogIndexQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+          }
+          excerpt(pruneLength: 250)
+          url
+          html
+        }
+      }
+    }
+    file(relativePath: { eq: "components/face.png" }) {
+      childImageSharp {
+        resolutions(height: 205, width: 205) {
+          ...GatsbyImageSharpResolutions_noBase64
+        }
+      }
+    }
+  }
 `;

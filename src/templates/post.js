@@ -23,10 +23,7 @@ export default class BlogPost extends React.Component {
             className="blog-body"
           />
           <div className="footer-sep" />
-          <footer
-            className="blog-footer"
-            key="blog-footer-body"
-          >
+          <footer className="blog-footer" key="blog-footer-body">
             {prev && (
               <div className="footer-post last-post">
                 <h6 style={{ marginLeft: "auto" }}>Last</h6>

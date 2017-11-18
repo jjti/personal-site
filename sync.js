@@ -7,14 +7,14 @@ const buildDir = path.resolve("./public");
 console.log(buildDir);
 
 child_process.exec(
-	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete --metadata-directive REPLACE --cache-control max-age=604800,public`,
+	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete --cache-control max-age=604800,public`,
 	(error, stdout, stderr) => {
 		if (error) {
 			console.error(`exec error: ${error}`);
 			return;
 		} else if (stdout) {
 			child_process.exec(
-				`aws cloudfront create-invalidation --distribution-id E1MRNWEDPJJGK --paths /index.html`,
+				`aws cloudfront create-invalidation --distribution-id E1MRNWEDPJJGK --paths /index.html /404.html`,
 				(errorcf, stdoutcf, stderrcf) => {
 					console.log(`error-cf: ${error}`);
 					console.log(`stdout-cf: ${stdoutcf}`);
