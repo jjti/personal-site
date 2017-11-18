@@ -21,7 +21,7 @@ export default class Publications extends Component {
 						<li>
 							<p>
 								Ortiz, J., Carr, S.B., Pavan, M., McCarthy, L.,
-								<strong>Timmons, J.J.</strong>, & Densmore, D.M.
+								<strong> Timmons, J.J.</strong>, & Densmore, D.M.
 								(2017).{" "}
 								<strong>
 									Automated Robotic Liquid Handling Assembly

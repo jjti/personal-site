@@ -13,7 +13,7 @@ export default class BlogPost extends React.Component {
 
     return (
       <div>
-        <Header key="header" />,
+        <Header key="header" />
         <div className="Post">
           <div className="blog-header">
             <h1>{post.frontmatter.title}</h1>
@@ -22,24 +22,24 @@ export default class BlogPost extends React.Component {
             dangerouslySetInnerHTML={{ __html: post.html }}
             className="blog-body"
           />
-          <div style={{ height: "80px" }} />
+          <div className="footer-sep" />
           <footer
             className="blog-footer"
             key="blog-footer-body"
           >
             {prev && (
-              <div className="last-post">
+              <div className="footer-post last-post">
                 <h6 style={{ marginLeft: "auto" }}>Last</h6>
-                <Link to={prev.url}>
-                  <h3>{prev.frontmatter.title}</h3>
+                <Link to={prev.url} className="onHoverUnderline">
+                  {prev.frontmatter.title}
                 </Link>
               </div>
             )}
             {next && (
-              <div className="next-post">
+              <div className="footer-post next-post">
                 <h6>Next</h6>
-                <Link to={next.url}>
-                  <h3>{next.frontmatter.title}</h3>
+                <Link to={next.url} className="onHoverUnderline">
+                  {next.frontmatter.title}
                 </Link>
               </div>
             )}

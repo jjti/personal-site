@@ -4,12 +4,10 @@
   font-weight: 300;
 }
 
-div.single-entry h3:hover {
-  text-decoration: underline;
+.single-entry {
 }
 
-.single-entry {
-  max-width: 850px;
+.single-entry:hover {
 }
 
 .single-entry-header {
@@ -34,4 +32,5 @@ div.single-entry h3:hover {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-decoration: none;
   font-weight: 400;
+  margin-top: 5px;
 }

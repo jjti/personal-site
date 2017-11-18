@@ -9,7 +9,7 @@ export default props => {
 		<div>
 			<hr />
 			<footer>
-				<h2>About</h2>
+				<h3>About</h3>
 				<div className="footer-row">
 					<div id="footer-left">
 						<div>
@@ -32,6 +32,7 @@ export default props => {
 									<a
 										href="mailto:&#106;&#111;&#115;&#104;&#117;&#097;&#116;&#105;&#109;&#109;&#111;&#110;&#115;&#049;&#064;&#103;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;"
 										target="_top"
+										className="onHoverUnderline"
 									>
 										joshuatimmons1@gmail.com
 									</a>
@@ -42,6 +43,7 @@ export default props => {
 										href="https://www.linkedin.com/in/JJTimmons"
 										target="_blank"
 										rel="noopener noreferrer"
+										className="onHoverUnderline"
 									>
 										linkedin.com/in/JJTimmons
 									</a>
@@ -52,6 +54,7 @@ export default props => {
 										href="https://www.researchgate.net/profile/Joshua_Timmons"
 										target="_blank"
 										rel="noopener noreferrer"
+										className="onHoverUnderline"
 									>
 										researchgate.net/profile/Joshua_Timmons
 									</a>
@@ -62,6 +65,7 @@ export default props => {
 										href="https://github.com/JJTimmons"
 										target="_blank"
 										rel="noopener noreferrer"
+										className="onHoverUnderline"
 									>
 										github.com/JJTimmons
 									</a>

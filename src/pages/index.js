@@ -18,12 +18,12 @@ export default class IndexPage extends React.Component {
     edges = edges.slice(0, 6);
 
     return (
-      <div className="Container">
+      <div>
         <section>
           <header>joshua timmons</header>
         </section>
         <section>
-          <h2>Interests</h2>
+          <h3>Interests</h3>
           <div className="about-columns">
             <p>
               I enjoy working on projects that merge programming with biology. I
@@ -43,18 +43,18 @@ export default class IndexPage extends React.Component {
           </div>
         </section>
         <hr />
-        <h2 style={{ marginBottom: "45px" }}>Contents</h2>
+        <h3 style={{ marginBottom: "45px" }}>Contents</h3>
         <section id="contents">
           <div className="contents-col">
             <h6>FILES</h6>
             <ul style={{ marginLeft: 0 }}>
               <li>
-                <a target="_blank" href={CV}>
+                <a target="_blank" href={CV} className="onHoverUnderline">
                   CV
                 </a>
               </li>
               <li>
-                <Link to="/publications">Publications</Link>
+                <Link to="/publications" className="onHoverUnderline">Publications</Link>
               </li>
             </ul>
           </div>
@@ -68,7 +68,7 @@ export default class IndexPage extends React.Component {
                   className={`${i > 2 ? "mobile-content-show" : null}`}
                   key={node.url}
                 >
-                  <Link to={node.url}>{node.frontmatter.title}</Link>
+                  <Link to={node.url} className="onHoverUnderline">{node.frontmatter.title}</Link>
                 </li>
               ))}
             </ul>
@@ -81,7 +81,7 @@ export default class IndexPage extends React.Component {
               {edges.slice(3, 6).map(({ node }) => (
                 <li key={`${node.url}_2`}>
                   {" "}
-                  <Link to={node.url}>{node.frontmatter.title} </Link>
+                  <Link to={node.url} className="onHoverUnderline">{node.frontmatter.title} </Link>
                 </li>
               ))}
             </ul>

@@ -26,23 +26,26 @@
 .Header nav a {
   font-size: 18px;
   font-weight: 300;
-  padding-left: 45px;
-  border-bottom: none !important;
-  background: none !important;
-  box-shadow: none !important;
+  margin-left: 45px;
+  border-bottom: none;
+  background: none;
+  box-shadow: none;
 }
 
 .Header nav a:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid rgb(97, 179, 251);
+  box-shadow: inset 0 -1px 0px 0px rgb(97, 179, 251);
 }
 
 #back-button {
   margin: auto 0;
+  margin-left: -15px;
 }
 
 #back-button a {
   font-size: 24px;
   font-weight: 300;
+  padding: 15px;
   letter-spacing: 1px;
   border-bottom: none !important;
   background: none !important;
@@ -69,6 +72,7 @@
   .Header nav a {
     font-size: 15px;
     padding: 15px;
+    margin-left: 15px;
   }
 
   .Header-wrapper {
@@ -76,6 +80,6 @@
   }
 
   #back-button {
-    padding-left: 15px;
+    margin-left: 0;
   }
 }

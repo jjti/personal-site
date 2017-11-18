@@ -5,6 +5,8 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import SingleEntry from "../components/SingleEntry.jsx";
 
+import "./blog.css";
+
 export default class BlogIndex extends React.Component {
 	render() {
 		// Handle graphql errors
@@ -25,18 +27,20 @@ export default class BlogIndex extends React.Component {
 		return (
 			<div>
 				<Header />
-				<h2>Blog</h2>
-				{edges.map(({ node }, i) => (
-					<SingleEntry
-						key={node.frontmatter.title}
-						title={node.frontmatter.title}
-						date={node.frontmatter.date}
-						snippet={node.excerpt}
-						href={node.url}
-						newTab={false}
-					/>
-				))}
-				<div style={{ height: "80px" }} />
+				<div id="blog-container">
+					<h2>Blog</h2>
+					{edges.map(({ node }, i) => (
+						<SingleEntry
+							key={node.frontmatter.title}
+							title={node.frontmatter.title}
+							date={node.frontmatter.date}
+							snippet={node.excerpt}
+							href={node.url}
+							newTab={false}
+						/>
+					))}
+					<div style={{ height: "80px" }} />
+				</div>
 				<Footer
 					resolutions={
 						this.props.data.file.childImageSharp.resolutions

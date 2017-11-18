@@ -1,5 +1,5 @@
 pre {
-  width: 100% !important;
+  width: calc(100% - 30px) !important;
 }
 
 blockquote {
@@ -7,8 +7,7 @@ blockquote {
 }
 
 .Post {
-  max-width: 740px;
-  margin: auto;
+  max-width: 800px;
 }
 
 .blog-header {
@@ -44,49 +43,17 @@ blockquote {
   padding-bottom: 70px;
 }
 
+.footer-post {
+  width: 45%;
+}
+
+.footer-post a {
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .next-post {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-}
-
-.next-post h6 {
-  margin-left: auto !important;
-}
-
-.next-post a {
-  margin-left: auto;
-  box-shadow: none;
-  border-bottom: none;
-}
-
-.next-post a h3:hover {
-  background: rgba(187, 239, 253, 0.5);
-}
-
-.next-post a h3 {
-  width: fit-content;
-  margin-bottom: 0;
   text-align: right;
-}
-
-.last-post {
-  width: 45%;
-}
-
-.last-post a {
-  box-shadow: none;
-  border-bottom: none;
-}
-
-.last-post a h3 {
-  width: fit-content;
-  margin-bottom: 0;
-}
-
-.last-post a h3:hover {
-  background: rgba(187, 239, 253, 0.5);
 }
 
 .gatsby-highlight {
@@ -103,22 +70,34 @@ blockquote {
   font-size: calc(14px + 0.2vw);
 }
 
+.footer-sep {
+  height: 80px;
+}
+
 @media (max-width: 640px) {
   .blog-footer {
     flex-wrap: wrap;
   }
 
-  .next-post {
+  .footer-post {
     width: 100%;
-    margin-bottom: 30px;
   }
 
-  .last-post {
-    width: 100%;
+  .footer-post a {
+    font-size: 20px;
+  }
+
+  .next-post {
+    margin-top: 30px;
+    text-align: left;
   }
 
   .all-button {
     width: 40%;
+  }
+
+  .footer-sep {
+    height: 20px;
   }
 
   .gatsby-highlight pre code {
