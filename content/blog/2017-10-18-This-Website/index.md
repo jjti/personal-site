@@ -2,10 +2,11 @@
 title: This Website
 date: 10/18/2017
 ---
-I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website (optional)." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it were that 1) joshuatimmons.com was available and 2) I like the idea of having a repository for stuff that I work on.
+
+I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website (optional)." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it were that 1) [joshuatimmons.com](https://www.joshuatimmons.com/) was available and 2) I like the idea of having a repository for stuff that I work on.
 
 Right now, despite it having a "Blog" section, I'm planning to just use it to post results from my projects. Like a portfolio website for an arts major.
-Inotherwords,  I don't plan to rant about Trump in my free time.
+In other words,  I don't plan to rant about Trump in my free time.
 
 ### Needs
 
@@ -28,8 +29,6 @@ To me, the most interesting this about the S3 pipeline was using aws-cli for syn
 const child_process = require("child_process");
 const path = require("path");
 const buildDir = path.resolve("./public");
-
-console.log(buildDir);
 
 child_process.exec(
 	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete`,
@@ -75,19 +74,15 @@ These findings led to my second mistake making this website: Googling "react rou
 }
 ```
 
-The library is also "powered by GraphQL," which felt like overkill to me, since my only data-source was going to be these markdown posts and their linked images, but I also use GraphQL at work so it wasn't too much of
-a turn-off. Finally, the Gatsby allows for use of stateful React Components, which I thought might be interesting (fantasy football draft optimizer or plasmid map viewer, etc).
+The library is also "powered by GraphQL," which felt like overkill to me, since my only data-source was going to be these markdown posts and their linked images, but I also use GraphQL at work so it wasn't too much of a turn-off. Finally, the Gatsby allows for use of stateful React Components, which I thought might be interesting (fantasy football draft optimizer or plasmid map viewer, etc).
 
 ### Rebuild in GatsbyJS
 
-Moving from React-Create-App (definitely not React-Create-Website in retrospect) was straightforward given the number of guides on setting up a blog with the library. This was a particularly helpful post:
-[Creating a Blog with Gatsby](https://www.gatsbyjs.org/blog/2017-07-19-creating-a-blog-with-gatsby/).
-I'm happy to say that I got the main two things I was looking for: posts in markdown with copied/optimized images and better overall performance results from "server-rendered" pages. I'm now hovering around 98 though Google audit. My last steps will be to gzip everything (or get CloudFront to do it) and fix the S3 object cache headers. Finally, given the 20+ hours I spent working on the site, we'll see how many posts I actually create.
-My guess is 2 more.
+Moving from React-Create-App (definitely not React-Create-Website in retrospect) was straightforward given the number of guides on setting up a blog with the library. This was a particularly helpful post: [Creating a Blog with Gatsby](https://www.gatsbyjs.org/blog/2017-07-19-creating-a-blog-with-gatsby/). I'm happy to say that I got the main two things I was looking for: posts in markdown with copied/optimized images and better overall performance results from "server-rendered" pages. I'm now hovering around 98 though Google audit. My last steps will be to gzip everything (or get CloudFront to do it) and fix the S3 object cache headers. Finally, given the 20+ hours I've spent making the site, we'll see how many posts I actually create. My guess is 2 more.
 
 ### Updates
 
-Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync. In otherwords, the ability to immediately update the site when I push changes. The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant, but I did not want to pay $99 for some Windows software. An open issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920). I now invalidate the index file after a sync:
+Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync. In otherwords, the ability to immediately update the site when I push changes. The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant, but I did not want to pay $99 for some Windows software. A closed issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920). I now invalidate the index file after a sync:
 
 ```javascript
 child_process.exec(
