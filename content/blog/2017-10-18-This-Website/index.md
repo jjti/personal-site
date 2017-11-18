@@ -79,20 +79,24 @@ The library is also "powered by GraphQL," which felt like overkill to me, since 
 
 Moving from React-Create-App (definitely not React-Create-Website in retrospect) was straightforward given the number of guides on setting up a blog with the library. This was a particularly helpful post: [Creating a Blog with Gatsby](https://www.gatsbyjs.org/blog/2017-07-19-creating-a-blog-with-gatsby/). I'm happy to say that I got the main two things I was looking for: posts in markdown with copied/optimized images and better overall performance results from "server-rendered" pages. I'm now hovering around 98 though Google audit. My last steps will be to gzip everything (or get CloudFront to do it) and fix the S3 object cache headers. Finally, given the 20+ hours I've spent making the site, we'll see how many posts I actually create. My guess is 2 more.
 
-### Updates
+### Update on Deploy
 
-Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync. In otherwords, the ability to immediately update the site when I push changes. The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant, but I did not want to pay $99 for some Windows software. A closed issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920). I now invalidate the index file after a sync:
+Turns out that aws-cli has its shortfalls. For me, it was the inability to invalidate the CloudFront cache post S3 sync. In otherwords, the ability to immediately update the site when I push changes. The solution is relatively straightforward with S3cmd, with the flag "--cf-invalidate," and its Windows equivelant, but I did not want to pay $99 for some Windows software. A closed issue on this feature, or lack thereof, is [here](https://github.com/aws/aws-cli/issues/920). I now invalidate the entire S3 bucket in Cloudfront after a sync using the path "/*". I was concerned about doing it this way until I saw the following on [the AWS blog](https://aws.amazon.com/blogs/aws/simplified-multiple-object-invalidation-for-amazon-cloudfront/):
+
+>An invalidation path that includes the “*” character incurs the same charge as one that does not. You pay for one invalidation path, even if the path matches hundreds or thousands of objects.
+
+With the following, I see changes almost immediately after syncing. Although my deploy pipeline differs significantly, [this is a very useful guide](https://stormpath.com/blog/ultimate-guide-deploying-static-site-aws) for setting up a static website with AWS S3 and Cloudfront.
 
 ```javascript
 child_process.exec(
-	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --delete`,
+	`aws s3 sync ${buildDir} s3://www.joshuatimmons.com --acl public-read --sse --delete --cache-control max-age=604800,public`,
 	(error, stdout, stderr) => {
 		if (error) {
 			console.error(`exec error: ${error}`);
 			return;
 		} else if (stdout) {
 			child_process.exec(
-				`aws cloudfront create-invalidation --distribution-id XXXXXXXXXXXXX --paths /index.html`,
+				`aws cloudfront create-invalidation --distribution-id XXXXXXXXXXXXX --paths /*`,
 				(errorcf, stdoutcf, stderrcf) => {
 					console.log(`error-cf: ${error}`);
 					console.log(`stdout-cf: ${stdoutcf}`);
