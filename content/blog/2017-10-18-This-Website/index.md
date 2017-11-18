@@ -5,8 +5,9 @@ date: 10/18/2017
 
 I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website (optional)." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it were that 1) [joshuatimmons.com](https://www.joshuatimmons.com/) was available and 2) I like the idea of having a repository for stuff that I work on.
 
-Right now, despite it having a "Blog" section, I'm planning to just use it to post results from my projects. Like a portfolio website for an arts major.
-In other words,  I don't plan to rant about Trump in my free time.
+Right now, despite it having a "Blog" section, I'm planning to just use it to post results from my projects. Like a portfolio website for an arts major. In other words,  I don't plan to rant about Trump in my free time.
+
+Repository: [github.com/JJTimmons/personal-site](https://github.com/JJTimmons/personal-site)
 
 ### Needs
 
@@ -16,9 +17,7 @@ All the pages/routes I was initially planning on having were: Home/About/Contact
 
 ### React-Create-App
 
-Instead, I forked React-Create-App and started to write. I made two mistakes in making this site and my first was thinking that it might also be cool to have a blog section. That led to wondering how to import markdown into Webpack. Solutions have already been made for this
-([markdown-loader](https://www.npmjs.com/package/markdown-loader)), but the pain was associating meta with each post. Then I found out about YAML and frontmatter, solutions for this exact, non-original problem. So I looked at [markdown-with-frontmatter-loader](https://github.com/matthewwithanm/markdown-with-front-matter-loader).
-That worked well until I tried to embed an image in the post. The image uri wasn't persisting to post-build. In hind-sight there's probably some existing "copy-links" transformer that does this in Webpack, but I decided instead to have each post be a jsx module that exports the meta as fields on the object. The index.js would then load each .jsx subFile and sort on the date field. This worked so I posted it to an S3 bucket.
+Instead, I forked React-Create-App and started to write. I made two mistakes in making this site and my first was thinking that it might also be cool to have a blog section. That led to wondering how to import markdown into Webpack. Solutions have already been made for this ([markdown-loader](https://www.npmjs.com/package/markdown-loader)), but the pain was associating meta with each post. Then I found out about YAML and frontmatter, solutions for this exact, non-original problem. So I looked at [markdown-with-frontmatter-loader](https://github.com/matthewwithanm/markdown-with-front-matter-loader). That worked well until I tried to embed an image in the post. The image uri wasn't persisting to post-build. In hind-sight there's probably some existing "copy-links" transformer that does this in Webpack, but I decided instead to have each post be a jsx module that exports the meta as fields on the object. The index.js would then load each .jsx subFile and sort on the date field. This worked so I posted it to an S3 bucket.
 
 To me, the most interesting this about the S3 pipeline was using aws-cli for syncing. My sync file is, in its entirety, the following:
 
