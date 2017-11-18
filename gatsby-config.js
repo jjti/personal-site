@@ -55,6 +55,7 @@ module.exports = {
         plugins: [
           `gatsby-remark-smartypants`,
           "gatsby-remark-copy-linked-files",
+          "gatsby-remark-external-links",
           {
             resolve: `gatsby-remark-images`,
             options: {

@@ -15,6 +15,7 @@
     "gatsby-remark-autolink-headers": "latest",
     "gatsby-remark-copy-images": "latest",
     "gatsby-remark-copy-linked-files": "latest",
+    "gatsby-remark-external-links": "latest",
     "gatsby-remark-images": "latest",
     "gatsby-remark-prismjs": "latest",
     "gatsby-remark-responsive-image": "latest",
