@@ -1,5 +1,5 @@
 {
-  "name": "jjtimmonssite",
+  "name": "jjtimmons_personal",
   "version": "1.0.0",
   "author": "Joshua Timmons <joshua.timmons1@gmail.com>",
   "dependencies": {
@@ -27,9 +27,7 @@
     "image-size": "latest",
     "pngquant": "latest"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby", "blog", "personal"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {

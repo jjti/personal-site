@@ -61,9 +61,7 @@ export default class IndexPage extends React.Component {
             </ul>
           </div>
           <div className="contents-col">
-            <Link to="/blog">
-              <h6>BLOG</h6>
-            </Link>
+            <h6>BLOG</h6>
             <ul style={{ marginLeft: 0 }}>
               {edges.map(({ node }, i) => (
                 <li
@@ -76,8 +74,6 @@ export default class IndexPage extends React.Component {
                 </li>
               ))}
             </ul>
-
-            <ul />
           </div>
           <div className="contents-col mobile-content-hide">
             <br />
