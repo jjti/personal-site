@@ -4,12 +4,6 @@
   font-weight: 300;
 }
 
-.single-entry {
-}
-
-.single-entry:hover {
-}
-
 .single-entry-header {
   display: flex;
   align-items: baseline;
