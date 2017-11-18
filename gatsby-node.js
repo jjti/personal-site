@@ -80,7 +80,7 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 
 exports.onPostBuild = pages => {
   const publicPath = path.join(__dirname, "public");
-  const gzippable = glob.sync(`${publicPath}/**/?(*.html|*.js|*.css|*.ico)`);
+  const gzippable = glob.sync(`${publicPath}/**/?(*.html|*.js|*.css|*.ico|*.pdf)`);
   gzippable.forEach(file => {
     const content = fs.readFileSync(file);
     const zipped = zlib.gzipSync(content);

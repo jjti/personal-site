@@ -15,6 +15,7 @@ child_process.exec(
       console.error(`exec error: ${error}`);
       return;
     } else if (stdout) {
+      console.log(`stdout: ${stdout}`);
       child_process.exec(
         `aws cloudfront create-invalidation --distribution-id E1MRNWEDPJJGK --paths "/*"`,
         (errorcf, stdoutcf, stderrcf) => {
