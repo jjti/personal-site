@@ -117,4 +117,4 @@ The heat map above was, in my opinion, sufficient, but my lab deemed the colorin
 
 ![Example MRIcron output 2](5.png)
 
-Image analysis is another matter entirely, but I've found that using [the toolbox by Johnny Shen](https://www.mathworks.com/matlabcentral/fileexchange/8797-tools-for-nifti-and-analyze-image) and a basic summation of the lesion probability map works for some basic analysis.
+Image analysis is another matter entirely, but I've found that using [the toolbox by Johnny Shen](https://www.mathworks.com/matlabcentral/fileexchange/8797-tools-for-nifti-and-analyze-image) and a summation of the lesion probability map works for some basic analysis.
