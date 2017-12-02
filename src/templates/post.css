@@ -4,6 +4,9 @@ pre {
 
 blockquote {
   font-style: italic;
+  border-left: 3px solid rgb(97, 179, 251);
+  padding-left: 10px;
+  margin-left: 20px;
 }
 
 .Post {
@@ -32,8 +35,6 @@ blockquote {
 }
 
 .blog-body ul li {
-  font-size: calc(16px + 0.2vw);
-  line-height: 1.7;
   max-width: calc(750px - 5%);
 }
 
@@ -79,6 +80,10 @@ blockquote {
     flex-wrap: wrap;
   }
 
+  .blog-body p em {
+    font-size: calc(12.5px + 0.2vw);
+  }
+
   .footer-post {
     width: 100%;
   }
@@ -101,7 +106,8 @@ blockquote {
   }
 
   .gatsby-highlight pre code {
-    font-size: 13px !important;
+    font-size: 9px !important;
     padding: 0 !important;
+    line-height: 0;
   }
 }
