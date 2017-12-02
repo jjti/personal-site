@@ -28,7 +28,7 @@ export default class BlogIndex extends React.Component {
       <div>
         <Header />
         <div id="blog-container">
-          <h2>Blog</h2>
+          <h1>Blog</h1>
           {edges.map(({ node }, i) => (
             <SingleEntry
               key={node.frontmatter.title}

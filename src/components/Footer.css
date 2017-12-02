@@ -4,13 +4,7 @@
 }
 
 #footer-social-list li {
-  font-size: 17px;
   margin: 8px 0;
-}
-
-#footer-social-list li a {
-  font-size: 17px;
-  color: #202020;
 }
 
 .footer-row {
@@ -37,14 +31,6 @@
 }
 
 @media (max-width: 640px) {
-  #footer-social-list li {
-    font-size: 13px;
-  }
-
-  #footer-social-list li a {
-    font-size: 14px;
-  }
-
   .footer-row {
     display: block;
   }

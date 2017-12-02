@@ -28,7 +28,7 @@ ul {
 }
 
 li {
-  font-size: 20px;
+  font-size: calc(16px + 0.2vw);
   line-height: 26px;
   margin-bottom: 24px;
 }
@@ -51,7 +51,7 @@ footer {
 }
 
 hr {
-  border-top: 1px solid rgb(32, 32, 32);
+  border-top: 1px solid rgb(222, 222, 222);
   margin-bottom: 3px;
   margin-right: auto;
   display: inline-block;
@@ -62,7 +62,7 @@ h1 {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 15px;
-  margin-top: 0px;
+  margin-top: 20px;
   color: rgb(40, 44, 52);
 }
 
@@ -125,8 +125,13 @@ a.button {
 }
 
 @media (max-width: 640px) {
-  h1 {
+  header {
     font-size: 40px;
+    padding: 40px 0;
+  }
+
+  h1 {
+    font-size: 35px;
   }
 
   h2 {
@@ -138,8 +143,8 @@ a.button {
     font-size: 18px;
   }
 
-  li {
-    font-size: 16px !important;
+  h6 {
+    font-size: 13px;
   }
 
   section {
@@ -147,10 +152,18 @@ a.button {
   }
 
   p {
-    font-size: 15px;
+    font-size: calc(12.5px + 0.2vw);
+  }
+
+  li {
+    font-size: calc(12.5px + 0.2vw);
   }
 
   img {
     max-width: 100%;
+  }
+
+  .root-container {
+    padding: 0;
   }
 }

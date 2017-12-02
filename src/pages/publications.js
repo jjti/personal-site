@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 
+import JoVE2017 from "../files/2017-JoVE.pdf";
 import PBM2017 from "../files/2017-PBM.pdf";
 import Cabo2017 from "../files/2017-cabo.pdf";
 import mTMZ2016 from "../files/2016-mTMZ.pdf";
@@ -15,9 +16,9 @@ export default class Publications extends Component {
       <div>
         <Header />
         <section style={{ paddingBottom: "0" }}>
-          <h2>Publications</h2>
-          <h3>2017</h3>
-          <ul>
+          <h1>Publications</h1>
+          <h6>2017</h6>
+          <ul className="plain-list">
             <li>
               <p>
                 Ortiz, J., Carr, S.B., Pavan, M., McCarthy, L.,
@@ -26,7 +27,10 @@ export default class Publications extends Component {
                   Automated Robotic Liquid Handling Assembly of Modular DNA
                   Devices.
                 </strong>{" "}
-                Accepted to <i>JoVE</i>
+                <i>Journal of Visualized Experiments.</i>{" "}
+                <a target="_blank" rel="noopener" href={JoVE2017}>
+                  [pdf]
+                </a>
               </p>
             </li>
             <li>
@@ -63,8 +67,8 @@ export default class Publications extends Component {
               </p>
             </li>
           </ul>
-          <h3>2016</h3>
-          <ul>
+          <h6>2016</h6>
+          <ul className="plain-list">
             <li>
               <p>
                 Wong, E.T., <strong>Timmons, J.J.</strong>, Callahan, A.,
@@ -102,7 +106,7 @@ export default class Publications extends Component {
                   Injection of Syngeneic Murine Melanoma Cells to Determine
                   Their Metastatic Potential in the Lungs.
                 </strong>{" "}
-                <i>JoVE.</i>{" "}
+                <i>Journal of Visualized Experiments.</i>{" "}
                 <a target="_blank" rel="noopener" href={B162016}>
                   [pdf]
                 </a>
@@ -111,8 +115,8 @@ export default class Publications extends Component {
           </ul>
         </section>
         <section>
-          <h2>Posters</h2>
-          <ul>
+          <h1>Posters</h1>
+          <ul className="plain-list">
             <li>
               <p>
                 Timmons, J.J., San, P., Bui, K., Lok, E., & Wong, E.T. (2017).{" "}
