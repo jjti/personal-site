@@ -102,6 +102,7 @@
 
   .about-columns p {
     width: 100%;
+    padding-right: 0;
   }
 
   .app-button {

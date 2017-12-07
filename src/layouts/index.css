@@ -6,6 +6,7 @@ body {
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 a {
@@ -52,6 +53,9 @@ footer {
 
 hr {
   border-top: 1px solid rgb(222, 222, 222);
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
   margin-bottom: 3px;
   margin-right: auto;
   display: inline-block;
@@ -152,11 +156,11 @@ a.button {
   }
 
   p {
-    font-size: calc(12.5px + 0.2vw);
+    font-size: calc(13px + 0.2vw);
   }
 
   li {
-    font-size: calc(12.5px + 0.2vw);
+    font-size: calc(13px + 0.2vw);
   }
 
   img {
