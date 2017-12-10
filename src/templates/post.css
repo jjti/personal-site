@@ -4,9 +4,22 @@ pre {
 
 blockquote {
   font-style: italic;
-  border-left: 3px solid rgb(97, 179, 251);
-  padding-left: 10px;
-  margin-left: 20px;
+  border-left: 3px solid #333;
+  padding-left: 15px;
+  margin-left: -15px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote::before {
+  content: open-quote;
+}
+
+blockquote::after {
+  content: close-quote;
+}
+
+blockquote p {
+  display: inline;
 }
 
 .Post {

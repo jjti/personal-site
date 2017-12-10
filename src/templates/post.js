@@ -26,7 +26,9 @@ export default class BlogPost extends React.Component {
           <footer className="blog-footer" key="blog-footer-body">
             {prev && (
               <div className="footer-post last-post">
-                <h6 style={{ marginLeft: "auto" }}>Last</h6>
+                <h6 style={{ marginLeft: "auto" }} className="lightGrayColor">
+                  Last
+                </h6>
                 <Link to={prev.url} className="onHoverUnderline">
                   {prev.frontmatter.title}
                 </Link>
@@ -34,7 +36,7 @@ export default class BlogPost extends React.Component {
             )}
             {next && (
               <div className="footer-post next-post">
-                <h6>Next</h6>
+                <h6 className="lightGrayColor">Next</h6>
                 <Link to={next.url} className="onHoverUnderline">
                   {next.frontmatter.title}
                 </Link>

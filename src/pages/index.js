@@ -46,7 +46,7 @@ export default class IndexPage extends React.Component {
         <h3 style={{ marginBottom: "45px" }}>Contents</h3>
         <section id="contents">
           <div className="contents-col">
-            <h6>FILES</h6>
+            <h6 className="lightGrayColor">FILES</h6>
             <ul style={{ marginLeft: 0 }}>
               <li>
                 <a target="_blank" href={CV} className="onHoverUnderline">
@@ -61,7 +61,7 @@ export default class IndexPage extends React.Component {
             </ul>
           </div>
           <div className="contents-col">
-            <h6>BLOG</h6>
+            <h6 className="lightGrayColor">BLOG</h6>
             <ul style={{ marginLeft: 0 }}>
               {edges.map(({ node }, i) => (
                 <li
