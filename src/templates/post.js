@@ -17,6 +17,7 @@ export default class BlogPost extends React.Component {
         <div className="Post">
           <div className="blog-header">
             <h1>{post.frontmatter.title}</h1>
+            <h6 className="date lightGrayColor">{post.frontmatter.date}</h6>
           </div>
           <div
             dangerouslySetInnerHTML={{ __html: post.html }}
