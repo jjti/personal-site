@@ -3,6 +3,10 @@ title: Deploying a Golang Server to EC2
 date: 12/17/2017
 ---
 
+I'm building a demo application right now for a protein data base (PDB) file comparison website. Truthfully, I'm not discontent with [RCSB](https://www.rcsb.org/pdb/home/home.do), but I went looking for a project where I could use Golang's concurrency. A search website was ideal since each query against the server necessitates numerous fetches to multiple external API's. With the basics of the application, it's time to the front-end code to a public URL and move the API off my laptop.**This post is about getting the Golang server of the application to the cloud.**
+
+Repo: [https://github.com/JJTimmons/goPDB](https://github.com/JJTimmons/goPDB)
+
 ### Setup and Initial Connection
 
 The first step to deploying a server on an AWS EC2 instance is to choose an ["Amazon Machine Image" (AMI)](https://en.wikipedia.org/wiki/Amazon_Machine_Image) (a virtual machine). A new instance can be created through the AWS EC2 service at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2/), imaged below.
@@ -10,7 +14,7 @@ The first step to deploying a server on an AWS EC2 instance is to choose an ["Am
 ![AMI choice page](1.jpg)
 *The AMI selection page*
 
-The pem file at the end of the setup is *key* because you need it to login to the instance. The docs specify the following command for connecting to an EC2 instance remotely with the pem key as authentication:
+The pem file at the end of the setup is key because you need it to login to the instance. The docs specify the following command for connecting to an EC2 instance remotely with the pem key as authentication:
 
 ```bash
 ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
