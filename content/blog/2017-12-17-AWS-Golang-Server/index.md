@@ -34,9 +34,7 @@ At this point it should be possible to login without a "-i [PEM FILE NAME]" flag
 
 ### Adding a Port
 
-Head now to security settings which is on the left side of EC2 management console (and beneath "NETWORK & SECURITY"). There, identify the security group used on the lazy deployed instance and, under the "Outbound" tab at the bottom of the page, add a Custom TCP Rule for Inbound and Outbound traffic on port 3000:
-
-![Security Group Change](3.jpg)
+Head now to security settings which is on the left side of EC2 management console (and beneath "NETWORK & SECURITY"). There, identify the security group used on the lazy deployed instance and, under the "Outbound" tab at the bottom of the page, add a Custom TCP Rule for Inbound and Outbound traffic on port 3000.
 
 ### Installing and Configuring Golang
 
