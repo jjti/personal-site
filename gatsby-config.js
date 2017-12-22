@@ -39,7 +39,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts", // Name this source
-        path: path.resolve("./content") // Tell it where to find the files
+        path: path.resolve("./content/blog") // Tell it where to find the files
       }
     },
     {
