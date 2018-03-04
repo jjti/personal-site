@@ -1,3 +1,1 @@
-A personal site build with GatsbyJS
-
-Lives at [www.joshuatimmons.com](www.joshuatimmons.com)
+A personal site built with GatsbyJS. Lives at [https://www.joshuatimmons.com](https://www.joshuatimmons.com)
