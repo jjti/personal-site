@@ -1,1 +1,3 @@
-personal site build with GatsbyJS, a react/GraphQL static site generator
+A personal site build with GatsbyJS
+
+Lives at [www.joshuatimmons.com/](www.joshuatimmons.com/)
