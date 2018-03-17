@@ -61,8 +61,13 @@ blockquote p {
   width: 45%;
 }
 
-.footer-post a {
-  font-size: 24px;
+.footer-post > h6 {
+  text-transform: none;
+  letter-spacing: inherit;
+}
+
+.footer-post > a {
+  font-size: 17px;
   font-weight: 700;
 }
 

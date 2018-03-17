@@ -3,7 +3,7 @@ import Link from "gatsby-link";
 
 import "./SingleEntry.css";
 
-const SingleEntry = ({ title, date, snippet, href, newTab = true }) => {
+export default ({ title, date, snippet, href, newTab = true }) => {
   return (
     <div className="single-entry">
       <br />
@@ -20,5 +20,3 @@ const SingleEntry = ({ title, date, snippet, href, newTab = true }) => {
     </div>
   );
 };
-
-export default SingleEntry;

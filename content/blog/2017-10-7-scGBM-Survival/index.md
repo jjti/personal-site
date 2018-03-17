@@ -3,6 +3,8 @@ title: Spinal Cord GBM Survival Analysis
 date: 7/27/2017
 ---
 
+Publication is available at [Ovid](https://insights.ovid.com/pubmed?pmid=29528867) or [here](../../../src/files/2018-AJCO.pdf).
+
 In my research group at BIDMC, there was a half-finished literature review of spinal cord Glioblastoma multiforme (scGBM). To finish the review I added recent scGBM patient records and carried out a survival analysis, which was all new to me. The idea is to look at all major treatments and fixed patient characteristics across the total population and find those that correlate with improved outcomes.
 
 The value of a review like this is two-fold. First, notable correlations that are robust, like the necessity of radiation (if it correlates with treatment outcomes), is useful information. Second, reviews like it are a useful repository for future investigations of the disease. Given the rarity of scGBM, it's unlikely there will ever be a clinical trial.
@@ -40,6 +42,6 @@ The female sex was very negatively correlated with overall survival, but nothing
 
 ### Conclusions
 
-While the reivew was interesting, and learning about the cox proportional hazards model and survival analysis was enjoyable, the dataset was unfortunately lacking. It's suprising that more information isn't reguarly collected, and it's hard to image a significant improvment in understanding for this disease so long as the minimum information is reported in case reports.
+While learning about the cox proportional hazards model and survival analysis was enjoyable, the dataset was unfortunately lacking. It's suprising that more information isn't reguarly collected, and it's hard to image a significant improvment in understanding for this disease so long as the minimum information is reported in case reports.
 
 One solution would be to require, on submission of a case report to a medical journal, a checklist of information. The checklist would include detailed information, such as time between diagnosis and each treatment administed, so time-dependent CPH models could be generated. It's suprising this is not already a standard requirement, but, even in the case reports post-2015, there was consistently inadequate information. Second, a centralized database could be put in place. This seems less likely for the probably valid concern of patient privacy.
