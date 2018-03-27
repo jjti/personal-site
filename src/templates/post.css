@@ -61,16 +61,12 @@ blockquote p {
   width: 45%;
 }
 
-.footer-post > h6 {
-  font-size: calc(16px + 0.2vw);
-  line-height: 1.7;
-  text-transform: none;
+.footer-post > h5 {
   letter-spacing: inherit;
+  margin-bottom: 15px;
 }
 
 .footer-post > a {
-  font-size: calc(16px + 0.2vw);
-  line-height: 1.7;
   font-weight: 700;
 }
 

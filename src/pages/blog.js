@@ -5,8 +5,6 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import SingleEntry from "../components/SingleEntry.jsx";
 
-import "./blog.css";
-
 export default class BlogIndex extends React.Component {
   render() {
     // Handle graphql errors
@@ -27,7 +25,7 @@ export default class BlogIndex extends React.Component {
     return (
       <div>
         <Header />
-        <div id="blog-container">
+        <div id="blog-container" style={{ maxWidth: 800 }}>
           <h1>Blog</h1>
           {edges.map(({ node }, i) => (
             <SingleEntry

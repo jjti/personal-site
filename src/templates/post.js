@@ -12,7 +12,7 @@ export default ({
   <div>
     <Header key="header" />
     <div className="Post">
-      <div className="blog-header">
+      <div className="blog-header san-serif">
         <h1>{post.frontmatter.title}</h1>
         <h6 className="date lightGrayColor">{post.frontmatter.date}</h6>
       </div>
@@ -21,12 +21,12 @@ export default ({
         className="blog-body"
       />
       <div className="footer-sep" />
-      <footer className="blog-footer" key="blog-footer-body">
+      <footer className="blog-footer san-serif" key="blog-footer-body">
         {prev && (
           <div className="footer-post last-post">
-            <h6 style={{ marginLeft: "auto" }} className="lightGrayColor">
+            <h5 style={{ marginLeft: "auto" }} className="lightGrayColor">
               Last
-            </h6>
+            </h5>
             <Link to={`/${prev.url}`} className="onHoverUnderline">
               {prev.frontmatter.title}
             </Link>
@@ -34,7 +34,7 @@ export default ({
         )}
         {next && (
           <div className="footer-post next-post">
-            <h6 className="lightGrayColor">Next</h6>
+            <h5 className="lightGrayColor">Next</h5>
             <Link to={`/${next.url}`} className="onHoverUnderline">
               {next.frontmatter.title}
             </Link>

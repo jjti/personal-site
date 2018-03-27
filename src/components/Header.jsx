@@ -7,7 +7,7 @@ export default class Header extends Component {
   render() {
     return (
       <div className="Header-wrapper">
-        <div className="Header">
+        <div className="Header san-serif">
           <p id="back-button">
             <Link to="/" className="lightGrayColor">
               joshua timmons

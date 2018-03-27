@@ -42,7 +42,6 @@ export default class IndexPage extends React.Component {
             </p>
           </div>
         </section>
-        <hr />
         <h3 style={{ marginBottom: "45px" }}>Contents</h3>
         <section id="contents">
           <div className="contents-col">
@@ -60,7 +59,7 @@ export default class IndexPage extends React.Component {
               </li>
             </ul>
           </div>
-          <div className="contents-col">
+          <div className="contents-col contents-col-large">
             <h6 className="lightGrayColor">BLOG</h6>
             <ul style={{ marginLeft: 0 }}>
               {edges.map(({ node }, i) => (
@@ -75,7 +74,7 @@ export default class IndexPage extends React.Component {
               ))}
             </ul>
           </div>
-          <div className="contents-col mobile-content-hide">
+          <div className="contents-col contents-col-large mobile-content-hide">
             <br />
             <ul>
               {edges.slice(3, 6).map(({ node }) => (

@@ -4,7 +4,7 @@
 }
 
 .Header {
-  width: calc(100% - 50px);
+  width: 100%;
   max-width: 960px;
   box-sizing: border-box;
   height: 150px;
@@ -19,7 +19,7 @@
 }
 
 .Header nav a {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   margin-left: 45px;
   border-bottom: none;
@@ -59,11 +59,11 @@
   }
 
   .Header p a {
-    font-size: 15px !important;
+    font-size: 18px !important;
   }
 
   .Header nav a {
-    font-size: 13px;
+    font-size: 16px;
     margin-left: 0;
     padding: 0 10px;
   }

@@ -66,7 +66,11 @@
 }
 
 .contents-col {
-  width: 33%;
+  width: 20%;
+}
+
+.contents-col-large {
+  width: 40%;
 }
 
 .contents-col ul {
