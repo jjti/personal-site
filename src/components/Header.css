@@ -50,8 +50,8 @@
 @media (max-width: 850px) {
   .Header {
     max-height: 50px !important;
-    width: 100vw !important;
-    left: 0;
+    width: calc(100vw - 40px) !important;
+    padding: 0;
   }
 
   .Header p {
@@ -59,13 +59,17 @@
   }
 
   .Header p a {
-    font-size: 18px !important;
+    font-size: 16px !important;
+  }
+
+  .Header nav {
+    margin: auto;
   }
 
   .Header nav a {
-    font-size: 16px;
+    font-size: 15px;
     margin-left: 0;
-    padding: 0 10px;
+    padding: 5px;
   }
 
   .Header-wrapper {
