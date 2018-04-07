@@ -3,7 +3,7 @@ title: This Website
 date: 10/18/2017
 ---
 
-I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website (optional)." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it were that 1) [joshuatimmons.com](https://www.joshuatimmons.com/) was available and 2) I like the idea of having a repository for stuff that I work on.
+I decided to make this site after starting grad applications. All of them had some field saying something like "Link to personal website." I did not make this just because of those input fields, but it was the impetus. Other reasons for making it were that 1) [joshuatimmons.com](https://www.joshuatimmons.com/) was available and 2) I like the idea of having a repository for stuff that I work on.
 
 Right now, despite it having a "Blog" section, I'm planning to just use it to post results from my projects. Like a portfolio website for an arts major. In other words, I don't plan to rant about Trump in my free time.
 
@@ -11,9 +11,7 @@ Repository: [github.com/JJTimmons/personal-site](https://github.com/JJTimmons/pe
 
 ### Needs
 
-All I needed was a static website that I could easily add content to. So what I should have done was another Wordpress or Wix site, but I program with React/Node at work and didn't feel like going back to Wordpress with all its PHP hooks (I'm 2 years out of date on Wordpress' tech stack, so they might have moved on by now).
-
-All the pages/routes I was initially planning on having were: Home/About/Contact and Publications/Posters/Talks/Resume. In hindsight, I should have just gone with that.
+All I needed was a static website that I could easily add content to. So what I should have done was another Wordpress or Wix site, but I program with React/Node at work and didn't feel like going back to Wordpress with all its garbage PHP hooks. All the pages/routes I was initially planning on having were: Home and CV. In hindsight, I should have just gone with that.
 
 ### React-Create-App
 
@@ -41,7 +39,7 @@ child_process.exec(
 
 ### Performance
 
-I wasn't happy about the performance with this solution. It being React, the routes were being rendered client-side with javascript on an empty index.html. And none of the images were optimized; in a few cases, 3MB images were being sent on every page load. The effects were apparent. I was getting ~40 on the Chrome Lighthouse Performance audit and the initial page loads times were hovering around 5 seconds on what I thought was a light page. Also, though technically it worked, it was annoying writing posts as js objects rather than Markdown.
+I wasn't happy about the performance with this solution. It being React, the routes were being rendered client-side with javascript on an empty index.html. And none of the images were optimized; in a few cases, uncached-3MB images were being sent on every page load. The effects were apparent. I was getting ~40 on the Chrome Lighthouse Performance audit and the initial page loads times were hovering around 5 seconds on what I thought was a light page. Also, though technically it worked, it was annoying writing posts as javascript objects rather than Markdown.
 
 These findings led to my second mistake: Googling "react router static website markdown." One of the first links was for a static website generator called [GatsbyJS](https://www.gatsbyjs.org/), and it read like a wish-list. [Markdown transformers](https://www.npmjs.com/package/gatsby-transformer-remark) were just plugins, and images can be optimized during the build (remark transformer config snippet below). Every route is built into a static html page, and all the Webpack optimizations are handled by the library's developers. The library's creator, [Kyle Mathews](https://github.com/KyleAMathews), called it a "meta-compiler." I knew I wanted it to be fast, and I knew I wanted to write the site's content in Markdown, but I didn't want to chase the diminishing returns of the "best" Webpack configuration.
 
@@ -72,7 +70,7 @@ These findings led to my second mistake: Googling "react router static website m
 
 ### Rebuild in GatsbyJS
 
-Moving from React-Create-App (definitely not React-Create-Website in retrospect) was straightforward given the number of guides on setting up a blog with the library. This was a particularly helpful post: [Creating a Blog with Gatsby](https://www.gatsbyjs.org/blog/2017-07-19-creating-a-blog-with-gatsby/). I'm happy to say that I got the main two things I was looking for: posts in markdown with copied/optimized images and better overall performance results from server-rendered pages. I'm now hovering around 98 though Google audit. My last steps will be to gzip everything (or get CloudFront to do it) and fix the S3 object cache headers. Finally, given the 20+ hours I've spent working on this, we'll see how many more posts I actually write. My guess is 2.
+Moving from React-Create-App (definitely not React-Create-Website in retrospect) was straightforward given the number of guides on setting up a blog with the library. This was a particularly helpful post: [Creating a Blog with Gatsby](https://www.gatsbyjs.org/blog/2017-07-19-creating-a-blog-with-gatsby/). I'm happy to say that I got the main two things I was looking for: posts in markdown with copied/optimized images and better overall performance results from server-rendered pages. I'm now hovering around 98 though Google audit. My last steps will be to gzip everything (or get CloudFront to do it) and fix the S3 object cache headers. With all the 20+ hours I've spent working on this, we'll see how many more posts I actually write. My guess is 2.
 
 ### Update on Deploy
 

@@ -3,38 +3,24 @@ title: Deploying a Golang Server to EC2
 date: 12/17/2017
 ---
 
-I'm building a demo application right now for a protein data base (PDB) file comparison website. Truthfully, I'm not discontent with [RCSB](https://www.rcsb.org/pdb/home/home.do), but I went looking for a project where I could use Golang's concurrency. A search website was ideal since each query against the server necessitates numerous fetches to multiple external API's. With the basics of the application, it's time to the front-end code to a public URL and move the API off my laptop.**This post is about getting the Golang server of the application to the cloud.**
+I'm building a demo application right now for a protein data base (PDB) file comparison website. I chose the project after looking for a project where I could use Golang's concurrency. A search website was ideal since each query against the server necessitates numerous fetches to multiple external API's. **This post is about getting the Golang server of the application to the cloud.**
 
 Repo: [https://github.com/JJTimmons/goPDB](https://github.com/JJTimmons/goPDB)
 
 ### Setup and Initial Connection
 
-The first step to deploying a server on an AWS EC2 instance is to choose an ["Amazon Machine Image" (AMI)](https://en.wikipedia.org/wiki/Amazon_Machine_Image) (a virtual machine). A new instance can be created through the AWS EC2 service at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2/), imaged below.
+The first step to deploying a server on an AWS EC2 instance is to choose an ["Amazon Machine Image" (AMI)](https://en.wikipedia.org/wiki/Amazon_Machine_Image) (a virtual machine). A new instance can be created through the AWS EC2 service at [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2/), imaged below. Download the pem key, ignore the security warning (reply "y") and login to the instance.
 
 ![AMI choice page](1.JPG)
 _The AMI selection page_
 
-The pem file at the end of the setup is key because you need it to login to the instance. The docs specify the following command for connecting to an EC2 instance remotely with the pem key as authentication:
-
-```bash
-ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
-```
-
-From the line above, it's clear that the default username is ec2-user, while the public DNS can be found on the [AWS instance homepage](https://console.aws.amazon.com/ec2/). Mine is ec2-52-55-13-94.compute-1.amazonaws.com:
-
-![Public DNS](2.JPG)
-
-On first login, you'll get an "authenticity of host <PUBLIC_DNS(IPv4 Public IP)> can't be established", warning, which you should reply "yes" to.
-
 ### EC2 Login without PEM file
 
-Since it can get annoying to reference the PEM file on every login, it's easiest at this point to copy your public key to the .ssh/authorized_keys file on the remote instance. If you don't have a public key, [read/do this](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key). This is doable by the following (with the correct substitutions to the PEM file name and public DNS):
+Since it can get annoying to reference the PEM file on every login, copy your public key to the .ssh/authorized_keys file on the remote instance. If you don't have a public key, [do this](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key). This is doable by the following (with the correct substitutions to the PEM file name and DNS). This saves you from logging in with "-i [PEM FILE NAME]" flag.
 
 ```bash
-ssh -i AWS-login.pem ec2-user@ec2-52-55-13-94.compute-1.amazonaws.com "echo \"`cat ~/.ssh/id_rsa.pub`\" >> .ssh/authorized_keys"
+ssh -i AWS-login.pem ec2-user@<AWS Location> "echo \"`cat ~/.ssh/id_rsa.pub`\" >> .ssh/authorized_keys"
 ```
-
-At this point it should be possible to login without a "-i [PEM FILE NAME]" flag.
 
 ### Adding a Port
 
@@ -69,7 +55,7 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin:$GOROOT/bin
 
 ### Moving Code to Server
 
-I keep and develop my Golang code in a local repository within a "server" folder. The following is a bash script to clear the binaries I used during development and push the code to the instance, overwriting existing files (rsync is not available on the Windows as of last 2017):
+I keep and develop my Golang code in a local repository within a "server" folder. The following is a bash script to clear the binaries I used during development and push the code to the instance, overwriting existing files (rsync isn't available on Windows):
 
 ```bash
 rm server/*.exe
@@ -82,4 +68,4 @@ After uploading the files to a server folder on the instance, the following will
 go run `ls server/*.go | grep -v _test.go`
 ```
 
-With that, the server should be available behind the DNS and port. For me, my Golang PDB comparison API is available at: "http://ec2-52-55-13-94.compute-1.amazonaws.com/:3000"
+With that, the server should be available behind the DNS and port. For me, my Golang PDB comparison API is available at: http://<AWS Location\>/:3000
