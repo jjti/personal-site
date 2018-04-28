@@ -64,8 +64,8 @@ I then hit the Google Speech API endpoint, telling it about the audio file that'
 ```javascript
 // actual code at: github.com/JJTimmons/google-speech-to-text/blob/master/server/src/transcribe.js
 
-const path = require("path")
-const KEY_PATH = path.join(__dirname, "..", "keys.json")
+const path = require("path");
+const KEY_PATH = path.join(__dirname, "..", "keys.json");
 process.env.GOOGLE_APPLICATION_CREDENTIALS = KEY_PATH;
 
 // Imports the Google Cloud client library
@@ -146,20 +146,20 @@ app.use("/results", async (req, res) => {
 
 ### Client
 
-I used a basic React frontend, made with Create-React-App, and deployed the static build to S3. It's minimal but allows DnD of audio files and has a small visual indiciation that the results are transcribing. I'm not going to post an endpoint because I'm paying for the Google Storage bucket and Google Speech service on a per-usage basis, so the tool's really just for my SO right now.
+I used a basic React frontend, made with Create-React-App, and deployed the static build to S3. It's minimal but allows DnD of audio files and has a small visual indication that the results are transcribing. I'm not going to post an endpoint because I'm paying for the Google Storage bucket and Google Speech service on a per-usage basis, so the tool's really just for my SO right now.
 
 ![Front end](img.png)
-_The front end of the transcription application. Drag and drop or select an */audio input file_
+_The front end of the transcription application. Drag and drop or select an \*/audio input file_
 
 ### Wrapping up
 
 Will this app help my SO? Probably not. She's under a pretty strict [IRB](https://en.wikipedia.org/wiki/Institutional_review_board) for her studies. I don't think she'll be allowed to upload interviews, about sensative mental-health issues, to the internet to test out my whiz-bang app. All the major cloud companies are [HIPPA compliant](https://cloud.google.com/security/compliance/hipaa/), and could probably be used, but I don't think it's in the current IRB contact, and I doubt they'll pursue an amendment.
 
-Could this app be improved? Yes, in a couple ways. First, there could be much better UI feedback on the state of the transcription. For example, I could create a regression for estimating how long it will take to transcripe an audio file -- given its format and length. This could be displayed to the user as a pseudo-loading bar. I could also show the transcription in the browser afterwards and allow them to scroll thru the audio file, seeing the transcription text above the audio file as it progresses (fixing it where it's wrong, before downloading it). I could also have the user pay to create their own Google Storage bucket, so I could make the app public and not worry about a massive Google Cloud bill. But the interesting tech is in the transcription program itself, so that's not really worthwhile.
+Could this app be improved? Yes, in a couple ways. First, there could be much better UI feedback on the state of the transcription. For example, I could create a predictive model for estimating how long it will take to transcripe an audio file -- given its format and length. This could be displayed to the user as a pseudo-loading bar. I could also show the transcription in the browser afterwards and allow them to scroll thru the audio file, seeing the transcription text above the audio file as it progresses (fixing it where it's wrong, before downloading it). I could also have the user pay to create their own Google Storage bucket, so I could make the app public and not worry about a massive Google Cloud bill. But the interesting tech is in the transcription program itself, so that's not really worthwhile.
 
-Takeaways from building the app include that Google's Cloud Services are very convenient. I think the UX is superior to AWS by a long-shot. The primary benefit I see is that efforts can be grouped by project in Google, whereas in AWS, in the S3 panel, you get a list of every bucket under the sun and your account. This seems like a large advantage but companies with lots of applications. I also liked Google's efforts in making their services easily excessible through npm packages. Both the Google Storage and Google Speech packages were dead simple, and I haven't seem anything that trivial from AWS (all my interactions with AWS have been thround their CLI). Also, finally, Create-React-App is a god-send. 10/10 would build demo app with again.
+Takeaways from building the app include that Google's Cloud Services have better UX than AWS. Efforts are grouped into projects whereas in AWS, in the S3 panel, you get a list of every bucket under the sun and your account. The google-api npm packages were also well documented and had example code.
 
 ![Transcription alignment plot](img2.png)
-_Word by word transcription alignment plot_
+_Word by word transcription dot plot_
 
-This is an alignment plot I created between a manual and automatic transcription of a political speech, labelled "orig" and "auto," respectively. It's based on sequence alignment plots used in genetics and shows pretty clearly the near-exact overlap between the two transcriptions. It does look like Google's Speech API is adding additional words that the human didn't add (maybe splitting compound words into two) -- the lossy MP3 audio format may be to blame. The results are still overlapping enough to where I think this is a valuable first-line-of-attack to audio transcription.
+This is a dot plot I created between a manual and automatic transcription of a political speech, labelled "orig" and "auto," respectively. It's based on sequence alignment dot plots used in genetics and shows pretty clearly the near-exact overlap between the two transcriptions. It does look like Google's Speech API is adding additional words that the human didn't add (maybe splitting compound words into two) -- the lossy MP3 audio format may be to blame. But the results are still overlapping enough to where I think this is a valuable first-line-of-attack to audio transcription.

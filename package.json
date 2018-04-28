@@ -33,8 +33,7 @@
   "main": "n/a",
   "scripts": {
     "format": "prettier run es6 --write 'src/**/*.js' 'src/**/*.css'",
-    "deploy": "gatsby build && node sync.js",
-    "sync": "node sync.js"
+    "deploy": "gatsby build && node sync.js"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",

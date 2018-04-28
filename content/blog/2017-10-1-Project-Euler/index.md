@@ -2,11 +2,14 @@
 title: Project Euler
 date: 10/7/2017
 ---
+
 Project Euler is a website where users solve problems
 that require some programming. For me, it's been something to
 do on flights and a reminder that no matter how hard I work on a problem, and no
 matter how many LOC, there's always somebody out there that can write a pythonic,
 one-line equivalent.
+
+Github Repo: [https://github.com/JJTimmons/euler](https://github.com/JJTimmons/euler)
 
 ![Euler badge](https://projecteuler.net/profile/jtrickster333.png)
 
@@ -80,8 +83,8 @@ def sumSeq(ind, primeSum, primeArr, arrUsedInSum):
 			if primesCheck[sumArr(primeArr)]:
 				arrUsedInSum = primeArr[:]
 				return sumSeq(ind + 1, sumArr(primeArr), primeArr, arrUsedInSum)
-			else: 
-				return sumSeq(ind + 1, primeSum, primeArr, arrUsedInSum) 
+			else:
+				return sumSeq(ind + 1, primeSum, primeArr, arrUsedInSum)
 	return primeSum, arrUsedInSum
 
 currMax, currArr = 0, []
