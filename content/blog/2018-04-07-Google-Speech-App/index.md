@@ -11,7 +11,7 @@ My SO does research with a psychology group at Northeastern. Her group works on 
 
 In her project and others, the researchers hold in-person interviews. Individuals that are within the target-research group are found through surveys (usually of undergraduates on campus), and, in recorded sessions, the interviewers/researchers try to get more information of the research subject. These surveys illuminate more than the anonymous surveys are capable, and are the backbone of many of her group's projects.
 
-What annoys me about this is that the recorded interviews are then manually transcribed. As in, undergraduate and graduate researchers not only conduct the in-person interviews, but they then, word-for-word, translate the conversation into text. This part seems ridiculous. It's tedious, menial, and takes over an hour and a half for 30 minute interview. It's not the best use of the graduate student's time: they could be doing deep dives of the literature, data anaylsis, or complaining about their thesis advisers.
+What annoys me about this is that the recorded interviews are then manually transcribed. As in, undergraduate and graduate researchers not only conduct the in-person interviews, but they then, word-for-word, translate the conversation into text. This part seems ridiculous. It's tedious, menial, and takes over an hour and a half for 30 minute interview. It's not the best use of the graduate student's time: they could be doing deep dives of the literature, data analysis, or complaining about their thesis advisers.
 
 My opinion on robo-transcription is shaped by my exposure, four years ago, to the [Dragon transcription software](https://www.nuance.com/dragon.html). I used to shadow a non-invasive cardiologist at Sarasota Memorial -- I was premed and trying to complete the med-school application checkbox of "x number of hours of clinical exposure." After every appointment, the physician would return to his office, open up his patient management system, and click a large green circular button activating the Dragon software. He would then begin recording the details of his meeting with the patient into the record management system. "Patient is 56 years old, lives in Michigan during the summer, and recently fainted... period" -- he would always say "period" to end each sentence, and it's the detail I remember most when recalling those 253 odd hours shadowing. So the software wasn't great (see, "period"), but it got the job done, and that was years ago. Surely now, in the age of voice-assistants, there's an easy to way to turn audio files from in-person interviews into text automatically. No one should be doing that manually.
 
@@ -163,3 +163,11 @@ Takeaways from building the app include that Google's Cloud Services have better
 _Word by word transcription dot plot_
 
 This is a dot plot I created between a manual and automatic transcription of a political speech, labelled "orig" and "auto," respectively. It's based on sequence alignment dot plots used in genetics and shows pretty clearly the near-exact overlap between the two transcriptions. It does look like Google's Speech API is adding additional words that the human didn't add (maybe splitting compound words into two) -- the lossy MP3 audio format may be to blame. But the results are still overlapping enough to where I think this is a valuable first-line-of-attack to audio transcription.
+
+### Update
+
+Amazon released [their own API](https://aws.amazon.com/blogs/aws/amazon-transcribe-now-generally-available/).
+
+Anndddd.... Google made an app/front-end for their API (noticed on May 5th):
+
+![Google transcription sample app](img5.png)
