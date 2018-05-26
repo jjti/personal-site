@@ -5,7 +5,7 @@ date: 5/14/2018
 
 I'm looking at houses right now because I started reading [Mr Money Mustache](https://www.mrmoneymustache.com/) and [/r/personalfinance](https://www.reddit.com/r/personalfinance/). I was hooked by their message: an increased savings rate leads to freedom. The goal is allow projects, career moves, and physical moves to all be made on personal rather than financial interests.
 
-The barrier between me and a higher savings rate is housing. It's greater than 60% of my total spending, even with split rent in a small studio. And I'm not alone in the experience -- Boston is the [third most expensive](http://time.com/money/4287132/most-expensive-cities-to-rent/) U.S. city in which to be a renter.
+The barrier between me and a higher savings rate is housing. It's greater than 60% of my total spending, even with split rent in a small studio. And I'm not alone -- Boston is the [third most expensive](http://time.com/money/4287132/most-expensive-cities-to-rent/) U.S. city for renters.
 
 So to reduce my spending, I started looking at houses. Unsurprisingly in a HCOL area, not many houses fit what I'm looking for, and I've wound up scrolling/clicking through hundreds on Zillow. Most shoppers setup a search in MLS, Zillow, or Redfin to be auto-notified when a house hits the market that fits their search criteria. That's probably the best approach, but I decided instead to setup a scraper that polls houses in Boston and ranks them based on their estimated cash flow (expected rent minus expenses). Besides creating a more convenient, real-time ranking, it also meant getting to learn more Golang and play around more with [Serverless](https://serverless.com/): an application framework I've been using at work with great results.
 
@@ -178,9 +178,9 @@ There's also the very popular [Hugo](https://gohugo.io/) which has the dual-bene
           {{.Address}}
         </td>
         <td>{{.Flow}}</td>
-        <td>{{.Rent}}/{{.Expense}}</td>
+        <td>{{.Rent}}</td>
         <td>{{.Cost}}</td>
-        <td>{{.Bedrooms}}/{{.Bathrooms}}</td>
+        <td>{{.BedsAndBaths}}</td>
       </tr>
       {{end}}
     </tbody>
@@ -236,4 +236,6 @@ func WWW() (Response, error) {
 
 ### Wrapping Up
 
-Using Golang with Serverless was an enjoyable way to build this small app. It meant being able to build small separate microservices with independent roles, each of which can be strongly typed with Golang and, in the case of the scrapers, highly performant (see: concurrent). The app's use case is extremely common: scraping data from the web and compiling the results to a webpage. The approach above in one easy solution. I'd like to try out other webpage renderers, since the Golang tamplating library is limited (compared to GastbyJS and Hugo), but the easy of constructing and deploying the Serverless functions was enjoyable and something I'd replicate in the future for similar tasks.
+![img1.png](./img1.png "The house ranking site")
+
+Using Golang with Serverless was an incredibly enjoyable way to build this small app. It meant being able to make small separate microservices with independent roles, each of which can be strongly typed with Golang and, in the case of the scrapers, highly performant (see: concurrent). The app's use case is extremely common: scraping data from the web and compiling the results to a webpage. Serverless is one easy solution. I'd like to try out other webpage renderers, since the Golang tamplating library is limited (compared to GastbyJS and Hugo), but the easy of constructing and deploying the Serverless functions was something I'd replicate in the future for similar tasks.
