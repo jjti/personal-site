@@ -46,9 +46,7 @@ The final directory structure of the app wound up being:
 
 ### S3 as a Database
 
-Since I was already going to use S3 to serve the static rankings, it made sense to also keep the houses "DB" in S3 as well. I opted for [Golang's gob encoding](https://blog.golang.org/gobs-of-data). DB.NewDB() returns a struct with a decoded map of DBHouses that were stored during a prior scrape. The DB struct also has methods for accessing its private slice of houses, setting new houses (encoding a slice of houses and pushing to S3), as well as a method for writing any arbitrary file to S3 (used for pushing the HTML webpages).
-
-The keys of the map are the street addresses and the values are instances of DBHouse.
+Since I was already going to use S3 to serve the static rankings, it made sense to also keep the houses "DB" in S3 as well. I opted for [Golang's gob encoding](https://blog.golang.org/gobs-of-data). DB.NewDB() returns a struct with a decoded slice of DBHouses that were stored during a prior scrape. The DB struct also has methods for accessing its private slice of houses, setting new houses (encoding a slice of houses and pushing to S3), as well as a method for writing any arbitrary file to S3 (used for pushing the HTML webpages).
 
 ```go
 // DBHouse is a single entry in the S3 database houses slice
@@ -67,8 +65,7 @@ type DBHouse struct {
 // DB is a root object that gets the table from AWS S3
 // and wraps several functions for interacting with it
 type DB struct {
-	houses map[string]DBHouse
-	sess   *session.Session
+	houses []DBHouse
 }
 
 // NewDB returns a copy of the houses in the S3 DB
@@ -78,15 +75,10 @@ func NewDB() *DB {
 
 	conf := NewConfig()
 
-    // create an AWS session
-	sess := session.Must(session.NewSession(&aws.Config{
-        Region: aws.String(endpoints.UsEast1RegionID),
-    }))
+	svc := s3.New(conf.session)
 
-	svc := s3.New(sess)
-
-	// Make the map to be downloaded/decoded
-	var houses map[string]DBHouse
+	// Make the slice to be downloaded/decoded
+	var houses []DBHouse{}
 
 	// Download the S3 object
 	results, err := svc.GetObject(&s3.GetObjectInput{
@@ -96,14 +88,14 @@ func NewDB() *DB {
 
 	if err != nil {
 		log.Println(err.Error())
-		houses = make(map[string]DBHouse)
+		houses = make([]DBHouse, 0)
 	} else {
 		defer results.Body.Close()
 		decoder := gob.NewDecoder(results.Body)
 		err = decoder.Decode(&houses)
 		if err != nil {
 			log.Println(err.Error())
-			houses = make(map[string]DBHouse)
+			houses = make([]DBHouse, 0)
 		}
 	}
 
