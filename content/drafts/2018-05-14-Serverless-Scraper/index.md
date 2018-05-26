@@ -3,13 +3,11 @@ title: A Serverless Golang House Scraper
 date: 5/14/2018
 ---
 
-I'm looking for a house right now. I'm looking because I started reading [Mr Money Mustache](https://www.mrmoneymustache.com/) and [/r/personalfinance](https://www.reddit.com/r/personalfinance/), and was hooked by their message: an increased savings rate leads to freedom. The goal is allow projects, career moves, and physical moves to all be made on personal rather than financial interests.
+I'm looking at houses right now because I started reading [Mr Money Mustache](https://www.mrmoneymustache.com/) and [/r/personalfinance](https://www.reddit.com/r/personalfinance/). I was hooked by their message: an increased savings rate leads to freedom. The goal is allow projects, career moves, and physical moves to all be made on personal rather than financial interests.
 
 The barrier between me and a higher savings rate is housing. It's greater than 60% of my total spending, even with split rent in a small studio. And I'm not alone in the experience -- Boston is the [third most expensive](http://time.com/money/4287132/most-expensive-cities-to-rent/) U.S. city in which to be a renter.
 
-So to reduce my spending, I started looking at buying property. It's counterintuitive, since a mortgage will cost more each month than [what I'm paying in rent](https://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html), and buying in an expensive city is generally a bad idea, but, with enough roommates, the overall cost per month could actually be lower. I'm going to try and rent out all the square footage I can.
-
-Unsurprisingly, not many houses fit the bill, and I wound up scrolling/clicking through hundreds of houses on Zillow. When looking for houses, most people setup a search in MLS, Zillow, or Redfin to be auto-notified when a house hits the market that fits their search criteria. That's probably the best approach, but I decided instead to setup a scraper that polls houses in Boston and ranks them based on their estimated cash flow (expected rent minus expenses). Besides creating a more convenient, real-time ranking, it also meant getting to learn more Golang and play around more with [Serverless](https://serverless.com/): an application framework I've been using at work with great results.
+So to reduce my spending, I started looking at houses. Unsurprisingly in a HCOL area, not many houses fit what I'm looking for, and I've wound up scrolling/clicking through hundreds on Zillow. Most shoppers setup a search in MLS, Zillow, or Redfin to be auto-notified when a house hits the market that fits their search criteria. That's probably the best approach, but I decided instead to setup a scraper that polls houses in Boston and ranks them based on their estimated cash flow (expected rent minus expenses). Besides creating a more convenient, real-time ranking, it also meant getting to learn more Golang and play around more with [Serverless](https://serverless.com/): an application framework I've been using at work with great results.
 
 ### Serverless Setup
 
@@ -26,7 +24,7 @@ The job of the scraper is to:
 
 And the job of the webpage renderer is to, on changes to the house ranking, build a webpage at [http://www.houses.joshuatimmons.com/](http://www.houses.joshuatimmons.com/) to show the results visually.
 
-The typical route to accomplishing the above would be to create a single Golang application that runs on a server and re-scrapes and re-builds the webpages every x number of hours. That would've worked fine, but would've meant worrying about and paying for an EC2 instance for the app. And, since I want to serve the website from S3 (for all its benefits), it would mean that the server's only job would be to scrape every x-hours and sit idle during each interim. I.e. there would be a lot of downtime for an app that's only accomplishing something a few time a day.
+The typical route to accomplishing the above would be to create a single Golang application that runs on a server and re-scrapes and re-builds the webpages every n number of hours. That would've worked fine, but would've meant worrying about and paying for an EC2 instance for the app. And, since I want to serve the website from S3 (for all its benefits), it would mean that the server's only job would be to scrape every x-hours and sit idle during each interim. I.e. there would be a lot of downtime for an app that's only accomplishing something a few time a day.
 
 Serverless is a better solution to this problem. Rather than thinking about the instance that the server runs on, the scraper and renderer and can be split into two cloud functions (Lambda for AWS) and only be executed when needed. Lambda takes care of the deployment, and Serverless makes it easy to develop and push the code to Lambda.
 

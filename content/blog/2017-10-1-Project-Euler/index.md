@@ -11,26 +11,68 @@ one-line equivalent.
 
 Github Repo: [https://github.com/JJTimmons/euler](https://github.com/JJTimmons/euler)
 
-![Euler badge](https://projecteuler.net/profile/jtrickster333.png)
+![Euler badge](https://projecteuler.net/profile/jjtimmons.png)
 
-### Problem 47
+### Problem 59
 
-I started this problem using the Sieve of Eratosthenes
-(used everywhere is problems < 100) in one step,
-and the incrementing in another, but found, after some refactoring,
-that I could reduce the solution down to a single loop thru the limit. It increments
-every composite number in a nested for-loop and, at the end, returns the
-answer.
+> Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange).
+> For example, uppercase A = 65, asterisk (\*) = 42, and lowercase k = 107.
+> A modern encryption method is to take a text file, convert the bytes to ASCII, then XOR each byte with a given value, taken from a secret key.
+> The advantage with the XOR function is that using the same encryption key on the cipher text, restores the plain text; for example, 65 XOR 42 = 107,then 107 XOR 42 = 65.
+> For unbreakable encryption, the key is the same length as the plain text message, and the key is made up of random bytes.
+> The user would keep the encrypted message and the encryption key in different locations, and without both "halves", it is impossible to decrypt the message.
+
+> Unfortunately, this method is impractical for most users, so the modified method is to use a password as a key.
+> If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message.
+> The balance for this method is using a sufficiently long password key for security, but short enough to be memorable.
+
+> Your task has been made easy, as the encryption key consists of three lower case characters.
+> Using cipher.txt (right click and 'Save Link/Target As...'), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.
+
+This was an interesting problem with decryption of text with 26^3 passphrases, and I liked my approach to identifying the decrypted solution. I turn a text file of english words into a set and count the number of decrypted "words" that can are recognized english. The output: "The Gospel of John..."
 
 ```python
-def PE47(lim=200000,dpf=4):
-    L=[0]*(lim+1)
-    for i in xrange(2,lim/2+1):
-        if L[i]==0:
-            for j in range(i,lim+1,i): L[j]+=1
-    return ''.join(map(str,L)).index(''.join(map(str,[dpf]*dpf)))
+PUNC = set(string.punctuation)  # punction characters
 
-print PE47()
+ENGLISH_WORDS = set()
+with open("59.english.words.txt") as wordsFile:
+    for word in wordsFile:
+        ENGLISH_WORDS.add(word.strip())
+
+
+def keyGen():
+    """the possible keys are aaa thru zzz
+    ascii for lowercase letters is 97 to 123
+    """
+    for a in range(97, 123):
+        for b in range(97, 123):
+            for c in range(97, 123):
+                yield [a, b, c]
+
+
+with open("59.input.txt") as encryption:
+    """keep the results with the greatest number of words
+    """
+    maxCount, bestResult, bestByteScore = 0, "", 0
+    encryptedChars = [int(k) for k in encryption.read().split(",")]
+    for keys in keyGen():
+        # XOR with key
+        decryptedChars = [char ^ keys[i % 3] for i, char in enumerate(encryptedChars)]
+        decryptedText = [chr(c) for c in decryptedChars if chr(c) not in PUNC]
+        decryptedText = "".join(decryptedText)
+
+        # join chars and separate into words
+        decryptedWords = decryptedText.split(" ")
+        wordCount = sum(
+            1 for word in decryptedWords if word.lower() in ENGLISH_WORDS)
+
+        # set a new best predicted decryption
+        if wordCount > maxCount:
+            maxCount, bestResult = wordCount, decryptedWords
+            bestByteScore = sum(decryptedChars)
+
+    # output: 107359 in 12.76 seconds
+    print(maxCount, bestByteScore, bestResult)
 ```
 
 ### Problem 21
