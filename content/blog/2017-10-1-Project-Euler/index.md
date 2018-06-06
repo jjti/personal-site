@@ -75,64 +75,109 @@ with open("59.input.txt") as encryption:
     print(maxCount, bestByteScore, bestResult)
 ```
 
-### Problem 21
+### Problem 206
 
-Another Sieve. This solution depends on finding all odd composites that are not
-prime numbers, accomplished using a generator on all ints checked against the Sieve map.
+> Find the unique positive integer whose square has the form 1*2_3_4_5_6_7_8_9_0, where each "*" is a single digit.
 
 ```python
-n = 10000
+def incrementingSquare():
+    """
+    Notes:
 
-def primeCheckGen():
-	primes = [True] * n
-	for ind in range(2, n):
-		if primes[ind]:
-			for ind2 in range(ind * 2, n, ind):
-				primes[ind2] = False
-	primesOnly = [i for i in range(3, n, 2) if primes[i]]
-	return primes, primesOnly
+    1. only numbers ending in **70 can produce a square with a 9 in
+    the hundreds place. Can start at 70 + sqrt of the target number and
+    increment by 100
 
-primesCheck, primes = primeCheckGen()
-twiceSquares = [2*(x**2) for x in range(1, n)]
-oddComposites = set([i for i in range(3, len(primesCheck), 2) if primesCheck[i] is False])
-primeTwoSquares = sorted(set([i + j for i in primes for j in twiceSquares]))
+    2. can write out a string for the target number, and increment thru both it
+    and the newly squared number, testing at each index
+    """
+    target = "1234567890"
 
-for num in oddComposites:
-	if num not in primeTwoSquares:
-		print num
-		break
+    for n in range(70 + 10**9, 2 * 10**9, 100):
+        digs = str(n**2)
+        if all([digs[i * 2] == c for i, c in enumerate(target)]):
+            return (n, digs)
+
+
+# output: (1389019170, "1929374254627488900") in 9 secs
+print(incrementingSquare())
 ```
 
-### Problem 50
+### Problem 112
 
-Another prime generator is used to first create the primes. Then a recursive
-sumSeq function is used where successive prime next to each other in the number line.
-So a sequence of primes requires adding each to one another, until a composite number is
-found. The summed prime number and its constituents are returned.
-TODO: learn python's reduce function to avoid writing stuff like sumArr.
+> Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 134468.
+
+> Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 66420.
+
+> We shall call a positive integer that is neither increasing nor decreasing a "bouncy" number; for example, 155349.
+
+> Clearly there cannot be any bouncy numbers below one-hundred, but just over half of the numbers below one-thousand (525) are bouncy. In fact, the least number for which the proportion of bouncy numbers first reaches 50% is 538.
+
+> Surprisingly, bouncy numbers become more and more common and by the time we reach 21780 the proportion of bouncy numbers is equal to 90%.
+
+> Find the least number for which the proportion of bouncy numbers is exactly 99%.
 
 ```python
-def sumArr(primesArr):
-	total = 0
-	for val in primesArr:
-		total += val
-	return total
+def bouncy_and_increment(n):
+    """
+        n {int} number to test for bounciness
 
-def sumSeq(ind, primeSum, primeArr, arrUsedInSum):
-	if ind < len(primes): # below upper bound
-		primeArr.append(primes[ind])
-		if sumArr(primeArr) < lim:
-			if primesCheck[sumArr(primeArr)]:
-				arrUsedInSum = primeArr[:]
-				return sumSeq(ind + 1, sumArr(primeArr), primeArr, arrUsedInSum)
-			else:
-				return sumSeq(ind + 1, primeSum, primeArr, arrUsedInSum)
-	return primeSum, arrUsedInSum
+        return a tuple with a boolean for whether it was bouncy and,
+        if it's false, a number for how much to increment the current number by
+    """
+    digs = split(n)
+    # direction can be -1: decreasing, 0: constant, 1: increasing
+    direction = 0
+    for i, d in enumerate(digs[1:], 1):
+        if digs[i - 1] < d:
+            # this current digit is greater than last
+            if direction == -1:
+                # it had been decending
+                return True
+            direction = 1
+        elif digs[i - 1] > d:
+            # this current digit is less than the last
+            if direction == 1:
+                # it had been ascending
+                return True
+            direction = -1
 
-currMax, currArr = 0, []
-for ind in range(0, len(primes)):
-	nextMax, nextArr = sumSeq(ind, 0, [], [])
-	if len(nextArr) > len(currArr):
-		currMax, currArr = nextMax, nextArr
-print currMax, currArr, len(currArr)
+    return False
+
+
+assert bouncy_and_increment(10) == False
+assert bouncy_and_increment(101) == True
+assert bouncy_and_increment(10123) == True
+assert bouncy_and_increment(11123) == False
+
+
+def bouncy_numbers(target_ratio=0.99):
+    """
+    bouncy == not constantly increasing or decreasing
+
+    find the first number at which the ratio of "bouncy" to "non-bouncy"
+    numbers reaches, exactly, 99%
+
+    Notes:
+        1. should be able to increment thru a large number of digits. The loop should
+            be able to self-increment quickly
+            ex: at 12000, it's immediately clear that the next 7999 numbers are not-bouncy
+            (wound up not needed because it completes in 5 sec)
+        2. start at 100, the hint already says the first 99 numbers are not-bouncy
+    """
+    number, ratio = 1, 0.0  # ratio of bouncy to non-bouncy numbers
+    bouncy_numbers = 0.0
+
+    while ratio < target_ratio:
+        bouncy = bouncy_and_increment(number)
+        if bouncy:
+            bouncy_numbers += 1
+        ratio = bouncy_numbers / number
+        number += 1
+
+    return number - 1
+
+
+assert bouncy_numbers(0.9) == 21780
+print(bouncy_numbers())  # output: 1587000 in 5.55 seconds
 ```

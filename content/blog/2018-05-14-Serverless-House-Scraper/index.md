@@ -3,11 +3,11 @@ title: A Serverless Golang House Scraper
 date: 5/14/2018
 ---
 
-I'm looking at houses right now because I started reading [Mr Money Mustache](https://www.mrmoneymustache.com/) and [/r/personalfinance](https://www.reddit.com/r/personalfinance/). I was hooked by their message: an increased savings rate leads to freedom. The goal is allow projects, career moves, and physical moves to all be made on personal rather than financial interests.
+I recently started looking for a house. I started after reading [/r/personalfinance](https://www.reddit.com/r/personalfinance/) and the cult-guru-like [Mr Money Mustache](https://www.mrmoneymustache.com/). I was hooked by their message which was basically: an increased savings rate leads to freedom. With high savings and low spending, all decisions can be made on personal rather than financial interests.
 
-The barrier between me and a higher savings rate is housing. It's greater than 60% of my total spending, even with split rent in a small studio. And I'm not alone -- Boston is the [third most expensive](http://time.com/money/4287132/most-expensive-cities-to-rent/) U.S. city for renters.
+The barrier between me and a higher savings rate is housing. It's greater than 60% of my total spending -- even with half-rent in a small studio. And I'm not alone. Boston is the [third most expensive](http://time.com/money/4287132/most-expensive-cities-to-rent/) U.S. city for renters.
 
-So to reduce my spending, I started looking at houses. Unsurprisingly in a HCOL area, not many houses fit what I'm looking for, and I've wound up scrolling/clicking through hundreds on Zillow. Most shoppers setup a search in MLS, Zillow, or Redfin to be auto-notified when a house hits the market that fits their search criteria. That's probably the best approach, but I decided instead to setup a scraper that polls houses in Boston and ranks them based on their estimated cash flow (expected rent minus expenses). Besides creating a more convenient, real-time ranking, it also meant getting to learn more Golang and play around more with [Serverless](https://serverless.com/): an application framework I've been using at work with great results.
+So, to reduce my spending, I started looking at houses. Unsurprisingly, not many houses fit what I'm looking for, and I've wound up scrolling/clicking through hundreds on Zillow. Most shoppers setup a search in MLS, Zillow, or Redfin to be auto-notified when a house hits the market that fits their search criteria. That's probably the best approach, but I decided to instead setup a scraper that polls houses in Boston and ranks them based on their estimated cash flow (expected rent minus expenses). Besides creating a more convenient, real-time ranking, it also meant getting to learn more Golang and play around with [Serverless](https://serverless.com/): an application framework I've been using at work with great results.
 
 ### Serverless Setup
 
