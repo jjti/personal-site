@@ -28,7 +28,11 @@
     "pngquant": "latest",
     "react-helmet": "^5.2.0"
   },
-  "keywords": ["gatsby", "blog", "personal"],
+  "keywords": [
+    "gatsby",
+    "blog",
+    "personal"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
@@ -36,10 +40,10 @@
     "deploy": "gatsby build && node sync.js"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "eslint-plugin-react": "^7.7.0",
-    "prettier": "^1.11.1",
-    "prettier-eslint": "^8.8.1",
-    "prop-types": "^15.6.1"
+    "babel-eslint": "^8.2.6",
+    "eslint-plugin-react": "^7.10.0",
+    "prettier": "^1.14.0",
+    "prettier-eslint": "^8.8.2",
+    "prop-types": "^15.6.2"
   }
 }

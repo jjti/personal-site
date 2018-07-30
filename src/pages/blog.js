@@ -22,21 +22,28 @@ export default class BlogIndex extends React.Component {
       return d2 - d1;
     });
 
+    console.log(edges);
+
     return (
       <div>
         <Header />
         <div id="blog-container" style={{ maxWidth: 800 }}>
           <h1>Blog</h1>
-          {edges.map(({ node }, i) => (
-            <SingleEntry
-              key={node.frontmatter.title}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
-              snippet={node.excerpt}
-              href={node.url}
-              newTab={false}
-            />
-          ))}
+          {edges.map(
+            ({ node }, i) => (
+              console.log(node),
+              (
+                <SingleEntry
+                  key={node.frontmatter.title}
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  snippet={node.excerpt}
+                  href={node.url}
+                  newTab={false}
+                />
+              )
+            )
+          )}
           <div style={{ height: "80px" }} />
         </div>
         <Footer
