@@ -1,17 +1,19 @@
 ---
-title: Fantasy Football Forecasting Linear
+title: Fantasy Football Forecasting
 date: 7/18/2018
 ---
 
-In search of a project for R, I'm doing some fantasy football forecasting. I binge on FF already -- spending hundreds of hours per season on leagues with payouts in the hundreds. I might as well learn something.
+In search of a project for R, I've started fantasy football forecasting. I binge on FF already -- spending hundreds of hours per season on leagues with payouts in the hundreds of dollars. I might as well learn something.
+
+My goals are to 1) predict player's fantasy points for the upcoming season and 2) create a draft ranking using the standard value-over-replacement.
 
 Github repo: [https://github.com/JJTimmons/ff](https://github.com/JJTimmons/ff)
 
 ## Scraping and cleaning
 
-My repo is setup with just a few folders right now: data (immutable), analysis (scripts), and output (like images for this post).
+My repo is setup with just a few folders right now: data (immutable), analysis (scripts), and output (eg images for this post).
 
-For input data in these early models, I'm using [pro-football-reference]("https://www.pro-football-reference.com"). They have pages with decades of fantasy football stats (eg from last year: [https://www.pro-football-reference.com/years/2017/fantasy.htm](https://www.pro-football-reference.com/years/2017/fantasy.htm)).
+For input data in these early models, I'm using [pro-football-reference]("https://www.pro-football-reference.com"). They have decades worth of fantasy football stats (last year's: [https://www.pro-football-reference.com/years/2017/fantasy.htm](https://www.pro-football-reference.com/years/2017/fantasy.htm)).
 
 ```r
 scrape_year <- function(year) {
@@ -40,15 +42,15 @@ player.data <- do.call(rbind, player.data) # https://www.r-bloggers.com/concaten
 save(player.data, file = paste0("player_data.raw.Rda"))
 ```
 
-After some cleaning and type setting, the data was ready for basic modeling.
+After some cleaning and type setting (not shown), the data was ready for basic modeling.
 
-## plm
+## Panel data and plm
 
-I spent a couple days unsure about how to go about forecasting. At first I created a basic for loop that grabbed the each player's lagged fantasy points, but I was unclear on how to create a regression.
+I spent a couple days unsure about how to go about forecasting. At first I created a basic for loop that simply lagged the each player's fantasy points, but I was unclear on how to create regressions.
 
 It would have been trivial had every player played the same seasons (ie if the data-set had been "balanced," a new word for me). But the players, of course, didn't play for the same season. I scraped 20 years of fantasy data, and the average running back's career is just [2.5 years](https://www.statista.com/statistics/240102/average-player-career-length-in-the-national-football-league/). An aside: the longest NFL career in history was 26 seasons -- it was [George Blanda's](https://www.sports-management-degrees.com/10-of-the-oldest-players-in-nfl-history/). He was also the oldest person to have played in the NFL (he retired at 48!).
 
-What I needed was a way to regress fantasy points scored on lagged covariates in an apples vs apples way across time. I found a solution in some course notes on "[panel data](https://www.princeton.edu/~otorres/Panel101R.pdf)."
+What I needed was a way to regress fantasy points scored on lagged covariates in an apples vs apples way across time. Some [course notes](<(https://www.princeton.edu/~otorres/Panel101R.pdf)>) had the name for this type of data-set:
 
 > Panel data (also known as longitudinal or cross-sectional time-series data) is a dataset in which the behavior of entities are observed across time.
 
@@ -114,8 +116,18 @@ age         -1.419620   0.847950 -1.6742  0.094722 .
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
 
-An obvious negative to this kind of prediction is that it narrows the model's applicability to players with a previous year's data to reference. So newly drafted players won't show up at all. I tried a step-wise function, where I imputed the median for a rookie player into the previous years results, for players without historical data, but it negatively affected the R-squared for every position.
+An obvious negative to this kind of prediction is that it narrows the model's applicability to players with a previous year's data to reference. So newly drafted players won't show up at all. I tried a step-wise function, where I imputed the median for a rookie player into the previous years results, but it negatively affected the R-squared of every position.
 
 The model is also biased in that we're only regressing data from players that played in the "next" season. For example, players that had bad seasons -- perhaps those ended by season-ending injuries -- are underrepresented in the model, which I think is part of the reason the expected pts coefficient is so high for all of the models.
 
 ![linear1.png](./linear1.png "Results of linear plm forecasting")
+
+## Future
+
+The models right now are uber-simplistic. Given that the majority of their predictive power comes duplicating "what the player got the year before," they also are not that useful. But it's also just a first draft approach. In the future, I'll try to incorporate additional information.
+
+The easiest approach would be to incorporate "expert opinions" -- adding in draft predictions from ESPN, NFL, CBS, etc. This is the most conventional approach (see: [fantasyfootballnerd.com](https://www.fantasyfootballnerd.com/), [fantasyfootballanalytics.net](https://fantasyfootballanalytics.net/), [fantasypros.com](https://www.fantasypros.com/)) and is also the most robust, according to [Fantasy Football Analytics](http://fantasyfootballanalytics.net/2017/03/best-fantasy-football-projections-2017.html). This makes sense, since the results of accumulating everyone's predictions is something like that of a meta-analysis.
+
+![2.png](./2.png "Maddne player stats")
+
+Another approach, that I haven't seen anyone do, would be to add in meta from [Madden](https://www.easports.com/madden-nfl/player-ratings?i=1&t=32&s=ovr_rating:DESC&=undefined) to see if their player stats (like skill primitives) are enough to help predict outcome. Or maybe Madden stats plus expert ratings... To be continued.
