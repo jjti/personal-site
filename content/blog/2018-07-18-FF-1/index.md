@@ -1,5 +1,5 @@
 ---
-title: Fantasy Football Forecasting
+title: Fantasy Football Forecasting Pt. I
 date: 7/18/2018
 ---
 
@@ -71,7 +71,7 @@ qb.model <- plm(qb.formula, data = qb.data, index = c("name","year"), model="poo
 summary(qb.model)
 
 # for each player in the data set
-qb.coors = data.frame(x=numeric(0), y=numeric(0))
+qb.coors <- data.frame(x=numeric(0), y=numeric(0))
 med.pts <- median(qb.data$fantpt, na.rm = TRUE)
 for (name in unique(qb.data$name)[1:30]) {
   player <- qb.data[qb.data$name == name, ]
@@ -124,7 +124,7 @@ The model is also biased in that we're only regressing data from players that pl
 
 ## Future
 
-The models right now are uber-simplistic. Given that the majority of their predictive power comes duplicating "what the player got the year before," they also are not that useful. But it's also just a first draft approach. In the future, I'll try to incorporate additional information.
+The models are uber-simplistic. Given that their predictive power comes duplicating what the player got the year before, they are hardely useful. But it's also just a first draft approach. In the future, I'll try to incorporate additional information.
 
 The easiest approach would be to incorporate "expert opinions" -- adding in draft predictions from ESPN, NFL, CBS, etc. This is the most conventional approach (see: [fantasyfootballnerd.com](https://www.fantasyfootballnerd.com/), [fantasyfootballanalytics.net](https://fantasyfootballanalytics.net/), [fantasypros.com](https://www.fantasypros.com/)) and is also the most robust, according to [Fantasy Football Analytics](http://fantasyfootballanalytics.net/2017/03/best-fantasy-football-projections-2017.html). This makes sense, since the results of accumulating everyone's predictions is something like that of a meta-analysis.
 

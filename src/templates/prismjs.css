@@ -15,8 +15,6 @@ pre[class*="language-"] {
   word-wrap: normal;
   width: 850px;
 
-  height: auto !important;
-  margin: 1rem !important;
   line-height: 20px;
   white-space: pre-wrap;
   word-break: break-word;
@@ -36,6 +34,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   overflow: auto;
   border-radius: 0.3em;
+  margin: 10px;
 }
 
 :not(pre) > code[class*="language-"],
@@ -45,9 +44,12 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
+  padding: 3px 7px;
+  border-radius: 0.2em;
   white-space: normal;
+  background-color: lightgray;
+  margin: 5px;
+  color: black;
 }
 
 .token.comment,

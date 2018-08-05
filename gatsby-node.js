@@ -6,10 +6,11 @@ const glob = require("glob"); // https://www.npmjs.com/package/glob
 const { GraphQLString } = require("graphql");
 
 const getURL = node => {
-  const slug = node.frontmatter.title
+  let slug = node.frontmatter.title
     .toLowerCase()
     .split(" ")
     .join("-");
+  slug = encodeURI(slug); // uri encode
 
   return `blog/${slug}`; // add date if names start to conflict
 };
@@ -70,9 +71,9 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
       context: {
         // Context will be passed in to the page query as graphql vars
         url: node.url,
-        prev:
+        next:
           index === 0 ? edges[edges.length - 1].node : edges[index - 1].node,
-        next: index === edges.length - 1 ? edges[0].node : edges[index + 1].node
+        prev: index === edges.length - 1 ? edges[0].node : edges[index + 1].node
       }
     });
   });
@@ -80,7 +81,9 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 
 exports.onPostBuild = pages => {
   const publicPath = path.join(__dirname, "public");
-  const gzippable = glob.sync(`${publicPath}/**/?(*.html|*.js|*.css|*.ico|*.pdf)`);
+  const gzippable = glob.sync(
+    `${publicPath}/**/?(*.html|*.js|*.css|*.ico|*.pdf)`
+  );
   gzippable.forEach(file => {
     const content = fs.readFileSync(file);
     const zipped = zlib.gzipSync(content);
