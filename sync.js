@@ -4,8 +4,6 @@ const child_process = require("child_process");
 const path = require("path");
 const buildDir = path.resolve("./public");
 
-console.log(buildDir);
-
 child_process.exec(
   `aws s3 sync ${buildDir} s3://www.joshuatimmons.com --acl public-read --sse --delete --cache-control max-age=604800,public --profile personal`,
   (error, stdout, stderr) => {

@@ -52,7 +52,6 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
   `);
 
   if (result.errors) {
-    console.log(result.errors);
     throw new Error("Things broke, see console output above");
   }
 
