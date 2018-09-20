@@ -1,8 +1,8 @@
-import React from "react";
+import { graphql } from "gatsby";
 import Link from "gatsby-link";
-
-import Header from "../components/Header.jsx";
+import React from "react";
 import Footer from "../components/Footer.jsx";
+import Header from "../components/Header.jsx";
 
 export default props => (
   <div>

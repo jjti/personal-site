@@ -1,13 +1,13 @@
-import React from "react";
+import { graphql } from "gatsby";
 import Link from "gatsby-link";
-
+import React from "react";
 import Header from "../components/Header.jsx";
 import "./post.css";
 import "./prismjs.css";
 
 export default ({
   data: { markdownRemark: post },
-  pathContext: { next, prev }
+  pageContext: { next, prev }
 }) => (
   <div>
     <Header key="header" />

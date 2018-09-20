@@ -3,11 +3,11 @@ title: Fantasy Football Draft App
 date: 8/31/2018
 ---
 
+This week I wrapped up my fantasy draft app. It’s the end of my fantasy football project, and it’s done for two reasons. Firstly, I’m running out of useful features to add, and secondly — and more importantly — the draft season is over. Starting next week, the app will be on ice for another 50 weeks or so...
+
 app: [https://www.ffdraft.app/](https://www.ffdraft.app/)
 
 code: [https://github.com/JJTimmons/ff](https://github.com/JJTimmons/ff)
-
-This week I wrapped up my fantasy draft app. It’s the end of my fantasy football project, and it’s done for two reasons. Firstly, I’m running out of useful features to add, and secondly — and more importantly — the draft season is over. Starting next week, the app will be on ice for another 50 weeks or so...
 
 ![ffdraft.app screenshot](./1.png)
 

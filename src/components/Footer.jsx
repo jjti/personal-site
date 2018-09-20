@@ -1,6 +1,5 @@
-import React from "react";
 import Img from "gatsby-image";
-
+import React from "react";
 // import face from "./face.png";
 import "./Footer.css";
 

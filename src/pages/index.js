@@ -1,10 +1,9 @@
-import React from "react";
+import { graphql } from "gatsby";
 import Link from "gatsby-link";
-import Img from "gatsby-image";
-
-import CV from "../files/CV.pdf";
+import React from "react";
 import Footer from "../components/Footer.jsx";
-
+import CV from "../files/CV.pdf";
+import "../layouts/index.css";
 import "./index.css";
 
 export default class IndexPage extends React.Component {

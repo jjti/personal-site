@@ -1,6 +1,5 @@
-import React from "react";
 import Link from "gatsby-link";
-
+import React from "react";
 import "./SingleEntry.css";
 
 export default ({ title, date, snippet, href, newTab = true }) => {

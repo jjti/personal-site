@@ -1,8 +1,7 @@
+import { graphql } from "gatsby";
 import React from "react";
-import Link from "gatsby-link";
-
-import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import Header from "../components/Header.jsx";
 import SingleEntry from "../components/SingleEntry.jsx";
 
 export default class BlogIndex extends React.Component {

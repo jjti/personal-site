@@ -1,16 +1,14 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-
-import Header from "../components/Header.jsx";
+import React from "react";
 import Footer from "../components/Footer.jsx";
-
-import AJCO2018 from "../files/2018-AJCO.pdf";
+import Header from "../components/Header.jsx";
+import B162016 from "../files/2016-B16.pdf";
+import Interlab from "../files/2016-Interlab.pdf";
+import mTMZ2016 from "../files/2016-mTMZ.pdf";
+import Cabo2017 from "../files/2017-cabo.pdf";
 import JoVE2017 from "../files/2017-JoVE.pdf";
 import PBM2017 from "../files/2017-PBM.pdf";
-import Cabo2017 from "../files/2017-cabo.pdf";
-import mTMZ2016 from "../files/2016-mTMZ.pdf";
-import Interlab from "../files/2016-Interlab.pdf";
-import B162016 from "../files/2016-B16.pdf";
+import AJCO2018 from "../files/2018-AJCO.pdf";
 
 const Publication = props => (
   <li>
@@ -149,14 +147,18 @@ export default props => (
         .sort((a, b) => b - a)
         .map(year => (
           <Year key={year} year={year}>
-            {publications[year].map(p => <Publication key={p.title} {...p} />)}
+            {publications[year].map(p => (
+              <Publication key={p.title} {...p} />
+            ))}
           </Year>
         ))}
     </section>
     <section>
       <h1>Posters</h1>
       <ul className="plain-list">
-        {posters.map(p => <Publication key={p.title} {...p} />)}
+        {posters.map(p => (
+          <Publication key={p.title} {...p} />
+        ))}
       </ul>
     </section>
     <Footer resolutions={props.data.file.childImageSharp.resolutions} />

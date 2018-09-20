@@ -7,7 +7,8 @@ li {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   color: #333;
-  margin: 10px;
+  max-width: 900px;
+  margin: 10px auto;
 }
 
 h1,
@@ -122,9 +123,7 @@ h6 {
 a,
 li,
 p,
-button,
-code[class*="language-"],
-pre[class*="language-"] {
+button {
   font-size: calc(17px + 0.2vw);
   line-height: 1.667;
 }

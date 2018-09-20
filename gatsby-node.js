@@ -28,8 +28,8 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
   });
 };
 
-exports.createPages = async ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
   const postTemplate = path.resolve("./src/templates/post.js");
 
   // Using async await. Query will likely be very similar to your pageQuery in index.js

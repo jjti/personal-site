@@ -13,7 +13,7 @@ Github repo: [https://github.com/JJTimmons/ff](https://github.com/JJTimmons/ff)
 
 My repo is setup with just a few folders right now: data (immutable), analysis (scripts), and output (eg images for this post).
 
-For input data in these early models, I'm using [pro-football-reference]("https://www.pro-football-reference.com"). They have decades worth of fantasy football stats (last year's: [https://www.pro-football-reference.com/years/2017/fantasy.htm](https://www.pro-football-reference.com/years/2017/fantasy.htm)).
+For input data in these early models, I'm using [pro-football-reference](https://www.pro-football-reference.com). They have decades worth of fantasy football stats (last year's: [https://www.pro-football-reference.com/years/2017/fantasy.htm](https://www.pro-football-reference.com/years/2017/fantasy.htm)).
 
 ```r
 scrape_year <- function(year) {
@@ -120,7 +120,7 @@ An obvious negative to this kind of prediction is that it narrows the model's ap
 
 The model is also biased in that we're only regressing data from players that played in the "next" season. For example, players that had bad seasons -- perhaps those ended by season-ending injuries -- are underrepresented in the model, which I think is part of the reason the expected pts coefficient is so high for all of the models.
 
-![linear1.png](./linear1.png "Results of linear plm forecasting")
+![1.png](./1.png "Results of linear plm forecasting")
 
 ## Future
 
