@@ -9,7 +9,9 @@ import Cabo2017 from "../files/2017-cabo.pdf";
 import JoVE2017 from "../files/2017-JoVE.pdf";
 import PBM2017 from "../files/2017-PBM.pdf";
 import AJCO2018 from "../files/2018-AJCO.pdf";
+import PLOS2018 from "../files/2018-PLOS.pdf";
 
+/** Publication is a single publication entry with authors, link, etc */
 const Publication = props => (
   <li>
     <p>
@@ -22,6 +24,7 @@ const Publication = props => (
     </p>
   </li>
 );
+
 Publication.propTypes = {
   authors: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
@@ -35,6 +38,7 @@ const Year = props => (
     <ul className="plain-list">{props.children}</ul>
   </div>
 );
+
 Year.propTypes = {
   year: PropTypes.string.isRequired
 };
@@ -45,6 +49,13 @@ Year.propTypes = {
  */
 const publications = {
   2018: [
+    {
+      authors: "Timmons, J.J., Preto, J., Tuszynski, J.A., & Wong, E.T.",
+      title:
+        "Tubulin's response to external electric fields by molecular dynamics simulations.",
+      journal: "PLOS One.",
+      href: PLOS2018
+    },
     {
       authors:
         "Timmons, J.J., Zhang, K., Fong, J., Lok, E., Swanson, K.D., Gautam, S., & Wong, E.T.",
