@@ -39,7 +39,7 @@ export default props => {
                     rel="noopener noreferrer"
                     className="onHoverUnderline"
                   >
-                    linkedin.com/in/JJTimmons
+                    linkedin.com/in/jjtimmons
                   </a>
                 </li>
                 <li>
@@ -61,7 +61,7 @@ export default props => {
                     rel="noopener noreferrer"
                     className="onHoverUnderline"
                   >
-                    github.com/JJTimmons
+                    github.com/jjtimmons
                   </a>
                 </li>
               </ul>

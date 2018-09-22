@@ -3,6 +3,7 @@ import Link from "gatsby-link";
 import React from "react";
 import Footer from "../components/Footer.jsx";
 import CV from "../files/CV.pdf";
+import Resume from "../files/Resume.pdf";
 import "../layouts/index.css";
 import "./index.css";
 
@@ -47,6 +48,11 @@ export default class IndexPage extends React.Component {
             <h6 className="lightGrayColor">FILES</h6>
             <ul style={{ marginLeft: 0 }}>
               <li>
+                <a target="_blank" href={Resume} className="onHoverUnderline">
+                  Resume
+                </a>
+              </li>
+              <li>
                 <a target="_blank" href={CV} className="onHoverUnderline">
                   CV
                 </a>
@@ -78,7 +84,6 @@ export default class IndexPage extends React.Component {
             <ul>
               {edges.slice(3, 6).map(({ node }) => (
                 <li key={`${node.url}_2`}>
-                  {" "}
                   <Link to={node.url} className="onHoverUnderline">
                     {node.frontmatter.title}{" "}
                   </Link>

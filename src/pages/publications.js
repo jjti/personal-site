@@ -12,11 +12,31 @@ import PBM2017 from "../files/2017-PBM.pdf";
 import AJCO2018 from "../files/2018-AJCO.pdf";
 import PLOS2018 from "../files/2018-PLOS.pdf";
 
+/** ego-highlight: wrap my name in bold spans */
+const egoHighlight = authors => {
+  const name = "Timmons, J.J.";
+  const nameIndex = authors.indexOf(name);
+
+  if (nameIndex > -1) {
+    const first = authors.substring(0, nameIndex);
+    const second = authors.substring(nameIndex + name.length);
+
+    return (
+      <>
+        {first}
+        <strong>{name}</strong>
+        {second}
+      </>
+    );
+  }
+  return authors;
+};
+
 /** Publication is a single publication entry with authors, link, etc */
 const Publication = props => (
   <li>
     <p>
-      {props.authors} <strong>{props.title}</strong> <i>{props.journal}</i>{" "}
+      {egoHighlight(props.authors)} {props.title} <i>{props.journal}</i>{" "}
       {props.href && (
         <a target="_blank" rel="noopener" href={props.href}>
           [pdf]
