@@ -24,21 +24,28 @@ export default class IndexPage extends React.Component {
         </section>
         <section>
           <h3>Interests</h3>
-          <div className="about-columns">
+          <div>
             <p>
-              I enjoy working on projects that merge programming with biology. I
-              spent several years in wetlabs, with bacteria, algae, and yeast,
-              on projects that spanned trying to improve the energy density of
-              microbial fuel cells to testing neurokinases for immunogenic
-              response.
+              I am interested in computational biology and any project that fall
+              under its giant umbrella.
             </p>
             <p>
-              Since learning to program, I have created an image processing
-              workflow to study Tumor Treating Fields and designed tools to
-              automate plasmid assembly protocols (restriction digest and MoClo
-              Assembly). I am also intersted in using molecular dynamics for
-              mechanistic insight into tumor treating fields and nano-second
-              pulsed electric fields.
+              At work I'm a full-stack developer making tools for synthetic
+              biologists (everything BioCAD). In my research I make{" "}
+              <a
+                href="http://iopscience.iop.org/article/10.1088/1361-6560/aa87f3"
+                target="_blank"
+              >
+                workflows to study TTFields
+              </a>{" "}
+              (from patient MRIs) and study{" "}
+              <a
+                href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202141"
+                target="_blank"
+              >
+                proteins' response
+              </a>{" "}
+              to electric fields with molecular dynamics simulations.
             </p>
           </div>
         </section>

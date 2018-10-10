@@ -49,18 +49,6 @@
   text-decoration: none;
 }
 
-.about-columns {
-  display: flex;
-  justify-content: space-between;
-  -webkit-margin-before: 1em;
-}
-
-.about-columns p {
-  width: 45%;
-  padding-right: 20px;
-  -webkit-margin-before: 0;
-}
-
 #contents {
   display: flex;
 }
@@ -102,15 +90,6 @@
 @media (max-width: 640px) {
   .about {
     width: 100%;
-  }
-
-  .about-columns {
-    display: block;
-  }
-
-  .about-columns p {
-    width: 100%;
-    padding-right: 0;
   }
 
   .app-button {
