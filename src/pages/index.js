@@ -26,8 +26,8 @@ export default class IndexPage extends React.Component {
           <h3>Interests</h3>
           <div>
             <p>
-              I am interested in computational biology and any project that fall
-              under its giant umbrella.
+              I am interested in computational biology and any project that
+              falls under its giant umbrella.
             </p>
             <p>
               At work I'm a full-stack developer making tools for synthetic

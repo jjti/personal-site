@@ -94,7 +94,6 @@ blockquote p {
 }
 
 span > img {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
   border-radius: 5px;
 }
 

@@ -12,7 +12,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Joshua Timmons Personal Site",
-        short_name: "Timmons Site",
+        short_name: "Timmons",
         start_url: "/",
         background_color: "#ffffff",
         theme_color: "#ffffff",

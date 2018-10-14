@@ -5,7 +5,6 @@ import "./index.css";
 export default ({ children }) => (
   <div>
     <Helmet
-      title="Joshua Timmons"
       meta={[
         { name: "description", content: "personal site" },
         {
@@ -13,7 +12,10 @@ export default ({ children }) => (
           content: "joshua, timmons, software, programming, biology"
         }
       ]}
-    />
-    <div className="root-container">{children()}</div>
+    >
+      <meta charSet="utf-8" />
+      <title>Joshua Timmons</title>
+      <div className="root-container">{children()}</div>
+    </Helmet>
   </div>
 );
