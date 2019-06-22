@@ -1,14 +1,16 @@
 html,
-body,
-li {
+body {
   box-sizing: border-box;
   font-family: "Source Serif Pro", "EB Garamond", "Lora", Georgia, serif;
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   color: #333;
-  max-width: 900px;
-  margin: 10px auto;
+}
+
+body {
+  margin: 30px;
+  max-width: 960px;
 }
 
 h1,
@@ -52,6 +54,9 @@ ul {
 
 li {
   line-height: 26px;
+  font-family: "Source Serif Pro", "EB Garamond", "Lora", Georgia, serif;
+  font-weight: 400;
+  margin: 4px 0;
 }
 
 header {
@@ -83,7 +88,7 @@ hr {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 700;
   margin-bottom: 15px;
   margin-top: 20px;
@@ -91,7 +96,7 @@ h1 {
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 27px;
   font-weight: 700;
   margin-bottom: 15px;
   margin-top: 30px;
@@ -99,7 +104,7 @@ h2 {
 }
 
 h3 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
   margin-top: 0px;
@@ -107,13 +112,13 @@ h3 {
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   margin: 0;
 }
 
 h6 {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -124,7 +129,7 @@ a,
 li,
 p,
 button {
-  font-size: calc(17px + 0.2vw);
+  font-size: calc(15px + 0.2vw);
   line-height: 1.667;
 }
 
@@ -152,6 +157,10 @@ a.button {
 }
 
 @media (max-width: 640px) {
+  body {
+    margin: 12px;
+  }
+
   header {
     font-size: 40px;
     padding: 40px 5px;
