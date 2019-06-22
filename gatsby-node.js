@@ -84,6 +84,10 @@ exports.onPostBuild = pages => {
     `${publicPath}/**/?(*.html|*.js|*.css|*.ico|*.pdf)`
   );
   gzippable.forEach(file => {
+    if (!fs.lstatSync(file).isFile()) {
+      return;
+    }
+
     const content = fs.readFileSync(file);
     const zipped = zlib.gzipSync(content);
     fs.writeFileSync(`${file}.gz`, zipped);
