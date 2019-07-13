@@ -9,7 +9,6 @@ pre[class*="language-"] {
   font-size: calc(11px + 0.2vw);
   color: #f8f8f2;
   background: none;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
   text-align: left;
   word-spacing: normal;
   word-wrap: normal;
