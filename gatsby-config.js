@@ -1,9 +1,6 @@
 const path = require("path");
 
 module.exports = {
-  siteMetadata: {
-    title: `Joshua Timmons Personal Site`
-  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -11,7 +8,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Joshua Timmons Personal Site",
+        name: "Joshua Timmons",
         short_name: "Timmons",
         start_url: "/",
         background_color: "#ffffff",
