@@ -26,8 +26,8 @@ The goal of the app is to help draft players by ranking them accoring to their v
 ### Alternatives
 
 - FantasyFootballAnalytics is an interactive and very detailed app that was a huge influence, but it’s build with RShiny and is consistently slow and clunky
-- FantasyPros Draft Wizard is a clean app and takes the same underlying approach that I do — wisdom-of-the-crowd from expert rankers — but it’s $10 and involves a subscription
-- BeerSheets is huge on Reddit but is a spreadsheet and the model underlying it is “secret” (see: same or worse than averaging expert predictions)
+- FantasyPros Draft Wizard is a clean app and takes the same underlying approach that I do — wisdom-of-the-crowd from expert rankers — but it’s \$10 and involves a subscription
+- BeerSheets is huge on Reddit but is a spreadsheet and the model underlying it is “secret” (see: same approach as the one described here)
 - Draft Aid is a front-end for the “tier-based” data that’s almost as popular on Reddit as Beersheets. But I don’t agree with clustering as a useful approach to drafting (like, at all). I think Reddit’s hive-mind got distracted by some good-looking graphs.
 
 ### FFDraft.app features

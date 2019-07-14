@@ -9,6 +9,14 @@
   box-shadow: none;
 }
 
+.blog-link {
+  line-height: unset;
+}
+
+.blog-link:hover {
+  text-decoration: underline;
+}
+
 .onHoverUnderline:hover {
   border-bottom: 1px solid rgb(97, 179, 251);
   box-shadow: inset 0 -1px 0px 0px rgb(97, 179, 251);

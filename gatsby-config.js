@@ -1,10 +1,15 @@
 const path = require("path");
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://www.joshuatimmons.com/`
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

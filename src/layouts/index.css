@@ -60,7 +60,7 @@ li {
 }
 
 header {
-  padding: 80px 0px 0px 0px;
+  padding: 60px 0px 0px 0px;
   font-weight: 300;
   font-size: 48px;
   letter-spacing: 1.5px;
@@ -69,11 +69,11 @@ header {
 }
 
 section {
-  padding-bottom: 70px;
+  padding-bottom: 50px;
 }
 
 footer {
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 
 hr {
@@ -168,7 +168,7 @@ a.button {
 
   header {
     font-size: 40px;
-    padding: 40px 5px;
+    padding: 20px 0px;
   }
 
   h1 {

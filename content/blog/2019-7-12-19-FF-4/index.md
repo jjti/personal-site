@@ -1,5 +1,5 @@
 ---
-title: Players Most Affected by Points Per Reception
+title: The Effects of Points Per Reception
 date: 7/12/2019
 ---
 

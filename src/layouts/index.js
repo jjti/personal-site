@@ -4,7 +4,7 @@ import "./index.css";
 
 export default ({ children }) => (
   <>
-    <Helmet title="Joshua Timmons">
+    <Helmet title="Joshua Timmons" defer={false}>
       <title>Joshua Timmons</title>
       <meta charSet="utf-8" />
       <meta name="image" content="/face.png" />

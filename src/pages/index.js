@@ -22,34 +22,6 @@ export default class IndexPage extends React.Component {
         <section>
           <header>joshua timmons</header>
         </section>
-        <section>
-          <h3>Interests</h3>
-          <div>
-            <p>
-              I am interested in computational biology and any project that
-              falls under its giant umbrella.
-            </p>
-            <p>
-              At work I'm a full-stack developer making tools for synthetic
-              biologists (everything BioCAD). In my research I make{" "}
-              <a
-                href="http://iopscience.iop.org/article/10.1088/1361-6560/aa87f3"
-                target="_blank"
-              >
-                workflows to study TTFields
-              </a>{" "}
-              (from patient MRIs) and study{" "}
-              <a
-                href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202141"
-                target="_blank"
-              >
-                proteins' response
-              </a>{" "}
-              to electric fields with molecular dynamics simulations.
-            </p>
-          </div>
-        </section>
-        <h3 style={{ marginBottom: "45px" }}>Contents</h3>
         <section id="contents">
           <div className="contents-col">
             <h6 className="lightGrayColor">FILES</h6>
@@ -72,7 +44,9 @@ export default class IndexPage extends React.Component {
             </ul>
           </div>
           <div className="contents-col contents-col-large">
-            <h6 className="lightGrayColor">BLOG</h6>
+            <Link to="/blog" className="blog-link onHoverUnderline">
+              <h6 className="lightGrayColor">BLOG</h6>
+            </Link>
             <ul style={{ marginLeft: 0 }}>
               {edges.map(({ node }, i) => (
                 <li
