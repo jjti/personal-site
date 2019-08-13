@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  margin: calc((100vh - 600px) / 4) auto;
+  margin: auto;
   max-width: 960px;
 }
 

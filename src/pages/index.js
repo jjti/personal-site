@@ -18,7 +18,7 @@ export default class IndexPage extends React.Component {
     edges = edges.slice(0, 6);
 
     return (
-      <div>
+      <div style={{ margin: "calc((100vh - 600px) / 4) auto" }}>
         <section>
           <header>joshua timmons</header>
         </section>
