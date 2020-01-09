@@ -1,7 +1,8 @@
 import Img from "gatsby-image";
 import React from "react";
-// import face from "./face.png";
+
 import "./Footer.css";
+import Face from "./Face.jsx";
 
 export default props => {
   return (
@@ -68,7 +69,7 @@ export default props => {
             </div>
           </div>
           <div id="footer-right">
-            <Img resolutions={props.resolutions} fadeIn={false} />
+            <Face />
           </div>
         </div>
       </footer>

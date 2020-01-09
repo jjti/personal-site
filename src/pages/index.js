@@ -1,7 +1,9 @@
 import { graphql } from "gatsby";
 import Link from "gatsby-link";
 import React from "react";
+
 import Footer from "../components/Footer.jsx";
+import Metadata from "../components/Metadata.jsx";
 import CV from "../files/CV.pdf";
 import Resume from "../files/Resume.pdf";
 import "../layouts/index.css";
@@ -18,7 +20,9 @@ export default class IndexPage extends React.Component {
     edges = edges.slice(0, 6);
 
     return (
-      <div style={{ margin: "calc((100vh - 600px) / 4) auto" }}>
+      // This margin calculation sucks and is based totally on average size in px
+      <div style={{ margin: "calc((100vh - 750px) / 4) auto" }}>
+        <Metadata />
         <section>
           <header>joshua timmons</header>
         </section>
@@ -73,9 +77,7 @@ export default class IndexPage extends React.Component {
             </ul>
           </div>
         </section>
-        <Footer
-          resolutions={this.props.data.file.childImageSharp.resolutions}
-        />
+        <Footer />
       </div>
     );
   };
@@ -91,13 +93,6 @@ export const pageQuery = graphql`
             date
           }
           url
-        }
-      }
-    }
-    file(relativePath: { eq: "components/face.png" }) {
-      childImageSharp {
-        resolutions(height: 205, width: 205) {
-          ...GatsbyImageSharpResolutions_noBase64
         }
       }
     }

@@ -1,7 +1,9 @@
 import { graphql } from "gatsby";
 import React from "react";
+
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
+import Metadata from "../components/Metadata.jsx";
 import SingleEntry from "../components/SingleEntry.jsx";
 
 export default class BlogIndex extends React.Component {
@@ -23,6 +25,7 @@ export default class BlogIndex extends React.Component {
 
     return (
       <div>
+        <Metadata />
         <Header />
         <div id="blog-container" style={{ maxWidth: 800 }}>
           <h1>Blog</h1>
@@ -38,9 +41,7 @@ export default class BlogIndex extends React.Component {
           ))}
           <div style={{ height: "80px" }} />
         </div>
-        <Footer
-          resolutions={this.props.data.file.childImageSharp.resolutions}
-        />
+        <Footer />
       </div>
     );
   }
@@ -58,13 +59,6 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 250)
           url
           html
-        }
-      }
-    }
-    file(relativePath: { eq: "components/face.png" }) {
-      childImageSharp {
-        resolutions(height: 205, width: 205) {
-          ...GatsbyImageSharpResolutions_noBase64
         }
       }
     }

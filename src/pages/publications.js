@@ -1,8 +1,10 @@
 import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
+import Metadata from "../components/Metadata.jsx";
 import B162016 from "../files/2016-B16.pdf";
 import Interlab from "../files/2016-Interlab.pdf";
 import mTMZ2016 from "../files/2016-mTMZ.pdf";
@@ -11,6 +13,7 @@ import JoVE2017 from "../files/2017-JoVE.pdf";
 import PBM2017 from "../files/2017-PBM.pdf";
 import AJCO2018 from "../files/2018-AJCO.pdf";
 import PLOS2018 from "../files/2018-PLOS.pdf";
+import PLOS2019 from "../files/2020-PLOS.pdf";
 
 /** ego-highlight: wrap my name in bold spans */
 const egoHighlight = authors => {
@@ -76,6 +79,16 @@ Year.propTypes = {
  * in a single object than to be explicit in the render
  */
 const publications = {
+  2020: [
+    {
+      authors: "Timmons, J.J. & Densmore D.",
+      title: "Repository-based plasmid design",
+      journal: "PLOS One",
+      url:
+        "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223935",
+      pdf: PLOS2019
+    }
+  ],
   2018: [
     {
       authors: "Timmons, J.J., Preto, J., Tuszynski, J.A., & Wong, E.T.",
@@ -186,6 +199,7 @@ const posters = [
 
 export default props => (
   <div>
+    <Metadata />
     <Header />
     <section style={{ paddingBottom: "0" }}>
       <h1>Publications</h1>
@@ -207,18 +221,6 @@ export default props => (
         ))}
       </ul>
     </section>
-    <Footer resolutions={props.data.file.childImageSharp.resolutions} />
+    <Footer />
   </div>
 );
-
-export const query = graphql`
-  query PubFooterImage {
-    file(relativePath: { eq: "components/face.png" }) {
-      childImageSharp {
-        resolutions(height: 205, width: 205) {
-          ...GatsbyImageSharpResolutions_noBase64
-        }
-      }
-    }
-  }
-`;

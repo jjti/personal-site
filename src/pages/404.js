@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import Link from "gatsby-link";
 import React from "react";
+
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 
@@ -19,18 +20,7 @@ export default props => (
         to navigate to the rest of the site
       </p>
     </section>
-    <Footer resolutions={props.data.file.childImageSharp.resolutions} />
+    <Footer />
+    />
   </div>
 );
-
-export const query = graphql`
-  query FourOhFourFooterImage {
-    file(relativePath: { eq: "components/face.png" }) {
-      childImageSharp {
-        resolutions(height: 205, width: 205) {
-          ...GatsbyImageSharpResolutions_noBase64
-        }
-      }
-    }
-  }
-`;
