@@ -36,7 +36,6 @@ export default props => {
                   {"LinkedIn: "}
                   <a
                     href="https://www.linkedin.com/in/JJTimmons"
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="onHoverUnderline"
                   >
@@ -47,7 +46,6 @@ export default props => {
                   {"ResearchGate: "}
                   <a
                     href="https://www.researchgate.net/profile/Joshua_Timmons"
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="onHoverUnderline"
                   >
@@ -58,7 +56,6 @@ export default props => {
                   {"GitHub: "}
                   <a
                     href="https://github.com/JJTimmons"
-                    target="_blank"
                     rel="noopener noreferrer"
                     className="onHoverUnderline"
                   >

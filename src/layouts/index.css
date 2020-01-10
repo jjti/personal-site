@@ -10,6 +10,7 @@ body {
 
 body {
   margin: auto;
+  padding: 12px;
   max-width: 960px;
 }
 
@@ -162,10 +163,6 @@ a.button {
 }
 
 @media (max-width: 640px) {
-  body {
-    margin: 12px;
-  }
-
   header {
     font-size: 40px;
     padding: 20px 0px;

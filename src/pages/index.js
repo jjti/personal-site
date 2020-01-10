@@ -31,12 +31,12 @@ export default class IndexPage extends React.Component {
             <h6 className="lightGrayColor">FILES</h6>
             <ul style={{ marginLeft: 0 }}>
               <li>
-                <a target="_blank" href={Resume} className="onHoverUnderline">
+                <a href={Resume} className="onHoverUnderline">
                   Resume
                 </a>
               </li>
               <li>
-                <a target="_blank" href={CV} className="onHoverUnderline">
+                <a href={CV} className="onHoverUnderline">
                   CV
                 </a>
               </li>

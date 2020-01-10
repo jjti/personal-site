@@ -7,7 +7,7 @@
 .single-entry-header {
   display: flex;
   align-items: baseline;
-  margin-bottom: 10px;
+  margin-bottom: -6px;
 }
 
 .single-entry-header h3 {

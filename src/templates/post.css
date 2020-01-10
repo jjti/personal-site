@@ -7,7 +7,7 @@ blockquote {
   border-left: 3px solid #333;
   padding-left: 15px;
   margin-left: -15px;
-  quotes: "\201C" "\201D" "\2018" "\2019";
+  quotes: "\201C""\201D""\2018""\2019";
 }
 
 blockquote::before {
@@ -54,23 +54,34 @@ blockquote p {
 .blog-footer {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 70px;
+  padding-bottom: 36px;
 }
 
 .footer-post {
-  width: 45%;
+  height: fit-content;
+  width: fit-content;
+  max-width: 45%;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.footer-post:hover {
+  background-color: transparent;
+  border: 1px solid rgb(222, 222, 222);
 }
 
 .footer-post > h5 {
   letter-spacing: inherit;
-  margin-bottom: 15px;
+  margin-bottom: -6px;
 }
 
 .footer-post > a {
   font-weight: 700;
 }
 
-.next-post {
+.next-post > {
   text-align: right;
 }
 
@@ -90,7 +101,7 @@ blockquote p {
 }
 
 .footer-sep {
-  height: 80px;
+  height: 60px;
 }
 
 span > img {

@@ -23,22 +23,18 @@ export default ({
       <div className="footer-sep" />
       <footer className="blog-footer san-serif" key="blog-footer-body">
         {prev && (
-          <div className="footer-post last-post">
+          <Link to={`/${prev.url}`} className="footer-post last-post">
             <h5 style={{ marginLeft: "auto" }} className="lightGrayColor">
               Last
             </h5>
-            <Link to={`/${prev.url}`} className="onHoverUnderline">
-              {prev.frontmatter.title}
-            </Link>
-          </div>
+            {prev.frontmatter.title}
+          </Link>
         )}
         {next && (
-          <div className="footer-post next-post">
+          <Link to={`/${next.url}`} className="footer-post next-post">
             <h5 className="lightGrayColor">Next</h5>
-            <Link to={`/${next.url}`} className="onHoverUnderline">
-              {next.frontmatter.title}
-            </Link>
-          </div>
+            {next.frontmatter.title}
+          </Link>
         )}
       </footer>
     </div>
