@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 
+import { parse } from "../data/parse.js";
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 import Metadata from "../components/Metadata.jsx";
@@ -15,13 +16,7 @@ export default class BlogIndex extends React.Component {
       });
       return <h1>Errors found: Check the console for details</h1>;
     }
-
-    const edges = this.props.data.allMarkdownRemark.edges;
-    edges.sort((a, b) => {
-      const d1 = new Date(a.node.frontmatter.date).getTime();
-      const d2 = new Date(b.node.frontmatter.date).getTime();
-      return d2 - d1;
-    });
+    let edges = parse(this.props);
 
     return (
       <div>
@@ -29,11 +24,11 @@ export default class BlogIndex extends React.Component {
         <Header />
         <div id="blog-container" style={{ maxWidth: 800 }}>
           <h1>Blog</h1>
-          {edges.map(({ node }) => (
+          {edges.map(node => (
             <SingleEntry
-              key={node.frontmatter.title}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
+              key={node.title}
+              title={node.title}
+              date={node.date}
               snippet={node.excerpt}
               href={node.url}
               newTab={false}
@@ -48,17 +43,43 @@ export default class BlogIndex extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query BlogQuery {
     allMarkdownRemark {
       edges {
         node {
           frontmatter {
-            title
             date
+            title
           }
-          excerpt(pruneLength: 250)
-          url
-          html
+          excerpt(pruneLength: 300)
+        }
+      }
+    }
+
+    goodreadsShelf {
+      id
+      shelfName
+      reviews {
+        reviewID
+        rating
+        votes
+        spoilerFlag
+        dateAdded
+        dateUpdated
+        body
+        book {
+          bookID
+          isbn
+          isbn13
+          textReviewsCount
+          uri
+          link
+          title
+          titleWithoutSeries
+          imageUrl
+          smallImageUrl
+          largeImageUrl
+          description
         }
       }
     }

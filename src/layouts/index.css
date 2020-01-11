@@ -129,7 +129,8 @@ h6 {
 a,
 li,
 p,
-button {
+button,
+blockquote {
   font-size: calc(15px + 0.2vw);
   line-height: 1.667;
 }

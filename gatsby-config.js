@@ -1,5 +1,7 @@
 const path = require("path");
 
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.joshuatimmons.com/`
@@ -72,6 +74,13 @@ module.exports = {
             }
           }
         ]
+      }
+    },
+    {
+      resolve: "gatsby-source-goodreads",
+      options: {
+        developerKey: process.env.GR_KEY,
+        goodReadsUserId: process.env.GR_ID
       }
     }
   ]
