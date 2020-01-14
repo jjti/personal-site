@@ -42,7 +42,7 @@ export default class IndexPage extends React.Component {
               </li>
             </ul>
           </div>
-          <div className="contents-col contents-col-large">
+          <div className="contents-col contents-col-large contents-col-left">
             <Link to="/blog" className="blog-link onHoverUnderline">
               <h6 className="lightGrayColor">BLOG</h6>
             </Link>
@@ -65,7 +65,7 @@ export default class IndexPage extends React.Component {
               {edges.slice(3, 6).map(node => (
                 <li key={`${node.url}_2`}>
                   <Link to={node.url} className="onHoverUnderline">
-                    {node.title}{" "}
+                    {node.title}
                   </Link>
                 </li>
               ))}
