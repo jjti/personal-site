@@ -7,7 +7,6 @@ import Footer from "../components/Footer.jsx";
 import Metadata from "../components/Metadata.jsx";
 import CV from "../files/CV.pdf";
 import Resume from "../files/Resume.pdf";
-import "../layouts/index.css";
 import "./index.css";
 
 export default class IndexPage extends React.Component {
