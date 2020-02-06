@@ -9,9 +9,7 @@ exports.parse = query => {
 
   let entries = posts.concat(reviews);
   entries.sort((a, b) => {
-    const d1 = new Date(a.date).getTime();
-    const d2 = new Date(b.date).getTime();
-    return d2 - d1;
+    return Date.parse(b.date) - Date.parse(a.date);
   });
   entries = entries.map((e, index) => ({
     ...e,
@@ -59,12 +57,37 @@ const parseGoodreads = (reviews, component) => {
 
     const title = r.book.title.split(":")[0];
 
+    // dates are returned like this:
+    // "Sat Jan 25 14:19:54 -0800 2020"
+    const dateS = r.dateAdded.split(" ");
+
+    const monthMap = {
+      Jan: 0,
+      Feb: 1,
+      Mar: 2,
+      Apr: 3,
+      May: 4,
+      Jun: 5,
+      Jul: 6,
+      Aug: 7,
+      Sep: 8,
+      Oct: 9,
+      Nov: 10,
+      Dec: 11
+    };
+
+    // year, month, day
+    const year = parseInt(dateS[5]);
+    const month = monthMap[dateS[1]];
+    const day = parseInt(dateS[2]);
+    const date = new Date(year, month, day);
+
     outReviews.push({
       url: getURL(r.book.title),
       component: component,
       title: title,
       body: body,
-      date: r.dateAdded,
+      date: date,
       excerpt: excerpt,
       rating: r.rating,
       link: r.book.link
@@ -82,5 +105,5 @@ const getURL = title => {
     .join("-");
   slug = encodeURI(slug); // uri encode
 
-  return `blog/${slug}`; // add date if names start to conflict
+  return `/blog/${slug}`; // add date if names start to conflict
 };
