@@ -13,9 +13,9 @@ child_process.exec(
     } else if (stdout) {
       console.log(`stdout: ${stdout}`);
       child_process.exec(
-        `aws cloudfront create-invalidation --distribution-id E1MRNWEDPJJGK --paths "/*" --profile personal`,
+        `aws cloudfront create-invalidation --distribution-id EVQ9J3VI2WX9A --paths "/*" --profile personal`,
         (errorcf, stdoutcf, stderrcf) => {
-          console.log(`error-cf: ${error}`);
+          console.log(`error-cf: ${errorcf}`);
           console.log(`stdout-cf: ${stdoutcf}`);
           console.log(`stderr-cf: ${stderrcf}`);
         }

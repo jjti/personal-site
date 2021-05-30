@@ -33,7 +33,7 @@ const parseMarkdown = (posts, component) =>
 
 // parse each goodreads review
 const parseGoodreads = (reviews, component) => {
-  const outReviews = [];
+  let outReviews = [];
 
   reviews.forEach(r => {
     let body = r.body.replace(/\\n/g, "").trim();
@@ -93,6 +93,14 @@ const parseGoodreads = (reviews, component) => {
       link: r.book.link
     });
   });
+
+  const exclude = [
+    "/blog/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america",
+    "/blog/team-human",
+    "/blog/the-reactionary-mind-conservatism-from-edmund-burke-to-sarah-palin",
+    "/blog/how-to-change-your-mind-what-the-new-science-of-psychedelics-teaches-us-about-consciousness-dying-addiction-depression-and-transcendence"
+  ];
+  outReviews = outReviews.filter(r => !exclude.includes(r.url));
 
   return outReviews;
 };

@@ -11,7 +11,7 @@ export default ({
   <div>
     <Header key="header" />
     <div className="Post">
-      <div className="blog-header san-serif">
+      <div className="blog-header sans-serif">
         <h1>{title}</h1>
         <a href={link} style={{ textDecoration: "underline" }}>
           <h6>Review: {rating}/5</h6>
@@ -21,7 +21,7 @@ export default ({
       </div>
       <div dangerouslySetInnerHTML={{ __html: body }} className="blog-body" />
       <div className="footer-sep" />
-      <footer className="blog-footer san-serif" key="blog-footer-body">
+      <footer className="blog-footer" key="blog-footer-body">
         {prev && (
           <Link to={`/${prev.url}`} className="footer-post last-post">
             <h5 style={{ marginLeft: "auto" }} className="lightGrayColor">

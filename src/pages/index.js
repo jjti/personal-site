@@ -5,7 +5,6 @@ import React from "react";
 import { parse } from "../data/parse.js";
 import Footer from "../components/Footer.jsx";
 import Metadata from "../components/Metadata.jsx";
-import CV from "../files/CV.pdf";
 import Resume from "../files/Resume.pdf";
 import "./index.css";
 
@@ -27,11 +26,6 @@ export default class IndexPage extends React.Component {
               <li>
                 <a href={Resume} className="onHoverUnderline">
                   Resume
-                </a>
-              </li>
-              <li>
-                <a href={CV} className="onHoverUnderline">
-                  CV
                 </a>
               </li>
               <li>

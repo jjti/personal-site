@@ -1,4 +1,3 @@
-import Img from "gatsby-image";
 import React from "react";
 
 import "./Footer.css";
