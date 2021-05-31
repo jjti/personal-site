@@ -55,7 +55,7 @@ export default class IndexPage extends React.Component {
           <div className="contents-col contents-col-large mobile-content-hide">
             <br />
             <ul>
-              {edges.slice(3, 6).map(node => (
+              {edges.slice(3, 6).map((node) => (
                 <li key={`${node.url}_2`}>
                   <Link to={node.url} className="onHoverUnderline">
                     {node.title}
@@ -85,30 +85,13 @@ export const pageQuery = graphql`
       }
     }
 
-    goodreadsShelf {
-      id
-      shelfName
-      reviews {
-        reviewID
-        rating
-        votes
-        spoilerFlag
-        dateAdded
-        dateUpdated
-        body
-        book {
-          bookID
-          isbn
-          isbn13
-          textReviewsCount
-          uri
-          link
-          title
-          titleWithoutSeries
-          imageUrl
-          smallImageUrl
-          largeImageUrl
-          description
+    allGoodreadsLibraryExportCsv {
+      edges {
+        node {
+          Title
+          Date_Added
+          My_Review
+          My_Rating
         }
       }
     }

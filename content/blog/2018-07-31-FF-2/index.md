@@ -65,7 +65,6 @@ player.data$experts <- apply(player.data[, year.names], 1, function(x) mean(x, n
 For the actual regressions, I was able to just use `lm`, rather than `plm`, since lagged statistics was no longer a concern. This saved a lot of code since I could use the `predict` [function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/predict.lm.html) to make the plots. And the result was an obvious improvement over the stats-only approach:
 
 ![experts.png](./experts.png "Expert based predictions")
-_FF models regressed on mean expert rankings_
 
 Note the vertical streaks ~120 for QBs and ~50 for the other three positions. It's there because of the imputed zero's. It's the coefficient for each model; it signals that the players in those positions weren't rated at all by the experts. I'm debating whether to include those players in the models (and it's where I think my models differ most from FFA's -- I don't think Issac does). It's clear from the RB plot that most the players without an expert rating got less than 50pts on the season and were, therefore, justifiably, not included in the experts' forecasts.
 
@@ -104,14 +103,12 @@ summary(rb.fit)
 And the results from Madden-only models:
 
 ![madden.png](./madden.png "Madden based predictions")
-_FF models regressed on Madden stats. Inferior to the Experts_
 
 ## Using Both
 
 And, of course, I've combined the two data sources. In keeping with what I learned from FFA, the R^2's improved greatly compared to either data source by itself. I really need to correct for overfitting/variance, but, in the short-term, I'm optimizing against the percentage of explained variance.
 
 ![full.png](./full.png "Predictions for Madden + Expert forecasts")
-_FF models regressed on Expert forecasts + Madden stats. Better than any other_
 
 As a recap of the R^2's from the three approaches:
 

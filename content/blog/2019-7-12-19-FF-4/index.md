@@ -15,9 +15,9 @@ This post is about PPR: probably the most discussed FF setting. [There was discu
 
 ## Figures
 
-![Change in rank](change_in_rank.png "Change in rank in PPR league") _Change in rank in PPR league_
+![Change in rank](change_in_rank.png "Change in rank in PPR league"\)
 
-![Player value over time](value_by_position.png "Player value in standard versus PPR league") _Player value in standard versus PPR league_
+![Player value over time](value_by_position.png "Player value in standard versus PPR league"\)
 
 ## Players
 

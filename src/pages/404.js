@@ -1,11 +1,10 @@
-import { graphql } from "gatsby";
 import Link from "gatsby-link";
 import React from "react";
 
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 
-export default props => (
+export default () => (
   <div>
     <Header />
     <section>
@@ -21,6 +20,5 @@ export default props => (
       </p>
     </section>
     <Footer />
-    />
   </div>
 );

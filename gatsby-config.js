@@ -4,11 +4,13 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.joshuatimmons.com/`
+    siteUrl: `https://www.joshuatimmons.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-csv`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
@@ -25,33 +27,33 @@ module.exports = {
           {
             src: `/static/favicon.icon`,
             sizes: `150x150`,
-            type: `image/ico`
-          }
-        ]
-      }
+            type: `image/ico`,
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-108371876-1",
         // Setting this parameter is optional
-        anonymize: true
-      }
+        anonymize: true,
+      },
     },
     `gatsby-plugin-offline`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts", // Name this source
-        path: path.resolve("./content/blog") // Tell it where to find the files
-      }
+        path: path.resolve("./content/blog"), // Tell it where to find the files
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "src", // Name this source
-        path: path.resolve("./src") // Tell it where to find the files
-      }
+        path: path.resolve("./src"), // Tell it where to find the files
+      },
     },
     {
       resolve: "gatsby-transformer-remark",
@@ -64,24 +66,17 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
-              linkImagesToOriginal: false
-            }
+              linkImagesToOriginal: false,
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              classPrefix: "language-"
-            }
-          }
-        ]
-      }
+              classPrefix: "language-",
+            },
+          },
+        ],
+      },
     },
-    {
-      resolve: "gatsby-source-goodreads",
-      options: {
-        developerKey: process.env.GR_KEY,
-        goodReadsUserId: process.env.GR_ID
-      }
-    }
-  ]
+  ],
 };

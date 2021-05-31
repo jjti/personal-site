@@ -90,14 +90,6 @@ blockquote p {
   border-radius: 5px;
 }
 
-.blog-body p em {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  font-size: calc(13px + 0.2vw);
-  font-style: normal;
-}
-
 .footer-sep {
   height: 60px;
 }
@@ -109,10 +101,6 @@ span > img {
 @media (max-width: 640px) {
   .blog-footer {
     flex-wrap: wrap;
-  }
-
-  .blog-body p em {
-    font-size: calc(13px + 0.2vw);
   }
 
   .footer-post {

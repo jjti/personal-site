@@ -7,11 +7,11 @@ export default () => (
     <meta charSet="utf-8" />
     <meta
       name="description"
-      content="The personal site of Joshua Timmons: a software engineer and researcher"
+      content="Personal site of Joshua Timmons, yet another software engineer"
     />
     <meta
       name="keywords"
-      content="joshua, timmons, software, programming, biology"
+      content="joshua, timmons, software, programming, vanity, biology, amazon, aws, lattice, research, sarasota, florida, boston, massachusetts"
     />
   </Helmet>
 );

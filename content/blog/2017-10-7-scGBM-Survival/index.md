@@ -16,7 +16,6 @@ Ideally, all clinicians would, upon diagnosising a patient with a rare disease, 
 Additional records were found through two sources: PubMed and Google Scholar. First, titles were screened for those that included some combination of "spinal" and "glioma" or "gliosarcoma" or "glioblastoma" in the title. Additional records were identified through the citations, and these were added as well (in a method called "hand-searching").
 
 ![Prisma diagram](1.png "prisma diagram")
-_A prisma diagram for the source of the imported records_
 
 ### Challenges
 
@@ -33,12 +32,10 @@ But other questions remain -- like how age at diagnosis, sex, and tumor location
 No treatment type correlated with significant differences in overall survival.
 
 ![Treatment vs outcome](2.png "Treatment vs outcome")
-_Treatment type/degree versus outcome_
 
 The female sex was very negatively correlated with overall survival, but nothing else reached significance (log-rank p-value on the Kaplan-Myers).
 
 ![characteristics vs outcome](3.png "Characteristics vs outcome")
-_Patient characteristics versus outcome_
 
 ### Conclusions
 

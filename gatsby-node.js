@@ -15,8 +15,8 @@ exports.setFieldsOnGraphQLNodeType = ({ type }) => {
   return Promise.resolve({
     url: {
       type: GraphQLString,
-      resolve: node => getURL(node)
-    }
+      resolve: (node) => getURL(node),
+    },
   });
 };
 
@@ -38,53 +38,36 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
 
-      goodreadsShelf {
-        id
-        shelfName
-        reviews {
-          reviewID
-          rating
-          votes
-          spoilerFlag
-          dateAdded
-          dateUpdated
-          body
-          book {
-            bookID
-            isbn
-            isbn13
-            textReviewsCount
-            uri
-            link
-            title
-            titleWithoutSeries
-            imageUrl
-            smallImageUrl
-            largeImageUrl
-            description
+      allGoodreadsLibraryExportCsv {
+        edges {
+          node {
+            Title
+            Date_Added
+            My_Review
+            My_Rating
           }
         }
       }
     }
   `);
 
-  // Create blog posts pages.
+  // Create blog post pages.
   const entries = parse(query);
   entries.forEach(({ component, ...rest }) => {
     createPage({
       path: rest.url,
       component: component,
-      context: rest
+      context: rest,
     });
   });
 };
 
-exports.onPostBuild = pages => {
+exports.onPostBuild = (pages) => {
   const publicPath = path.join(__dirname, "public");
   const gzippable = glob.sync(
-    `${publicPath}/**/?(*.html|*.js|*.css|*.ico|*.pdf)`
+    `${publicPath}/**/?(*.html|*.js|*.css|*.ico|*.pdf|*.csv)`
   );
-  gzippable.forEach(file => {
+  gzippable.forEach((file) => {
     if (!fs.lstatSync(file).isFile()) {
       return;
     }

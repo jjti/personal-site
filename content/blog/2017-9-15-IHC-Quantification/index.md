@@ -7,7 +7,7 @@ My lab was doing an analysis of breast cancer patients looking for correlations 
 
 An area for improvement was in the "stain quantification." We were judging the stain coverage of the stains by eye using a human-rating system, 1-5, to indicate "how stained" a slide was. Surpisingly, this is a common methodology ([Taylor, 2006](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2559.2006.02513.x/full)).
 
-![Unstained IHC slide](1.png "Unstained IHC slide") _A stained slide_
+![Unstained IHC slide](1.png "Unstained IHC slide")
 
 In research, I found some existing programmatic solutions to the problem ([Varghese, 2014](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0096801), [Shi, 2016](https://www.nature.com/articles/srep32127)) but they were either not high-throughput, proprietary, or plugins for ImageJ (heavy). Given that I wanted to find "how-stained" each IHC slide was for >300 images, nothing looked ideal.
 
@@ -20,11 +20,11 @@ My naive solution was brightness thresholding using the python cv2 module. Strai
 
 To find the brightness cutoff to use for a "stained" region, I uploaded a few sample images to ImageJ and played with the [built-in thresholding tools](https://www.unige.ch/medecine/bioimaging/files/1914/1208/6000/Quantification.pdf). HSV format was particularly suited for this type of thresholding since [saturation is built into the image format.](https://en.wikipedia.org/wiki/HSL_and_HSV#Saturation)
 
-![Stained immune cells IHC Slide](2.png "Stained cytotoxic cells") _With a saturation cut-off of 147_
+![Stained immune cells IHC Slide](2.png "Stained cytotoxic cells")
 
 This was a good start, but the other factor to take into account was that not 100% of the slides were covered by tissue. Fortunately, since even the thin layers along the edges are slightly darker than the areas without any tissue in the slides, I was also able to threshold on tissue as well.
 
-![Stained tissue](3.png "Stained tissue -- total area") _Saturation cut-off of 209 (including lighter pixels to get total area of tissue)_
+![Stained tissue](3.png "Stained tissue -- total area")
 
 With these two counts in hand (the number of pixels that are "stained" versus the number that fall under the class of "tissue"), it was possible to create a ratio for each slide.
 

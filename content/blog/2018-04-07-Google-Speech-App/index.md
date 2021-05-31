@@ -39,7 +39,7 @@ const shortid = require("shortid");
 const config = require("../config.js");
 
 const storage = Storage({
-  projectId: config.GCLOUD_PROJECT
+  projectId: config.GCLOUD_PROJECT,
 });
 const bucket = storage.bucket(config.CLOUD_BUCKET);
 
@@ -48,13 +48,13 @@ function getURL(filename) {
   return `gs://${config.CLOUD_BUCKET}/${uri}`;
 }
 
-module.exports.upload = filename => {
+module.exports.upload = (filename) => {
   return new Promise((resolve, reject) => {
     // some random id for file
     bucket
       .upload(filename)
       .then(() => resolve(getURL(filename)))
-      .catch(err => reject(err));
+      .catch((err) => reject(err));
   });
 };
 ```
@@ -79,35 +79,35 @@ module.exports = (jobID, gcsUri) => {
   const config = {
     encoding: "FLAC",
     sampleRateHertz: 16000,
-    languageCode: "en-US"
+    languageCode: "en-US",
   };
 
   const audio = {
-    uri: gcsUri
+    uri: gcsUri,
   };
 
   const request = {
     config: config,
-    audio: audio
+    audio: audio,
   };
 
   // Detects speech in the audio file. This creates a recognition job that you
   // can wait for now, or get its result later.
   return client
     .longRunningRecognize(request)
-    .then(data => {
+    .then((data) => {
       const operation = data[0];
       // Get a Promise representation of the final result of the job
       return operation.promise();
     })
-    .then(data => {
+    .then((data) => {
       const response = data[0];
       const transcription = response.results
-        .map(result => result.alternatives[0].transcript)
+        .map((result) => result.alternatives[0].transcript)
         .join("");
       fs.writeFileSync(`${jobID}.txt`, transcription, { encoding: "utf8" }); //save to local file system
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("ERROR:", err);
     });
 };
@@ -133,7 +133,7 @@ app.use("/results", async (req, res) => {
   const flacFileExists = fs.existsSync(flacPath); // still in storage. transcribing
   if (transcriptFileExists) {
     return res.status(200).send({
-      transcript: fs.readFileSync(transcriptPath, { encoding: "utf8" })
+      transcript: fs.readFileSync(transcriptPath, { encoding: "utf8" }),
     });
     cleanUp(jobID);
   } else if (flacFileExists) {
@@ -149,7 +149,6 @@ app.use("/results", async (req, res) => {
 I used a basic React frontend, made with Create-React-App, and deployed the static build to S3. It's minimal but allows DnD of audio files and has a small visual indication that the results are transcribing. I'm not going to post an endpoint because I'm paying for the Google Storage bucket and Google Speech service on a per-usage basis, so the tool's really just for my SO right now.
 
 ![Front end](img.png)
-_The front end of the transcription application. Drag and drop or select an \*/audio input file_
 
 ### Wrapping up
 
@@ -160,7 +159,6 @@ Could this app be improved? Yes, in a couple ways. First, there could be much be
 Takeaways from building the app include that Google's Cloud Services have better UX than AWS. Efforts are grouped into projects whereas in AWS, in the S3 panel, you get a list of every bucket under the sun and your account. The google-api npm packages were also well documented and had example code.
 
 ![Transcription alignment plot](img2.png)
-_Word by word transcription dot plot_
 
 This is a dot plot I created between a manual and automatic transcription of a political speech, labelled "orig" and "auto," respectively. It's based on sequence alignment dot plots used in genetics and shows pretty clearly the near-exact overlap between the two transcriptions. It does look like Google's Speech API is adding additional words that the human didn't add (maybe splitting compound words into two) -- the lossy MP3 audio format may be to blame. But the results are still overlapping enough to where I think this is a valuable first-line-of-attack to audio transcription.
 

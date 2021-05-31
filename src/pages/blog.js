@@ -16,7 +16,7 @@ export default class BlogIndex extends React.Component {
       });
       return <h1>Errors found: Check the console for details</h1>;
     }
-    let edges = parse(this.props);
+    const edges = parse(this.props);
 
     return (
       <div>
@@ -24,7 +24,7 @@ export default class BlogIndex extends React.Component {
         <Header />
         <div id="blog-container" style={{ maxWidth: 800 }}>
           <h1>Blog</h1>
-          {edges.map(node => (
+          {edges.map((node) => (
             <SingleEntry
               key={node.title}
               title={node.title}
@@ -56,30 +56,13 @@ export const pageQuery = graphql`
       }
     }
 
-    goodreadsShelf {
-      id
-      shelfName
-      reviews {
-        reviewID
-        rating
-        votes
-        spoilerFlag
-        dateAdded
-        dateUpdated
-        body
-        book {
-          bookID
-          isbn
-          isbn13
-          textReviewsCount
-          uri
-          link
-          title
-          titleWithoutSeries
-          imageUrl
-          smallImageUrl
-          largeImageUrl
-          description
+    allGoodreadsLibraryExportCsv {
+      edges {
+        node {
+          Title
+          Date_Added
+          My_Review
+          My_Rating
         }
       }
     }

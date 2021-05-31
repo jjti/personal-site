@@ -46,7 +46,7 @@ pre[class*="language-"] {
   padding: 3px 7px;
   border-radius: 0.2em;
   white-space: normal;
-  background-color: lightgray;
+  background-color: #d3d3d342;
   margin: 5px;
   color: black;
 }
