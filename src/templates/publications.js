@@ -15,7 +15,7 @@ import PLOS2018 from "../files/2018-PLOS.pdf";
 import PLOS2019 from "../files/2020-PLOS.pdf";
 
 /** ego-highlight: wrap my name in bold spans */
-const egoHighlight = authors => {
+const egoHighlight = (authors) => {
   const name = "Timmons, J.J.";
   const nameIndex = authors.indexOf(name);
 
@@ -35,7 +35,7 @@ const egoHighlight = authors => {
 };
 
 /** Publication is a single publication entry with authors, link, etc */
-const Publication = props => (
+const Publication = (props) => (
   <li>
     <p>
       {egoHighlight(props.authors)} {props.title}. <i>{props.journal}</i>
@@ -59,10 +59,10 @@ Publication.propTypes = {
   title: PropTypes.string.isRequired,
   journal: PropTypes.string.isRequired,
   url: PropTypes.string,
-  pdf: PropTypes.string
+  pdf: PropTypes.string,
 };
 
-const Year = props => (
+const Year = (props) => (
   <div>
     <h6>{props.year}</h6>
     <ul className="plain-list">{props.children}</ul>
@@ -70,7 +70,7 @@ const Year = props => (
 );
 
 Year.propTypes = {
-  year: PropTypes.string.isRequired
+  year: PropTypes.string.isRequired,
 };
 
 /**
@@ -85,8 +85,8 @@ const publications = {
       journal: "PLOS One",
       url:
         "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223935",
-      pdf: PLOS2019
-    }
+      pdf: PLOS2019,
+    },
   ],
   2018: [
     {
@@ -96,7 +96,7 @@ const publications = {
       journal: "PLOS One",
       url:
         "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0202141",
-      pdf: PLOS2018
+      pdf: PLOS2018,
     },
     {
       authors:
@@ -105,8 +105,8 @@ const publications = {
       journal: "American Journal of Clinical Oncology",
       url:
         "https://www.researchgate.net/publication/323674384_Literature_Review_of_Spinal_Cord_Glioblastoma",
-      pdf: AJCO2018
-    }
+      pdf: AJCO2018,
+    },
   ],
   2017: [
     {
@@ -115,7 +115,7 @@ const publications = {
       title:
         "Automated Robotic Liquid Handling Assembly of Modular DNA Devices",
       journal: "Journal of Visualized Experiments",
-      pdf: JoVE2017
+      pdf: JoVE2017,
     },
     {
       authors: "Timmons, J.J., Lok, E., San, P., Bui, K., & Wong, E.T.",
@@ -123,7 +123,7 @@ const publications = {
         "End-to-End Workflow for Finite Element Analysis of Tumor Treating Fields in Glioblastomas",
       journal: "Physics in Medicine & Biology",
       url: "http://iopscience.iop.org/article/10.1088/1361-6560/aa87f3",
-      pdf: PBM2017
+      pdf: PBM2017,
     },
     {
       authors:
@@ -133,8 +133,8 @@ const publications = {
       journal: "Cancer Discovery",
       url:
         "https://www.researchgate.net/publication/314505363_Cabozantinib_Eradicates_Advanced_Murine_Prostate_Cancer_by_Activating_Anti-Tumor_Innate_Immunity",
-      pdf: Cabo2017
-    }
+      pdf: Cabo2017,
+    },
   ],
   2016: [
     {
@@ -143,7 +143,7 @@ const publications = {
       title:
         "Phase 1 study of low-dose metronomic temozolomide for recurrent malignant gliomas",
       journal: "BMC Cancer",
-      pdf: mTMZ2016
+      pdf: mTMZ2016,
     },
     {
       authors:
@@ -151,16 +151,16 @@ const publications = {
       title:
         "Reproducibility of Fluorescent Expression from Engineered Biological Constructs in E. coli",
       journal: "PLOS ONE",
-      pdf: Interlab
+      pdf: Interlab,
     },
     {
       authors: "Timmons, J.J., Cohessy, S., & Wong, E.T.",
       title:
         "Injection of Syngeneic Murine Melanoma Cells to Determine Their Metastatic Potential in the Lungs",
       journal: "Journal of Visualized Experiments",
-      pdf: B162016
-    }
-  ]
+      pdf: B162016,
+    },
+  ],
 };
 
 /**
@@ -172,31 +172,31 @@ const posters = [
     authors: "Timmons, J.J., San, P., Bui, K., Lok, E., & Wong, E.T. (2017).",
     title:
       "Semi-automated MRI Segmentation Workflow for Glioblastoma Treated by Tumor Treating Fields",
-    journal: "American Neurological Association"
+    journal: "American Neurological Association",
   },
   {
     authors:
       "San, P., Timmons, J.J., Lok, E., Swanson, K.D., & Wong, E.T. (2016).",
     title:
       "Analysis of Glioblastoma Physical Characteristics in Patients Benefiting from Tumor Treating Electric Fields Therapy",
-    journal: "Society for Neuro-Oncology"
+    journal: "Society for Neuro-Oncology",
   },
   {
     authors:
       "Doerfert, S., Berdy, B., Wunschel, E., Sizova, M., Timmons, J.J., Jung, D., Kruppa, G., & Epstein, S. (2014).",
     title:
       "MALDI-TOF applications for dereplication and identification of environmental microorganisms isolated from Thule, Greenland",
-    journal: "International Society for Microbial Ecology"
+    journal: "International Society for Microbial Ecology",
   },
   {
     authors:
       " Berdy, B., Sizova, M., Kaluziak, S., Doerfert, S., Wunschel, E., Timmons, J.J., Jung, D., Torralba, M., Haft, D., Nelson, K., & Epstein, S. (2014).",
     title: "Towards predictable manipulation of microbial communities",
-    journal: "International Society for Microbial Ecology"
-  }
+    journal: "International Society for Microbial Ecology",
+  },
 ];
 
-export default props => (
+export default () => (
   <div>
     <Metadata />
     <Header />
@@ -204,9 +204,9 @@ export default props => (
       <h1>Publications</h1>
       {Object.keys(publications)
         .sort((a, b) => b - a)
-        .map(year => (
+        .map((year) => (
           <Year key={year} year={year}>
-            {publications[year].map(p => (
+            {publications[year].map((p) => (
               <Publication key={p.title} {...p} />
             ))}
           </Year>
@@ -215,7 +215,7 @@ export default props => (
     <section>
       <h1>Posters</h1>
       <ul className="plain-list">
-        {posters.map(p => (
+        {posters.map((p) => (
           <Publication key={p.title} {...p} />
         ))}
       </ul>

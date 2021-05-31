@@ -11,27 +11,9 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-csv`,
-    `gatsby-plugin-catch-links`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "Joshua Timmons",
-        short_name: "Timmons",
-        start_url: "/",
-        background_color: "#ffffff",
-        theme_color: "#ffffff",
-        display: "minimal-ui",
-        icons: [
-          {
-            src: `/static/favicon.icon`,
-            sizes: `150x150`,
-            type: `image/ico`,
-          },
-        ],
-      },
-    },
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -40,7 +22,6 @@ module.exports = {
         anonymize: true,
       },
     },
-    `gatsby-plugin-offline`,
     {
       resolve: "gatsby-source-filesystem",
       options: {

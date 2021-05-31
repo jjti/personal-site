@@ -45,7 +45,7 @@ Fortunately, there were a series of papers between the late 70s and early 90s th
 
 When I wrote the `seqfold` library, I just followed the footsteps laid out in those papers. The following was the chief blueprint:
 
-> Zuker, Michael, and Patrick Stiegler. "Optimal computer folding of large RNA sequences using thermodynamics and auxiliary information." Nucleic acids research 9.1 (1981): 133-148.
+> Zuker, Michael, and Patrick Stiegler. Optimal computer folding of large RNA sequences using thermodynamics and auxiliary information. Nucleic acids research 9.1 (1981): 133-148.
 
 ![Folding step](zucker_1981.png "Folding setup")
 
