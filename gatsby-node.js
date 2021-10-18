@@ -155,12 +155,14 @@ const parseReviews = (reviews) => {
   });
 
   const exclude = [
-    "/blog/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america",
-    "/blog/team-human",
-    "/blog/the-reactionary-mind-conservatism-from-edmund-burke-to-sarah-palin",
-    "/blog/how-to-change-your-mind-what-the-new-science-of-psychedelics-teaches-us-about-consciousness-dying-addiction-depression-and-transcendence",
+    "the-color-of-law",
+    "team-human",
+    "the-reactionary-mind",
+    "how-to-change-your-mind",
+    "meditations",
+    "antifragile",
   ];
-  outReviews = outReviews.filter((r) => !exclude.includes(r.url));
+  outReviews = outReviews.filter((r) => exclude.find((e) => r.url.includes(e)));
 
   return outReviews;
 };
