@@ -161,8 +161,11 @@ const parseReviews = (reviews) => {
     "how-to-change-your-mind",
     "meditations",
     "antifragile",
+    "the-moral-landscape",
   ];
-  outReviews = outReviews.filter((r) => exclude.find((e) => r.url.includes(e)));
+  outReviews = outReviews.filter(
+    (r) => !exclude.find((e) => r.url.includes(e))
+  );
 
   return outReviews;
 };
